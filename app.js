@@ -89,6 +89,7 @@ function cardButton(sector) {
 
 function renderCard(sector) {
   const version = encodeURIComponent(data.generated_at);
+  const images = sector.images || { daily: sector.image, weekly: sector.image, monthly: sector.image };
   return `
     <article class="card">
       <div class="card-head">
@@ -102,7 +103,19 @@ function renderCard(sector) {
         </div>
         ${cardButton(sector)}
       </div>
-      <img src="${sector.image}?v=${version}" alt="${sector.name} 日K图" loading="lazy">
+      <div class="chart-tabs" aria-label="${sector.name}周期切换">
+        <button class="chart-tab active" data-chart="daily" type="button">日</button>
+        <button class="chart-tab" data-chart="weekly" type="button">周</button>
+        <button class="chart-tab" data-chart="monthly" type="button">月</button>
+      </div>
+      <img
+        src="${images.daily}?v=${version}"
+        data-daily="${images.daily}?v=${version}"
+        data-weekly="${images.weekly}?v=${version}"
+        data-monthly="${images.monthly}?v=${version}"
+        alt="${sector.name} 日K图"
+        loading="lazy"
+      >
       <div class="metrics">
         <span>收盘<b>${sector.close}</b></span>
         <span>5日<b>${formatPct(sector.ret5_pct)}</b></span>
@@ -148,6 +161,18 @@ document.querySelectorAll(".tab").forEach((button) => {
 });
 
 grid.addEventListener("click", (event) => {
+  const chartTab = event.target.closest("button[data-chart]");
+  if (chartTab) {
+    const card = chartTab.closest(".card");
+    const image = card.querySelector("img");
+    const chart = chartTab.dataset.chart;
+    image.src = image.dataset[chart];
+    const label = chart === "daily" ? "日" : chart === "weekly" ? "周" : "月";
+    image.alt = `${card.querySelector(".title strong").textContent} ${label}K图`;
+    card.querySelectorAll(".chart-tab").forEach((tab) => tab.classList.toggle("active", tab === chartTab));
+    return;
+  }
+
   const button = event.target.closest("button[data-action]");
   if (!button) return;
   const code = button.dataset.code;

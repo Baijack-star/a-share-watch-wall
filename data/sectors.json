@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-24 17:17:40",
+  "generated_at": "2026-05-24 17:55:57",
   "days": 100,
   "source": "申万二级行业日线；当日申万日线延迟时，用腾讯板块行情补当天K线。",
   "default_watchlist": [
@@ -36,7 +36,12 @@
       "code": "801178",
       "name": "物流",
       "upper": "交通运输",
-      "image": "cards/801178.png",
+      "images": {
+        "daily": "cards/daily/801178.png",
+        "weekly": "cards/weekly/801178.png",
+        "monthly": "cards/monthly/801178.png"
+      },
+      "image": "cards/daily/801178.png",
       "date": "2026-05-22",
       "close": 4363.18,
       "ret5_pct": -3.11,
@@ -70,7 +75,12 @@
       "code": "801991",
       "name": "航空机场",
       "upper": "交通运输",
-      "image": "cards/801991.png",
+      "images": {
+        "daily": "cards/daily/801991.png",
+        "weekly": "cards/weekly/801991.png",
+        "monthly": "cards/monthly/801991.png"
+      },
+      "image": "cards/daily/801991.png",
       "date": "2026-05-22",
       "close": 2528.94,
       "ret5_pct": -1.27,
@@ -104,7 +114,12 @@
       "code": "801992",
       "name": "航运港口",
       "upper": "交通运输",
-      "image": "cards/801992.png",
+      "images": {
+        "daily": "cards/daily/801992.png",
+        "weekly": "cards/weekly/801992.png",
+        "monthly": "cards/monthly/801992.png"
+      },
+      "image": "cards/daily/801992.png",
       "date": "2026-05-22",
       "close": 3506.24,
       "ret5_pct": 2.1,
@@ -138,7 +153,12 @@
       "code": "801179",
       "name": "铁路公路",
       "upper": "交通运输",
-      "image": "cards/801179.png",
+      "images": {
+        "daily": "cards/daily/801179.png",
+        "weekly": "cards/weekly/801179.png",
+        "monthly": "cards/monthly/801179.png"
+      },
+      "image": "cards/daily/801179.png",
       "date": "2026-05-22",
       "close": 1593.58,
       "ret5_pct": 0.48,
@@ -172,7 +192,12 @@
       "code": "801769",
       "name": "出版",
       "upper": "传媒",
-      "image": "cards/801769.png",
+      "images": {
+        "daily": "cards/daily/801769.png",
+        "weekly": "cards/weekly/801769.png",
+        "monthly": "cards/monthly/801769.png"
+      },
+      "image": "cards/daily/801769.png",
       "date": "2026-05-22",
       "close": 1550.86,
       "ret5_pct": -6.19,
@@ -206,7 +231,12 @@
       "code": "801765",
       "name": "广告营销",
       "upper": "传媒",
-      "image": "cards/801765.png",
+      "images": {
+        "daily": "cards/daily/801765.png",
+        "weekly": "cards/weekly/801765.png",
+        "monthly": "cards/monthly/801765.png"
+      },
+      "image": "cards/daily/801765.png",
       "date": "2026-05-22",
       "close": 2951.11,
       "ret5_pct": -4.97,
@@ -240,7 +270,12 @@
       "code": "801766",
       "name": "影视院线",
       "upper": "传媒",
-      "image": "cards/801766.png",
+      "images": {
+        "daily": "cards/daily/801766.png",
+        "weekly": "cards/weekly/801766.png",
+        "monthly": "cards/monthly/801766.png"
+      },
+      "image": "cards/daily/801766.png",
       "date": "2026-05-22",
       "close": 1221.34,
       "ret5_pct": -2.07,
@@ -274,7 +309,12 @@
       "code": "801767",
       "name": "数字媒体",
       "upper": "传媒",
-      "image": "cards/801767.png",
+      "images": {
+        "daily": "cards/daily/801767.png",
+        "weekly": "cards/weekly/801767.png",
+        "monthly": "cards/monthly/801767.png"
+      },
+      "image": "cards/daily/801767.png",
       "date": "2026-05-22",
       "close": 1796.57,
       "ret5_pct": -2.08,
@@ -308,7 +348,12 @@
       "code": "801764",
       "name": "游戏Ⅱ",
       "upper": "传媒",
-      "image": "cards/801764.png",
+      "images": {
+        "daily": "cards/daily/801764.png",
+        "weekly": "cards/weekly/801764.png",
+        "monthly": "cards/monthly/801764.png"
+      },
+      "image": "cards/daily/801764.png",
       "date": "2026-05-22",
       "close": 3052.0,
       "ret5_pct": -4.76,
@@ -342,7 +387,12 @@
       "code": "801995",
       "name": "电视广播Ⅱ",
       "upper": "传媒",
-      "image": "cards/801995.png",
+      "images": {
+        "daily": "cards/daily/801995.png",
+        "weekly": "cards/weekly/801995.png",
+        "monthly": "cards/monthly/801995.png"
+      },
+      "image": "cards/daily/801995.png",
       "date": "2026-05-22",
       "close": 1165.47,
       "ret5_pct": 0.99,
@@ -376,7 +426,12 @@
       "code": "801163",
       "name": "燃气Ⅱ",
       "upper": "公用事业",
-      "image": "cards/801163.png",
+      "images": {
+        "daily": "cards/daily/801163.png",
+        "weekly": "cards/weekly/801163.png",
+        "monthly": "cards/monthly/801163.png"
+      },
+      "image": "cards/daily/801163.png",
       "date": "2026-05-22",
       "close": 3419.33,
       "ret5_pct": -1.41,
@@ -410,7 +465,12 @@
       "code": "801161",
       "name": "电力",
       "upper": "公用事业",
-      "image": "cards/801161.png",
+      "images": {
+        "daily": "cards/daily/801161.png",
+        "weekly": "cards/weekly/801161.png",
+        "monthly": "cards/monthly/801161.png"
+      },
+      "image": "cards/daily/801161.png",
       "date": "2026-05-22",
       "close": 3538.22,
       "ret5_pct": -2.33,
@@ -444,7 +504,12 @@
       "code": "801017",
       "name": "养殖业",
       "upper": "农林牧渔",
-      "image": "cards/801017.png",
+      "images": {
+        "daily": "cards/daily/801017.png",
+        "weekly": "cards/weekly/801017.png",
+        "monthly": "cards/monthly/801017.png"
+      },
+      "image": "cards/daily/801017.png",
       "date": "2026-05-22",
       "close": 2677.01,
       "ret5_pct": -7.32,
@@ -478,7 +543,12 @@
       "code": "801012",
       "name": "农产品加工",
       "upper": "农林牧渔",
-      "image": "cards/801012.png",
+      "images": {
+        "daily": "cards/daily/801012.png",
+        "weekly": "cards/weekly/801012.png",
+        "monthly": "cards/monthly/801012.png"
+      },
+      "image": "cards/daily/801012.png",
       "date": "2026-05-22",
       "close": 2252.3,
       "ret5_pct": -5.03,
@@ -512,7 +582,12 @@
       "code": "801018",
       "name": "动物保健Ⅱ",
       "upper": "农林牧渔",
-      "image": "cards/801018.png",
+      "images": {
+        "daily": "cards/daily/801018.png",
+        "weekly": "cards/weekly/801018.png",
+        "monthly": "cards/monthly/801018.png"
+      },
+      "image": "cards/daily/801018.png",
       "date": "2026-05-22",
       "close": 4434.4,
       "ret5_pct": -7.1,
@@ -546,7 +621,12 @@
       "code": "801015",
       "name": "渔业",
       "upper": "农林牧渔",
-      "image": "cards/801015.png",
+      "images": {
+        "daily": "cards/daily/801015.png",
+        "weekly": "cards/weekly/801015.png",
+        "monthly": "cards/monthly/801015.png"
+      },
+      "image": "cards/daily/801015.png",
       "date": "2026-05-22",
       "close": 727.58,
       "ret5_pct": -3.05,
@@ -580,7 +660,12 @@
       "code": "801016",
       "name": "种植业",
       "upper": "农林牧渔",
-      "image": "cards/801016.png",
+      "images": {
+        "daily": "cards/daily/801016.png",
+        "weekly": "cards/weekly/801016.png",
+        "monthly": "cards/monthly/801016.png"
+      },
+      "image": "cards/daily/801016.png",
       "date": "2026-05-22",
       "close": 2581.12,
       "ret5_pct": -6.64,
@@ -614,7 +699,12 @@
       "code": "801014",
       "name": "饲料",
       "upper": "农林牧渔",
-      "image": "cards/801014.png",
+      "images": {
+        "daily": "cards/daily/801014.png",
+        "weekly": "cards/weekly/801014.png",
+        "monthly": "cards/monthly/801014.png"
+      },
+      "image": "cards/daily/801014.png",
       "date": "2026-05-22",
       "close": 3729.25,
       "ret5_pct": -4.09,
@@ -648,7 +738,12 @@
       "code": "801155",
       "name": "中药Ⅱ",
       "upper": "医药生物",
-      "image": "cards/801155.png",
+      "images": {
+        "daily": "cards/daily/801155.png",
+        "weekly": "cards/weekly/801155.png",
+        "monthly": "cards/monthly/801155.png"
+      },
+      "image": "cards/daily/801155.png",
       "date": "2026-05-22",
       "close": 5672.12,
       "ret5_pct": -3.22,
@@ -682,7 +777,12 @@
       "code": "801151",
       "name": "化学制药",
       "upper": "医药生物",
-      "image": "cards/801151.png",
+      "images": {
+        "daily": "cards/daily/801151.png",
+        "weekly": "cards/weekly/801151.png",
+        "monthly": "cards/monthly/801151.png"
+      },
+      "image": "cards/daily/801151.png",
       "date": "2026-05-22",
       "close": 11749.32,
       "ret5_pct": -3.21,
@@ -716,7 +816,12 @@
       "code": "801153",
       "name": "医疗器械",
       "upper": "医药生物",
-      "image": "cards/801153.png",
+      "images": {
+        "daily": "cards/daily/801153.png",
+        "weekly": "cards/weekly/801153.png",
+        "monthly": "cards/monthly/801153.png"
+      },
+      "image": "cards/daily/801153.png",
       "date": "2026-05-22",
       "close": 6249.84,
       "ret5_pct": -0.31,
@@ -750,7 +855,12 @@
       "code": "801154",
       "name": "医药商业",
       "upper": "医药生物",
-      "image": "cards/801154.png",
+      "images": {
+        "daily": "cards/daily/801154.png",
+        "weekly": "cards/weekly/801154.png",
+        "monthly": "cards/monthly/801154.png"
+      },
+      "image": "cards/daily/801154.png",
       "date": "2026-05-22",
       "close": 4731.89,
       "ret5_pct": -4.33,
@@ -784,7 +894,12 @@
       "code": "801152",
       "name": "生物制品",
       "upper": "医药生物",
-      "image": "cards/801152.png",
+      "images": {
+        "daily": "cards/daily/801152.png",
+        "weekly": "cards/weekly/801152.png",
+        "monthly": "cards/monthly/801152.png"
+      },
+      "image": "cards/daily/801152.png",
       "date": "2026-05-22",
       "close": 5636.13,
       "ret5_pct": -3.45,
@@ -818,7 +933,12 @@
       "code": "801203",
       "name": "一般零售",
       "upper": "商贸零售",
-      "image": "cards/801203.png",
+      "images": {
+        "daily": "cards/daily/801203.png",
+        "weekly": "cards/weekly/801203.png",
+        "monthly": "cards/monthly/801203.png"
+      },
+      "image": "cards/daily/801203.png",
       "date": "2026-05-22",
       "close": 2962.74,
       "ret5_pct": -3.25,
@@ -852,7 +972,12 @@
       "code": "801204",
       "name": "专业连锁Ⅱ",
       "upper": "商贸零售",
-      "image": "cards/801204.png",
+      "images": {
+        "daily": "cards/daily/801204.png",
+        "weekly": "cards/weekly/801204.png",
+        "monthly": "cards/monthly/801204.png"
+      },
+      "image": "cards/daily/801204.png",
       "date": "2026-05-22",
       "close": 4315.21,
       "ret5_pct": -1.41,
@@ -886,7 +1011,12 @@
       "code": "801206",
       "name": "互联网电商",
       "upper": "商贸零售",
-      "image": "cards/801206.png",
+      "images": {
+        "daily": "cards/daily/801206.png",
+        "weekly": "cards/weekly/801206.png",
+        "monthly": "cards/monthly/801206.png"
+      },
+      "image": "cards/daily/801206.png",
       "date": "2026-05-22",
       "close": 11285.63,
       "ret5_pct": -4.51,
@@ -920,7 +1050,12 @@
       "code": "801202",
       "name": "贸易Ⅱ",
       "upper": "商贸零售",
-      "image": "cards/801202.png",
+      "images": {
+        "daily": "cards/daily/801202.png",
+        "weekly": "cards/weekly/801202.png",
+        "monthly": "cards/monthly/801202.png"
+      },
+      "image": "cards/daily/801202.png",
       "date": "2026-05-22",
       "close": 4993.31,
       "ret5_pct": -1.58,
@@ -954,7 +1089,12 @@
       "code": "801745",
       "name": "军工电子Ⅱ",
       "upper": "国防军工",
-      "image": "cards/801745.png",
+      "images": {
+        "daily": "cards/daily/801745.png",
+        "weekly": "cards/weekly/801745.png",
+        "monthly": "cards/monthly/801745.png"
+      },
+      "image": "cards/daily/801745.png",
       "date": "2026-05-22",
       "close": 7160.48,
       "ret5_pct": 0.79,
@@ -988,7 +1128,12 @@
       "code": "801743",
       "name": "地面兵装Ⅱ",
       "upper": "国防军工",
-      "image": "cards/801743.png",
+      "images": {
+        "daily": "cards/daily/801743.png",
+        "weekly": "cards/weekly/801743.png",
+        "monthly": "cards/monthly/801743.png"
+      },
+      "image": "cards/daily/801743.png",
       "date": "2026-05-22",
       "close": 17954.41,
       "ret5_pct": -3.21,
@@ -1022,7 +1167,12 @@
       "code": "801741",
       "name": "航天装备Ⅱ",
       "upper": "国防军工",
-      "image": "cards/801741.png",
+      "images": {
+        "daily": "cards/daily/801741.png",
+        "weekly": "cards/weekly/801741.png",
+        "monthly": "cards/monthly/801741.png"
+      },
+      "image": "cards/daily/801741.png",
       "date": "2026-05-22",
       "close": 34692.96,
       "ret5_pct": -5.67,
@@ -1056,7 +1206,12 @@
       "code": "801744",
       "name": "航海装备Ⅱ",
       "upper": "国防军工",
-      "image": "cards/801744.png",
+      "images": {
+        "daily": "cards/daily/801744.png",
+        "weekly": "cards/weekly/801744.png",
+        "monthly": "cards/monthly/801744.png"
+      },
+      "image": "cards/daily/801744.png",
       "date": "2026-05-22",
       "close": 3445.59,
       "ret5_pct": -5.19,
@@ -1090,7 +1245,12 @@
       "code": "801742",
       "name": "航空装备Ⅱ",
       "upper": "国防军工",
-      "image": "cards/801742.png",
+      "images": {
+        "daily": "cards/daily/801742.png",
+        "weekly": "cards/weekly/801742.png",
+        "monthly": "cards/monthly/801742.png"
+      },
+      "image": "cards/daily/801742.png",
       "date": "2026-05-22",
       "close": 10237.64,
       "ret5_pct": -2.78,
@@ -1124,7 +1284,12 @@
       "code": "801038",
       "name": "农化制品",
       "upper": "基础化工",
-      "image": "cards/801038.png",
+      "images": {
+        "daily": "cards/daily/801038.png",
+        "weekly": "cards/weekly/801038.png",
+        "monthly": "cards/monthly/801038.png"
+      },
+      "image": "cards/daily/801038.png",
       "date": "2026-05-22",
       "close": 5623.57,
       "ret5_pct": -3.82,
@@ -1158,7 +1323,12 @@
       "code": "801034",
       "name": "化学制品",
       "upper": "基础化工",
-      "image": "cards/801034.png",
+      "images": {
+        "daily": "cards/daily/801034.png",
+        "weekly": "cards/weekly/801034.png",
+        "monthly": "cards/monthly/801034.png"
+      },
+      "image": "cards/daily/801034.png",
       "date": "2026-05-22",
       "close": 7238.73,
       "ret5_pct": -0.97,
@@ -1192,7 +1362,12 @@
       "code": "801033",
       "name": "化学原料",
       "upper": "基础化工",
-      "image": "cards/801033.png",
+      "images": {
+        "daily": "cards/daily/801033.png",
+        "weekly": "cards/weekly/801033.png",
+        "monthly": "cards/monthly/801033.png"
+      },
+      "image": "cards/daily/801033.png",
       "date": "2026-05-22",
       "close": 3561.5,
       "ret5_pct": -4.49,
@@ -1226,7 +1401,12 @@
       "code": "801032",
       "name": "化学纤维",
       "upper": "基础化工",
-      "image": "cards/801032.png",
+      "images": {
+        "daily": "cards/daily/801032.png",
+        "weekly": "cards/weekly/801032.png",
+        "monthly": "cards/monthly/801032.png"
+      },
+      "image": "cards/daily/801032.png",
       "date": "2026-05-22",
       "close": 5024.54,
       "ret5_pct": -4.8,
@@ -1260,7 +1440,12 @@
       "code": "801036",
       "name": "塑料",
       "upper": "基础化工",
-      "image": "cards/801036.png",
+      "images": {
+        "daily": "cards/daily/801036.png",
+        "weekly": "cards/weekly/801036.png",
+        "monthly": "cards/monthly/801036.png"
+      },
+      "image": "cards/daily/801036.png",
       "date": "2026-05-22",
       "close": 5689.83,
       "ret5_pct": 2.98,
@@ -1294,7 +1479,12 @@
       "code": "801037",
       "name": "橡胶",
       "upper": "基础化工",
-      "image": "cards/801037.png",
+      "images": {
+        "daily": "cards/daily/801037.png",
+        "weekly": "cards/weekly/801037.png",
+        "monthly": "cards/monthly/801037.png"
+      },
+      "image": "cards/daily/801037.png",
       "date": "2026-05-22",
       "close": 5524.82,
       "ret5_pct": 0.58,
@@ -1328,7 +1518,12 @@
       "code": "801039",
       "name": "非金属材料Ⅱ",
       "upper": "基础化工",
-      "image": "cards/801039.png",
+      "images": {
+        "daily": "cards/daily/801039.png",
+        "weekly": "cards/weekly/801039.png",
+        "monthly": "cards/monthly/801039.png"
+      },
+      "image": "cards/daily/801039.png",
       "date": "2026-05-22",
       "close": 7680.35,
       "ret5_pct": 5.41,
@@ -1362,7 +1557,12 @@
       "code": "801114",
       "name": "厨卫电器",
       "upper": "家用电器",
-      "image": "cards/801114.png",
+      "images": {
+        "daily": "cards/daily/801114.png",
+        "weekly": "cards/weekly/801114.png",
+        "monthly": "cards/monthly/801114.png"
+      },
+      "image": "cards/daily/801114.png",
       "date": "2026-05-22",
       "close": 8863.44,
       "ret5_pct": -4.52,
@@ -1396,7 +1596,12 @@
       "code": "801116",
       "name": "家电零部件Ⅱ",
       "upper": "家用电器",
-      "image": "cards/801116.png",
+      "images": {
+        "daily": "cards/daily/801116.png",
+        "weekly": "cards/weekly/801116.png",
+        "monthly": "cards/monthly/801116.png"
+      },
+      "image": "cards/daily/801116.png",
       "date": "2026-05-22",
       "close": 8882.87,
       "ret5_pct": 2.95,
@@ -1430,7 +1635,12 @@
       "code": "801113",
       "name": "小家电",
       "upper": "家用电器",
-      "image": "cards/801113.png",
+      "images": {
+        "daily": "cards/daily/801113.png",
+        "weekly": "cards/weekly/801113.png",
+        "monthly": "cards/monthly/801113.png"
+      },
+      "image": "cards/daily/801113.png",
       "date": "2026-05-22",
       "close": 4802.63,
       "ret5_pct": 1.4,
@@ -1464,7 +1674,12 @@
       "code": "801115",
       "name": "照明设备Ⅱ",
       "upper": "家用电器",
-      "image": "cards/801115.png",
+      "images": {
+        "daily": "cards/daily/801115.png",
+        "weekly": "cards/weekly/801115.png",
+        "monthly": "cards/monthly/801115.png"
+      },
+      "image": "cards/daily/801115.png",
       "date": "2026-05-22",
       "close": 5149.62,
       "ret5_pct": 6.44,
@@ -1498,7 +1713,12 @@
       "code": "801111",
       "name": "白色家电",
       "upper": "家用电器",
-      "image": "cards/801111.png",
+      "images": {
+        "daily": "cards/daily/801111.png",
+        "weekly": "cards/weekly/801111.png",
+        "monthly": "cards/monthly/801111.png"
+      },
+      "image": "cards/daily/801111.png",
       "date": "2026-05-22",
       "close": 18471.0,
       "ret5_pct": -3.15,
@@ -1532,7 +1752,12 @@
       "code": "801112",
       "name": "黑色家电",
       "upper": "家用电器",
-      "image": "cards/801112.png",
+      "images": {
+        "daily": "cards/daily/801112.png",
+        "weekly": "cards/weekly/801112.png",
+        "monthly": "cards/monthly/801112.png"
+      },
+      "image": "cards/daily/801112.png",
       "date": "2026-05-22",
       "close": 2338.07,
       "ret5_pct": -2.38,
@@ -1566,7 +1791,12 @@
       "code": "801711",
       "name": "水泥",
       "upper": "建筑材料",
-      "image": "cards/801711.png",
+      "images": {
+        "daily": "cards/daily/801711.png",
+        "weekly": "cards/weekly/801711.png",
+        "monthly": "cards/monthly/801711.png"
+      },
+      "image": "cards/daily/801711.png",
       "date": "2026-05-22",
       "close": 4414.95,
       "ret5_pct": -2.58,
@@ -1600,7 +1830,12 @@
       "code": "801712",
       "name": "玻璃玻纤",
       "upper": "建筑材料",
-      "image": "cards/801712.png",
+      "images": {
+        "daily": "cards/daily/801712.png",
+        "weekly": "cards/weekly/801712.png",
+        "monthly": "cards/monthly/801712.png"
+      },
+      "image": "cards/daily/801712.png",
       "date": "2026-05-22",
       "close": 21337.14,
       "ret5_pct": 10.79,
@@ -1634,7 +1869,12 @@
       "code": "801713",
       "name": "装修建材",
       "upper": "建筑材料",
-      "image": "cards/801713.png",
+      "images": {
+        "daily": "cards/daily/801713.png",
+        "weekly": "cards/weekly/801713.png",
+        "monthly": "cards/monthly/801713.png"
+      },
+      "image": "cards/daily/801713.png",
       "date": "2026-05-22",
       "close": 5376.68,
       "ret5_pct": -4.11,
@@ -1668,7 +1908,12 @@
       "code": "801724",
       "name": "专业工程",
       "upper": "建筑装饰",
-      "image": "cards/801724.png",
+      "images": {
+        "daily": "cards/daily/801724.png",
+        "weekly": "cards/weekly/801724.png",
+        "monthly": "cards/monthly/801724.png"
+      },
+      "image": "cards/daily/801724.png",
       "date": "2026-05-22",
       "close": 2018.65,
       "ret5_pct": -2.38,
@@ -1702,7 +1947,12 @@
       "code": "801723",
       "name": "基础建设",
       "upper": "建筑装饰",
-      "image": "cards/801723.png",
+      "images": {
+        "daily": "cards/daily/801723.png",
+        "weekly": "cards/weekly/801723.png",
+        "monthly": "cards/monthly/801723.png"
+      },
+      "image": "cards/daily/801723.png",
       "date": "2026-05-22",
       "close": 2357.66,
       "ret5_pct": -3.45,
@@ -1736,7 +1986,12 @@
       "code": "801726",
       "name": "工程咨询服务Ⅱ",
       "upper": "建筑装饰",
-      "image": "cards/801726.png",
+      "images": {
+        "daily": "cards/daily/801726.png",
+        "weekly": "cards/weekly/801726.png",
+        "monthly": "cards/monthly/801726.png"
+      },
+      "image": "cards/daily/801726.png",
       "date": "2026-05-22",
       "close": 2211.55,
       "ret5_pct": -2.68,
@@ -1770,7 +2025,12 @@
       "code": "801721",
       "name": "房屋建设Ⅱ",
       "upper": "建筑装饰",
-      "image": "cards/801721.png",
+      "images": {
+        "daily": "cards/daily/801721.png",
+        "weekly": "cards/weekly/801721.png",
+        "monthly": "cards/monthly/801721.png"
+      },
+      "image": "cards/daily/801721.png",
       "date": "2026-05-22",
       "close": 3099.61,
       "ret5_pct": -3.9,
@@ -1804,7 +2064,12 @@
       "code": "801722",
       "name": "装修装饰Ⅱ",
       "upper": "建筑装饰",
-      "image": "cards/801722.png",
+      "images": {
+        "daily": "cards/daily/801722.png",
+        "weekly": "cards/weekly/801722.png",
+        "monthly": "cards/monthly/801722.png"
+      },
+      "image": "cards/daily/801722.png",
       "date": "2026-05-22",
       "close": 4902.38,
       "ret5_pct": -6.24,
@@ -1838,7 +2103,12 @@
       "code": "801181",
       "name": "房地产开发",
       "upper": "房地产",
-      "image": "cards/801181.png",
+      "images": {
+        "daily": "cards/daily/801181.png",
+        "weekly": "cards/weekly/801181.png",
+        "monthly": "cards/monthly/801181.png"
+      },
+      "image": "cards/daily/801181.png",
       "date": "2026-05-22",
       "close": 2426.46,
       "ret5_pct": -3.53,
@@ -1872,7 +2142,12 @@
       "code": "801183",
       "name": "房地产服务",
       "upper": "房地产",
-      "image": "cards/801183.png",
+      "images": {
+        "daily": "cards/daily/801183.png",
+        "weekly": "cards/weekly/801183.png",
+        "monthly": "cards/monthly/801183.png"
+      },
+      "image": "cards/daily/801183.png",
       "date": "2026-05-22",
       "close": 873.31,
       "ret5_pct": -6.67,
@@ -1906,7 +2181,12 @@
       "code": "801054",
       "name": "小金属",
       "upper": "有色金属",
-      "image": "cards/801054.png",
+      "images": {
+        "daily": "cards/daily/801054.png",
+        "weekly": "cards/weekly/801054.png",
+        "monthly": "cards/monthly/801054.png"
+      },
+      "image": "cards/daily/801054.png",
       "date": "2026-05-22",
       "close": 39827.51,
       "ret5_pct": -1.4,
@@ -1940,7 +2220,12 @@
       "code": "801055",
       "name": "工业金属",
       "upper": "有色金属",
-      "image": "cards/801055.png",
+      "images": {
+        "daily": "cards/daily/801055.png",
+        "weekly": "cards/weekly/801055.png",
+        "monthly": "cards/monthly/801055.png"
+      },
+      "image": "cards/daily/801055.png",
       "date": "2026-05-22",
       "close": 3490.09,
       "ret5_pct": -0.14,
@@ -1974,7 +2259,12 @@
       "code": "801056",
       "name": "能源金属",
       "upper": "有色金属",
-      "image": "cards/801056.png",
+      "images": {
+        "daily": "cards/daily/801056.png",
+        "weekly": "cards/weekly/801056.png",
+        "monthly": "cards/monthly/801056.png"
+      },
+      "image": "cards/daily/801056.png",
       "date": "2026-05-22",
       "close": 23494.58,
       "ret5_pct": -1.83,
@@ -2008,7 +2298,12 @@
       "code": "801053",
       "name": "贵金属",
       "upper": "有色金属",
-      "image": "cards/801053.png",
+      "images": {
+        "daily": "cards/daily/801053.png",
+        "weekly": "cards/weekly/801053.png",
+        "monthly": "cards/monthly/801053.png"
+      },
+      "image": "cards/daily/801053.png",
       "date": "2026-05-22",
       "close": 25034.36,
       "ret5_pct": -5.13,
@@ -2042,7 +2337,12 @@
       "code": "801051",
       "name": "金属新材料",
       "upper": "有色金属",
-      "image": "cards/801051.png",
+      "images": {
+        "daily": "cards/daily/801051.png",
+        "weekly": "cards/weekly/801051.png",
+        "monthly": "cards/monthly/801051.png"
+      },
+      "image": "cards/daily/801051.png",
       "date": "2026-05-22",
       "close": 10895.63,
       "ret5_pct": 3.39,
@@ -2076,7 +2376,12 @@
       "code": "801074",
       "name": "专用设备",
       "upper": "机械设备",
-      "image": "cards/801074.png",
+      "images": {
+        "daily": "cards/daily/801074.png",
+        "weekly": "cards/weekly/801074.png",
+        "monthly": "cards/monthly/801074.png"
+      },
+      "image": "cards/daily/801074.png",
       "date": "2026-05-22",
       "close": 13763.1,
       "ret5_pct": 0.55,
@@ -2110,7 +2415,12 @@
       "code": "801077",
       "name": "工程机械",
       "upper": "机械设备",
-      "image": "cards/801077.png",
+      "images": {
+        "daily": "cards/daily/801077.png",
+        "weekly": "cards/weekly/801077.png",
+        "monthly": "cards/monthly/801077.png"
+      },
+      "image": "cards/daily/801077.png",
       "date": "2026-05-22",
       "close": 23748.65,
       "ret5_pct": -3.4,
@@ -2144,7 +2454,12 @@
       "code": "801078",
       "name": "自动化设备",
       "upper": "机械设备",
-      "image": "cards/801078.png",
+      "images": {
+        "daily": "cards/daily/801078.png",
+        "weekly": "cards/weekly/801078.png",
+        "monthly": "cards/monthly/801078.png"
+      },
+      "image": "cards/daily/801078.png",
       "date": "2026-05-22",
       "close": 25104.23,
       "ret5_pct": 4.7,
@@ -2178,7 +2493,12 @@
       "code": "801076",
       "name": "轨交设备Ⅱ",
       "upper": "机械设备",
-      "image": "cards/801076.png",
+      "images": {
+        "daily": "cards/daily/801076.png",
+        "weekly": "cards/weekly/801076.png",
+        "monthly": "cards/monthly/801076.png"
+      },
+      "image": "cards/daily/801076.png",
       "date": "2026-05-22",
       "close": 5922.35,
       "ret5_pct": -1.96,
@@ -2212,7 +2532,12 @@
       "code": "801072",
       "name": "通用设备",
       "upper": "机械设备",
-      "image": "cards/801072.png",
+      "images": {
+        "daily": "cards/daily/801072.png",
+        "weekly": "cards/weekly/801072.png",
+        "monthly": "cards/monthly/801072.png"
+      },
+      "image": "cards/daily/801072.png",
       "date": "2026-05-22",
       "close": 9267.3,
       "ret5_pct": 3.37,
@@ -2246,7 +2571,12 @@
       "code": "801095",
       "name": "乘用车",
       "upper": "汽车",
-      "image": "cards/801095.png",
+      "images": {
+        "daily": "cards/daily/801095.png",
+        "weekly": "cards/weekly/801095.png",
+        "monthly": "cards/monthly/801095.png"
+      },
+      "image": "cards/daily/801095.png",
       "date": "2026-05-22",
       "close": 16103.08,
       "ret5_pct": -3.22,
@@ -2280,7 +2610,12 @@
       "code": "801096",
       "name": "商用车",
       "upper": "汽车",
-      "image": "cards/801096.png",
+      "images": {
+        "daily": "cards/daily/801096.png",
+        "weekly": "cards/weekly/801096.png",
+        "monthly": "cards/monthly/801096.png"
+      },
+      "image": "cards/daily/801096.png",
       "date": "2026-05-22",
       "close": 8717.92,
       "ret5_pct": -3.27,
@@ -2314,7 +2649,12 @@
       "code": "801881",
       "name": "摩托车及其他",
       "upper": "汽车",
-      "image": "cards/801881.png",
+      "images": {
+        "daily": "cards/daily/801881.png",
+        "weekly": "cards/weekly/801881.png",
+        "monthly": "cards/monthly/801881.png"
+      },
+      "image": "cards/daily/801881.png",
       "date": "2026-05-22",
       "close": 3549.2,
       "ret5_pct": -1.55,
@@ -2326,9 +2666,14 @@
       "range5_pct": 4.04,
       "range_ratio": 1.09,
       "amount_ratio": 1.08,
-      "trend_support": null,
-      "trend_dist_pct": null,
-      "trend_pair": null,
+      "trend_support": 3343.05,
+      "trend_dist_pct": 6.17,
+      "trend_pair": [
+        "2025-12-05",
+        3516.87,
+        "2026-02-02",
+        3454.1
+      ],
       "setup": "观察",
       "ma5": 3540.76,
       "ma10": 3591.73,
@@ -2343,7 +2688,12 @@
       "code": "801092",
       "name": "汽车服务",
       "upper": "汽车",
-      "image": "cards/801092.png",
+      "images": {
+        "daily": "cards/daily/801092.png",
+        "weekly": "cards/weekly/801092.png",
+        "monthly": "cards/monthly/801092.png"
+      },
+      "image": "cards/daily/801092.png",
       "date": "2026-05-22",
       "close": 500.06,
       "ret5_pct": -0.89,
@@ -2377,7 +2727,12 @@
       "code": "801093",
       "name": "汽车零部件",
       "upper": "汽车",
-      "image": "cards/801093.png",
+      "images": {
+        "daily": "cards/daily/801093.png",
+        "weekly": "cards/weekly/801093.png",
+        "monthly": "cards/monthly/801093.png"
+      },
+      "image": "cards/daily/801093.png",
       "date": "2026-05-22",
       "close": 9016.18,
       "ret5_pct": 0.83,
@@ -2411,7 +2766,12 @@
       "code": "801952",
       "name": "焦炭Ⅱ",
       "upper": "煤炭",
-      "image": "cards/801952.png",
+      "images": {
+        "daily": "cards/daily/801952.png",
+        "weekly": "cards/weekly/801952.png",
+        "monthly": "cards/monthly/801952.png"
+      },
+      "image": "cards/daily/801952.png",
       "date": "2026-05-22",
       "close": 1257.46,
       "ret5_pct": -1.63,
@@ -2445,7 +2805,12 @@
       "code": "801951",
       "name": "煤炭开采",
       "upper": "煤炭",
-      "image": "cards/801951.png",
+      "images": {
+        "daily": "cards/daily/801951.png",
+        "weekly": "cards/weekly/801951.png",
+        "monthly": "cards/monthly/801951.png"
+      },
+      "image": "cards/daily/801951.png",
       "date": "2026-05-22",
       "close": 3515.77,
       "ret5_pct": -2.91,
@@ -2479,7 +2844,12 @@
       "code": "801972",
       "name": "环保设备Ⅱ",
       "upper": "环保",
-      "image": "cards/801972.png",
+      "images": {
+        "daily": "cards/daily/801972.png",
+        "weekly": "cards/weekly/801972.png",
+        "monthly": "cards/monthly/801972.png"
+      },
+      "image": "cards/daily/801972.png",
       "date": "2026-05-22",
       "close": 2667.38,
       "ret5_pct": 1.47,
@@ -2513,7 +2883,12 @@
       "code": "801971",
       "name": "环境治理",
       "upper": "环保",
-      "image": "cards/801971.png",
+      "images": {
+        "daily": "cards/daily/801971.png",
+        "weekly": "cards/weekly/801971.png",
+        "monthly": "cards/monthly/801971.png"
+      },
+      "image": "cards/daily/801971.png",
       "date": "2026-05-22",
       "close": 2059.64,
       "ret5_pct": -2.1,
@@ -2547,7 +2922,12 @@
       "code": "801735",
       "name": "光伏设备",
       "upper": "电力设备",
-      "image": "cards/801735.png",
+      "images": {
+        "daily": "cards/daily/801735.png",
+        "weekly": "cards/weekly/801735.png",
+        "monthly": "cards/monthly/801735.png"
+      },
+      "image": "cards/daily/801735.png",
       "date": "2026-05-22",
       "close": 7508.25,
       "ret5_pct": 2.3,
@@ -2581,7 +2961,12 @@
       "code": "801733",
       "name": "其他电源设备Ⅱ",
       "upper": "电力设备",
-      "image": "cards/801733.png",
+      "images": {
+        "daily": "cards/daily/801733.png",
+        "weekly": "cards/weekly/801733.png",
+        "monthly": "cards/monthly/801733.png"
+      },
+      "image": "cards/daily/801733.png",
       "date": "2026-05-22",
       "close": 47807.38,
       "ret5_pct": -1.57,
@@ -2615,7 +3000,12 @@
       "code": "801731",
       "name": "电机Ⅱ",
       "upper": "电力设备",
-      "image": "cards/801731.png",
+      "images": {
+        "daily": "cards/daily/801731.png",
+        "weekly": "cards/weekly/801731.png",
+        "monthly": "cards/monthly/801731.png"
+      },
+      "image": "cards/daily/801731.png",
       "date": "2026-05-22",
       "close": 16521.64,
       "ret5_pct": 2.22,
@@ -2649,7 +3039,12 @@
       "code": "801737",
       "name": "电池",
       "upper": "电力设备",
-      "image": "cards/801737.png",
+      "images": {
+        "daily": "cards/daily/801737.png",
+        "weekly": "cards/weekly/801737.png",
+        "monthly": "cards/monthly/801737.png"
+      },
+      "image": "cards/daily/801737.png",
       "date": "2026-05-22",
       "close": 27522.68,
       "ret5_pct": -0.8,
@@ -2683,7 +3078,12 @@
       "code": "801738",
       "name": "电网设备",
       "upper": "电力设备",
-      "image": "cards/801738.png",
+      "images": {
+        "daily": "cards/daily/801738.png",
+        "weekly": "cards/weekly/801738.png",
+        "monthly": "cards/monthly/801738.png"
+      },
+      "image": "cards/daily/801738.png",
       "date": "2026-05-22",
       "close": 6881.65,
       "ret5_pct": 0.48,
@@ -2717,7 +3117,12 @@
       "code": "801736",
       "name": "风电设备",
       "upper": "电力设备",
-      "image": "cards/801736.png",
+      "images": {
+        "daily": "cards/daily/801736.png",
+        "weekly": "cards/weekly/801736.png",
+        "monthly": "cards/monthly/801736.png"
+      },
+      "image": "cards/daily/801736.png",
       "date": "2026-05-22",
       "close": 3028.33,
       "ret5_pct": -1.21,
@@ -2751,7 +3156,12 @@
       "code": "801083",
       "name": "元件",
       "upper": "电子",
-      "image": "cards/801083.png",
+      "images": {
+        "daily": "cards/daily/801083.png",
+        "weekly": "cards/weekly/801083.png",
+        "monthly": "cards/monthly/801083.png"
+      },
+      "image": "cards/daily/801083.png",
       "date": "2026-05-22",
       "close": 23387.0,
       "ret5_pct": 14.01,
@@ -2785,7 +3195,12 @@
       "code": "801084",
       "name": "光学光电子",
       "upper": "电子",
-      "image": "cards/801084.png",
+      "images": {
+        "daily": "cards/daily/801084.png",
+        "weekly": "cards/weekly/801084.png",
+        "monthly": "cards/monthly/801084.png"
+      },
+      "image": "cards/daily/801084.png",
       "date": "2026-05-22",
       "close": 2084.2,
       "ret5_pct": 6.65,
@@ -2819,7 +3234,12 @@
       "code": "801082",
       "name": "其他电子Ⅱ",
       "upper": "电子",
-      "image": "cards/801082.png",
+      "images": {
+        "daily": "cards/daily/801082.png",
+        "weekly": "cards/weekly/801082.png",
+        "monthly": "cards/monthly/801082.png"
+      },
+      "image": "cards/daily/801082.png",
       "date": "2026-05-22",
       "close": 19764.45,
       "ret5_pct": 1.48,
@@ -2853,7 +3273,12 @@
       "code": "801081",
       "name": "半导体",
       "upper": "电子",
-      "image": "cards/801081.png",
+      "images": {
+        "daily": "cards/daily/801081.png",
+        "weekly": "cards/weekly/801081.png",
+        "monthly": "cards/monthly/801081.png"
+      },
+      "image": "cards/daily/801081.png",
       "date": "2026-05-22",
       "close": 10637.59,
       "ret5_pct": 6.32,
@@ -2887,7 +3312,12 @@
       "code": "801085",
       "name": "消费电子",
       "upper": "电子",
-      "image": "cards/801085.png",
+      "images": {
+        "daily": "cards/daily/801085.png",
+        "weekly": "cards/weekly/801085.png",
+        "monthly": "cards/monthly/801085.png"
+      },
+      "image": "cards/daily/801085.png",
       "date": "2026-05-22",
       "close": 12229.04,
       "ret5_pct": 1.45,
@@ -2899,9 +3329,14 @@
       "range5_pct": 5.84,
       "range_ratio": 1.05,
       "amount_ratio": 1.05,
-      "trend_support": null,
-      "trend_dist_pct": null,
-      "trend_pair": null,
+      "trend_support": 8922.21,
+      "trend_dist_pct": 37.06,
+      "trend_pair": [
+        "2025-12-16",
+        9287.35,
+        "2026-03-09",
+        9102.97
+      ],
       "setup": "观察",
       "ma5": 12101.74,
       "ma10": 12138.02,
@@ -2916,7 +3351,12 @@
       "code": "801086",
       "name": "电子化学品Ⅱ",
       "upper": "电子",
-      "image": "cards/801086.png",
+      "images": {
+        "daily": "cards/daily/801086.png",
+        "weekly": "cards/weekly/801086.png",
+        "monthly": "cards/monthly/801086.png"
+      },
+      "image": "cards/daily/801086.png",
       "date": "2026-05-22",
       "close": 12471.79,
       "ret5_pct": 5.09,
@@ -2950,7 +3390,12 @@
       "code": "801962",
       "name": "油服工程",
       "upper": "石油石化",
-      "image": "cards/801962.png",
+      "images": {
+        "daily": "cards/daily/801962.png",
+        "weekly": "cards/weekly/801962.png",
+        "monthly": "cards/monthly/801962.png"
+      },
+      "image": "cards/daily/801962.png",
       "date": "2026-05-22",
       "close": 2663.26,
       "ret5_pct": -2.92,
@@ -2984,7 +3429,12 @@
       "code": "801963",
       "name": "炼化及贸易",
       "upper": "石油石化",
-      "image": "cards/801963.png",
+      "images": {
+        "daily": "cards/daily/801963.png",
+        "weekly": "cards/weekly/801963.png",
+        "monthly": "cards/monthly/801963.png"
+      },
+      "image": "cards/daily/801963.png",
       "date": "2026-05-22",
       "close": 3028.31,
       "ret5_pct": -5.43,
@@ -3018,7 +3468,12 @@
       "code": "801218",
       "name": "专业服务",
       "upper": "社会服务",
-      "image": "cards/801218.png",
+      "images": {
+        "daily": "cards/daily/801218.png",
+        "weekly": "cards/weekly/801218.png",
+        "monthly": "cards/monthly/801218.png"
+      },
+      "image": "cards/daily/801218.png",
       "date": "2026-05-22",
       "close": 6413.08,
       "ret5_pct": -0.43,
@@ -3052,7 +3507,12 @@
       "code": "801994",
       "name": "教育",
       "upper": "社会服务",
-      "image": "cards/801994.png",
+      "images": {
+        "daily": "cards/daily/801994.png",
+        "weekly": "cards/weekly/801994.png",
+        "monthly": "cards/monthly/801994.png"
+      },
+      "image": "cards/daily/801994.png",
       "date": "2026-05-22",
       "close": 1894.98,
       "ret5_pct": -3.21,
@@ -3086,7 +3546,12 @@
       "code": "801993",
       "name": "旅游及景区",
       "upper": "社会服务",
-      "image": "cards/801993.png",
+      "images": {
+        "daily": "cards/daily/801993.png",
+        "weekly": "cards/weekly/801993.png",
+        "monthly": "cards/monthly/801993.png"
+      },
+      "image": "cards/daily/801993.png",
       "date": "2026-05-22",
       "close": 2034.77,
       "ret5_pct": -3.11,
@@ -3120,7 +3585,12 @@
       "code": "801219",
       "name": "酒店餐饮",
       "upper": "社会服务",
-      "image": "cards/801219.png",
+      "images": {
+        "daily": "cards/daily/801219.png",
+        "weekly": "cards/weekly/801219.png",
+        "monthly": "cards/monthly/801219.png"
+      },
+      "image": "cards/daily/801219.png",
       "date": "2026-05-22",
       "close": 1597.82,
       "ret5_pct": -5.33,
@@ -3154,7 +3624,12 @@
       "code": "801132",
       "name": "服装家纺",
       "upper": "纺织服饰",
-      "image": "cards/801132.png",
+      "images": {
+        "daily": "cards/daily/801132.png",
+        "weekly": "cards/weekly/801132.png",
+        "monthly": "cards/monthly/801132.png"
+      },
+      "image": "cards/daily/801132.png",
       "date": "2026-05-22",
       "close": 1636.24,
       "ret5_pct": -2.76,
@@ -3188,7 +3663,12 @@
       "code": "801131",
       "name": "纺织制造",
       "upper": "纺织服饰",
-      "image": "cards/801131.png",
+      "images": {
+        "daily": "cards/daily/801131.png",
+        "weekly": "cards/weekly/801131.png",
+        "monthly": "cards/monthly/801131.png"
+      },
+      "image": "cards/daily/801131.png",
       "date": "2026-05-22",
       "close": 1875.94,
       "ret5_pct": -3.05,
@@ -3222,7 +3702,12 @@
       "code": "801133",
       "name": "饰品",
       "upper": "纺织服饰",
-      "image": "cards/801133.png",
+      "images": {
+        "daily": "cards/daily/801133.png",
+        "weekly": "cards/weekly/801133.png",
+        "monthly": "cards/monthly/801133.png"
+      },
+      "image": "cards/daily/801133.png",
       "date": "2026-05-22",
       "close": 1461.55,
       "ret5_pct": -0.43,
@@ -3256,7 +3741,12 @@
       "code": "801231",
       "name": "综合Ⅱ",
       "upper": "综合",
-      "image": "cards/801231.png",
+      "images": {
+        "daily": "cards/daily/801231.png",
+        "weekly": "cards/weekly/801231.png",
+        "monthly": "cards/monthly/801231.png"
+      },
+      "image": "cards/daily/801231.png",
       "date": "2026-05-22",
       "close": 4922.82,
       "ret5_pct": 0.36,
@@ -3290,7 +3780,12 @@
       "code": "801981",
       "name": "个护用品",
       "upper": "美容护理",
-      "image": "cards/801981.png",
+      "images": {
+        "daily": "cards/daily/801981.png",
+        "weekly": "cards/weekly/801981.png",
+        "monthly": "cards/monthly/801981.png"
+      },
+      "image": "cards/daily/801981.png",
       "date": "2026-05-22",
       "close": 1294.32,
       "ret5_pct": -7.35,
@@ -3324,7 +3819,12 @@
       "code": "801982",
       "name": "化妆品",
       "upper": "美容护理",
-      "image": "cards/801982.png",
+      "images": {
+        "daily": "cards/daily/801982.png",
+        "weekly": "cards/weekly/801982.png",
+        "monthly": "cards/monthly/801982.png"
+      },
+      "image": "cards/daily/801982.png",
       "date": "2026-05-22",
       "close": 6424.5,
       "ret5_pct": -1.34,
@@ -3358,7 +3858,12 @@
       "code": "801103",
       "name": "IT服务Ⅱ",
       "upper": "计算机",
-      "image": "cards/801103.png",
+      "images": {
+        "daily": "cards/daily/801103.png",
+        "weekly": "cards/weekly/801103.png",
+        "monthly": "cards/monthly/801103.png"
+      },
+      "image": "cards/daily/801103.png",
       "date": "2026-05-22",
       "close": 5721.09,
       "ret5_pct": -2.28,
@@ -3392,7 +3897,12 @@
       "code": "801101",
       "name": "计算机设备",
       "upper": "计算机",
-      "image": "cards/801101.png",
+      "images": {
+        "daily": "cards/daily/801101.png",
+        "weekly": "cards/weekly/801101.png",
+        "monthly": "cards/monthly/801101.png"
+      },
+      "image": "cards/daily/801101.png",
       "date": "2026-05-22",
       "close": 3234.14,
       "ret5_pct": -0.02,
@@ -3426,7 +3936,12 @@
       "code": "801104",
       "name": "软件开发",
       "upper": "计算机",
-      "image": "cards/801104.png",
+      "images": {
+        "daily": "cards/daily/801104.png",
+        "weekly": "cards/weekly/801104.png",
+        "monthly": "cards/monthly/801104.png"
+      },
+      "image": "cards/daily/801104.png",
       "date": "2026-05-22",
       "close": 6575.4,
       "ret5_pct": -0.42,
@@ -3460,7 +3975,12 @@
       "code": "801141",
       "name": "包装印刷",
       "upper": "轻工制造",
-      "image": "cards/801141.png",
+      "images": {
+        "daily": "cards/daily/801141.png",
+        "weekly": "cards/weekly/801141.png",
+        "monthly": "cards/monthly/801141.png"
+      },
+      "image": "cards/daily/801141.png",
       "date": "2026-05-22",
       "close": 3284.99,
       "ret5_pct": -3.17,
@@ -3494,7 +4014,12 @@
       "code": "801142",
       "name": "家居用品",
       "upper": "轻工制造",
-      "image": "cards/801142.png",
+      "images": {
+        "daily": "cards/daily/801142.png",
+        "weekly": "cards/weekly/801142.png",
+        "monthly": "cards/monthly/801142.png"
+      },
+      "image": "cards/daily/801142.png",
       "date": "2026-05-22",
       "close": 1874.17,
       "ret5_pct": -3.72,
@@ -3528,7 +4053,12 @@
       "code": "801145",
       "name": "文娱用品",
       "upper": "轻工制造",
-      "image": "cards/801145.png",
+      "images": {
+        "daily": "cards/daily/801145.png",
+        "weekly": "cards/weekly/801145.png",
+        "monthly": "cards/monthly/801145.png"
+      },
+      "image": "cards/daily/801145.png",
       "date": "2026-05-22",
       "close": 1931.24,
       "ret5_pct": -7.46,
@@ -3562,7 +4092,12 @@
       "code": "801143",
       "name": "造纸",
       "upper": "轻工制造",
-      "image": "cards/801143.png",
+      "images": {
+        "daily": "cards/daily/801143.png",
+        "weekly": "cards/weekly/801143.png",
+        "monthly": "cards/monthly/801143.png"
+      },
+      "image": "cards/daily/801143.png",
       "date": "2026-05-22",
       "close": 2294.15,
       "ret5_pct": -3.47,
@@ -3596,7 +4131,12 @@
       "code": "801223",
       "name": "通信服务",
       "upper": "通信",
-      "image": "cards/801223.png",
+      "images": {
+        "daily": "cards/daily/801223.png",
+        "weekly": "cards/weekly/801223.png",
+        "monthly": "cards/monthly/801223.png"
+      },
+      "image": "cards/daily/801223.png",
       "date": "2026-05-22",
       "close": 2503.5,
       "ret5_pct": -4.06,
@@ -3630,7 +4170,12 @@
       "code": "801102",
       "name": "通信设备",
       "upper": "通信",
-      "image": "cards/801102.png",
+      "images": {
+        "daily": "cards/daily/801102.png",
+        "weekly": "cards/weekly/801102.png",
+        "monthly": "cards/monthly/801102.png"
+      },
+      "image": "cards/daily/801102.png",
       "date": "2026-05-22",
       "close": 10783.63,
       "ret5_pct": -0.46,
@@ -3664,7 +4209,12 @@
       "code": "801043",
       "name": "冶钢原料",
       "upper": "钢铁",
-      "image": "cards/801043.png",
+      "images": {
+        "daily": "cards/daily/801043.png",
+        "weekly": "cards/weekly/801043.png",
+        "monthly": "cards/monthly/801043.png"
+      },
+      "image": "cards/daily/801043.png",
       "date": "2026-05-22",
       "close": 3779.66,
       "ret5_pct": -2.66,
@@ -3698,7 +4248,12 @@
       "code": "801044",
       "name": "普钢",
       "upper": "钢铁",
-      "image": "cards/801044.png",
+      "images": {
+        "daily": "cards/daily/801044.png",
+        "weekly": "cards/weekly/801044.png",
+        "monthly": "cards/monthly/801044.png"
+      },
+      "image": "cards/daily/801044.png",
       "date": "2026-05-22",
       "close": 2242.94,
       "ret5_pct": -4.7,
@@ -3732,7 +4287,12 @@
       "code": "801045",
       "name": "特钢Ⅱ",
       "upper": "钢铁",
-      "image": "cards/801045.png",
+      "images": {
+        "daily": "cards/daily/801045.png",
+        "weekly": "cards/weekly/801045.png",
+        "monthly": "cards/monthly/801045.png"
+      },
+      "image": "cards/daily/801045.png",
       "date": "2026-05-22",
       "close": 4292.07,
       "ret5_pct": -3.85,
@@ -3766,7 +4326,12 @@
       "code": "801785",
       "name": "农商行Ⅱ",
       "upper": "银行",
-      "image": "cards/801785.png",
+      "images": {
+        "daily": "cards/daily/801785.png",
+        "weekly": "cards/weekly/801785.png",
+        "monthly": "cards/monthly/801785.png"
+      },
+      "image": "cards/daily/801785.png",
       "date": "2026-05-22",
       "close": 777.98,
       "ret5_pct": -1.49,
@@ -3800,7 +4365,12 @@
       "code": "801782",
       "name": "国有大型银行Ⅱ",
       "upper": "银行",
-      "image": "cards/801782.png",
+      "images": {
+        "daily": "cards/daily/801782.png",
+        "weekly": "cards/weekly/801782.png",
+        "monthly": "cards/monthly/801782.png"
+      },
+      "image": "cards/daily/801782.png",
       "date": "2026-05-22",
       "close": 1870.47,
       "ret5_pct": -0.63,
@@ -3834,7 +4404,12 @@
       "code": "801784",
       "name": "城商行Ⅱ",
       "upper": "银行",
-      "image": "cards/801784.png",
+      "images": {
+        "daily": "cards/daily/801784.png",
+        "weekly": "cards/weekly/801784.png",
+        "monthly": "cards/monthly/801784.png"
+      },
+      "image": "cards/daily/801784.png",
       "date": "2026-05-22",
       "close": 1025.45,
       "ret5_pct": -1.88,
@@ -3868,7 +4443,12 @@
       "code": "801783",
       "name": "股份制银行Ⅱ",
       "upper": "银行",
-      "image": "cards/801783.png",
+      "images": {
+        "daily": "cards/daily/801783.png",
+        "weekly": "cards/weekly/801783.png",
+        "monthly": "cards/monthly/801783.png"
+      },
+      "image": "cards/daily/801783.png",
       "date": "2026-05-22",
       "close": 4032.18,
       "ret5_pct": -1.56,
@@ -3902,7 +4482,12 @@
       "code": "801194",
       "name": "保险Ⅱ",
       "upper": "非银金融",
-      "image": "cards/801194.png",
+      "images": {
+        "daily": "cards/daily/801194.png",
+        "weekly": "cards/weekly/801194.png",
+        "monthly": "cards/monthly/801194.png"
+      },
+      "image": "cards/daily/801194.png",
       "date": "2026-05-22",
       "close": 1180.12,
       "ret5_pct": -3.56,
@@ -3936,7 +4521,12 @@
       "code": "801191",
       "name": "多元金融",
       "upper": "非银金融",
-      "image": "cards/801191.png",
+      "images": {
+        "daily": "cards/daily/801191.png",
+        "weekly": "cards/weekly/801191.png",
+        "monthly": "cards/monthly/801191.png"
+      },
+      "image": "cards/daily/801191.png",
       "date": "2026-05-22",
       "close": 1248.51,
       "ret5_pct": -3.35,
@@ -3970,7 +4560,12 @@
       "code": "801193",
       "name": "证券Ⅱ",
       "upper": "非银金融",
-      "image": "cards/801193.png",
+      "images": {
+        "daily": "cards/daily/801193.png",
+        "weekly": "cards/weekly/801193.png",
+        "monthly": "cards/monthly/801193.png"
+      },
+      "image": "cards/daily/801193.png",
       "date": "2026-05-22",
       "close": 5922.26,
       "ret5_pct": -1.4,
@@ -3982,24 +4577,34 @@
       "range5_pct": 2.7,
       "range_ratio": 1.12,
       "amount_ratio": 1.01,
-      "trend_support": null,
-      "trend_dist_pct": null,
-      "trend_pair": null,
+      "trend_support": 6699.33,
+      "trend_dist_pct": -11.6,
+      "trend_pair": [
+        "2025-12-04",
+        6604.74,
+        "2026-02-03",
+        6640.32
+      ],
       "setup": "B前低急刹",
       "ma5": 5995.27,
       "ma10": 6098.53,
       "ma20": 6122.86,
       "ma30": 6116.62,
       "ma60": 6181.29,
-      "state": "仍在观察",
-      "level": "watch",
-      "reason": "仍处于支撑/前低/趋势线观察区"
+      "state": "趋势线失守",
+      "level": "danger",
+      "reason": "收盘明显低于估算趋势支撑 6699.33"
     },
     {
       "code": "801128",
       "name": "休闲食品",
       "upper": "食品饮料",
-      "image": "cards/801128.png",
+      "images": {
+        "daily": "cards/daily/801128.png",
+        "weekly": "cards/weekly/801128.png",
+        "monthly": "cards/monthly/801128.png"
+      },
+      "image": "cards/daily/801128.png",
       "date": "2026-05-22",
       "close": 1852.7,
       "ret5_pct": -1.07,
@@ -4033,7 +4638,12 @@
       "code": "801125",
       "name": "白酒Ⅱ",
       "upper": "食品饮料",
-      "image": "cards/801125.png",
+      "images": {
+        "daily": "cards/daily/801125.png",
+        "weekly": "cards/weekly/801125.png",
+        "monthly": "cards/monthly/801125.png"
+      },
+      "image": "cards/daily/801125.png",
       "date": "2026-05-22",
       "close": 37499.09,
       "ret5_pct": -3.08,
@@ -4067,7 +4677,12 @@
       "code": "801129",
       "name": "调味发酵品Ⅱ",
       "upper": "食品饮料",
-      "image": "cards/801129.png",
+      "images": {
+        "daily": "cards/daily/801129.png",
+        "weekly": "cards/weekly/801129.png",
+        "monthly": "cards/monthly/801129.png"
+      },
+      "image": "cards/daily/801129.png",
       "date": "2026-05-22",
       "close": 6922.98,
       "ret5_pct": -1.39,
@@ -4101,7 +4716,12 @@
       "code": "801126",
       "name": "非白酒",
       "upper": "食品饮料",
-      "image": "cards/801126.png",
+      "images": {
+        "daily": "cards/daily/801126.png",
+        "weekly": "cards/weekly/801126.png",
+        "monthly": "cards/monthly/801126.png"
+      },
+      "image": "cards/daily/801126.png",
       "date": "2026-05-22",
       "close": 3738.02,
       "ret5_pct": -0.48,
@@ -4135,7 +4755,12 @@
       "code": "801124",
       "name": "食品加工",
       "upper": "食品饮料",
-      "image": "cards/801124.png",
+      "images": {
+        "daily": "cards/daily/801124.png",
+        "weekly": "cards/weekly/801124.png",
+        "monthly": "cards/monthly/801124.png"
+      },
+      "image": "cards/daily/801124.png",
       "date": "2026-05-22",
       "close": 13675.5,
       "ret5_pct": -2.46,
@@ -4169,7 +4794,12 @@
       "code": "801127",
       "name": "饮料乳品",
       "upper": "食品饮料",
-      "image": "cards/801127.png",
+      "images": {
+        "daily": "cards/daily/801127.png",
+        "weekly": "cards/weekly/801127.png",
+        "monthly": "cards/monthly/801127.png"
+      },
+      "image": "cards/daily/801127.png",
       "date": "2026-05-22",
       "close": 7211.65,
       "ret5_pct": -3.93,

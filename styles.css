@@ -226,6 +226,25 @@ main {
   background: #f8fafc;
 }
 
+.chart-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  padding: 10px 12px;
+  border-bottom: 1px solid #eef1f5;
+}
+
+.chart-tab {
+  padding: 7px 8px;
+}
+
+.chart-tab.active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+
 .metrics {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

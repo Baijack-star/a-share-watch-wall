@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-24 17:55:57",
+  "generated_at": "2026-05-24 22:01:51",
   "days": 100,
   "source": "申万二级行业日线；当日申万日线延迟时，用腾讯板块行情补当天K线。",
   "default_watchlist": [
@@ -31,11 +31,153 @@
     "801143",
     "801043"
   ],
+  "components_meta": {
+    "801178": {
+      "path": "data/components/801178.json",
+      "count": 47,
+      "error_count": 0
+    },
+    "801991": {
+      "path": "data/components/801991.json",
+      "count": 12,
+      "error_count": 0
+    },
+    "801992": {
+      "path": "data/components/801992.json",
+      "count": 34,
+      "error_count": 0
+    },
+    "801179": {
+      "path": "data/components/801179.json",
+      "count": 33,
+      "error_count": 0
+    },
+    "801163": {
+      "path": "data/components/801163.json",
+      "count": 27,
+      "error_count": 2
+    },
+    "801012": {
+      "path": "data/components/801012.json",
+      "count": 22,
+      "error_count": 0
+    },
+    "801153": {
+      "path": "data/components/801153.json",
+      "count": 129,
+      "error_count": 0
+    },
+    "801154": {
+      "path": "data/components/801154.json",
+      "count": 32,
+      "error_count": 0
+    },
+    "801152": {
+      "path": "data/components/801152.json",
+      "count": 51,
+      "error_count": 0
+    },
+    "801203": {
+      "path": "data/components/801203.json",
+      "count": 59,
+      "error_count": 0
+    },
+    "801206": {
+      "path": "data/components/801206.json",
+      "count": 18,
+      "error_count": 0
+    },
+    "801745": {
+      "path": "data/components/801745.json",
+      "count": 62,
+      "error_count": 1
+    },
+    "801743": {
+      "path": "data/components/801743.json",
+      "count": 12,
+      "error_count": 0
+    },
+    "801742": {
+      "path": "data/components/801742.json",
+      "count": 45,
+      "error_count": 0
+    },
+    "801033": {
+      "path": "data/components/801033.json",
+      "count": 57,
+      "error_count": 0
+    },
+    "801713": {
+      "path": "data/components/801713.json",
+      "count": 35,
+      "error_count": 0
+    },
+    "801724": {
+      "path": "data/components/801724.json",
+      "count": 39,
+      "error_count": 0
+    },
+    "801723": {
+      "path": "data/components/801723.json",
+      "count": 45,
+      "error_count": 0
+    },
+    "801077": {
+      "path": "data/components/801077.json",
+      "count": 28,
+      "error_count": 0
+    },
+    "801076": {
+      "path": "data/components/801076.json",
+      "count": 31,
+      "error_count": 0
+    },
+    "801971": {
+      "path": "data/components/801971.json",
+      "count": 106,
+      "error_count": 0
+    },
+    "801963": {
+      "path": "data/components/801963.json",
+      "count": 30,
+      "error_count": 0
+    },
+    "801982": {
+      "path": "data/components/801982.json",
+      "count": 14,
+      "error_count": 0
+    },
+    "801104": {
+      "path": "data/components/801104.json",
+      "count": 130,
+      "error_count": 1
+    },
+    "801143": {
+      "path": "data/components/801143.json",
+      "count": 23,
+      "error_count": 0
+    },
+    "801043": {
+      "path": "data/components/801043.json",
+      "count": 9,
+      "error_count": 0
+    },
+    "801128": {
+      "path": "data/components/801128.json",
+      "count": 22,
+      "error_count": 0
+    }
+  },
   "sectors": [
     {
       "code": "801178",
       "name": "物流",
       "upper": "交通运输",
+      "components": {
+        "path": "data/components/801178.json",
+        "count": 47,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801178.png",
         "weekly": "cards/weekly/801178.png",
@@ -75,6 +217,11 @@
       "code": "801991",
       "name": "航空机场",
       "upper": "交通运输",
+      "components": {
+        "path": "data/components/801991.json",
+        "count": 12,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801991.png",
         "weekly": "cards/weekly/801991.png",
@@ -114,6 +261,11 @@
       "code": "801992",
       "name": "航运港口",
       "upper": "交通运输",
+      "components": {
+        "path": "data/components/801992.json",
+        "count": 34,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801992.png",
         "weekly": "cards/weekly/801992.png",
@@ -153,6 +305,11 @@
       "code": "801179",
       "name": "铁路公路",
       "upper": "交通运输",
+      "components": {
+        "path": "data/components/801179.json",
+        "count": 33,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801179.png",
         "weekly": "cards/weekly/801179.png",
@@ -192,6 +349,7 @@
       "code": "801769",
       "name": "出版",
       "upper": "传媒",
+      "components": null,
       "images": {
         "daily": "cards/daily/801769.png",
         "weekly": "cards/weekly/801769.png",
@@ -231,6 +389,7 @@
       "code": "801765",
       "name": "广告营销",
       "upper": "传媒",
+      "components": null,
       "images": {
         "daily": "cards/daily/801765.png",
         "weekly": "cards/weekly/801765.png",
@@ -270,6 +429,7 @@
       "code": "801766",
       "name": "影视院线",
       "upper": "传媒",
+      "components": null,
       "images": {
         "daily": "cards/daily/801766.png",
         "weekly": "cards/weekly/801766.png",
@@ -309,6 +469,7 @@
       "code": "801767",
       "name": "数字媒体",
       "upper": "传媒",
+      "components": null,
       "images": {
         "daily": "cards/daily/801767.png",
         "weekly": "cards/weekly/801767.png",
@@ -348,6 +509,7 @@
       "code": "801764",
       "name": "游戏Ⅱ",
       "upper": "传媒",
+      "components": null,
       "images": {
         "daily": "cards/daily/801764.png",
         "weekly": "cards/weekly/801764.png",
@@ -387,6 +549,7 @@
       "code": "801995",
       "name": "电视广播Ⅱ",
       "upper": "传媒",
+      "components": null,
       "images": {
         "daily": "cards/daily/801995.png",
         "weekly": "cards/weekly/801995.png",
@@ -426,6 +589,11 @@
       "code": "801163",
       "name": "燃气Ⅱ",
       "upper": "公用事业",
+      "components": {
+        "path": "data/components/801163.json",
+        "count": 27,
+        "error_count": 2
+      },
       "images": {
         "daily": "cards/daily/801163.png",
         "weekly": "cards/weekly/801163.png",
@@ -465,6 +633,7 @@
       "code": "801161",
       "name": "电力",
       "upper": "公用事业",
+      "components": null,
       "images": {
         "daily": "cards/daily/801161.png",
         "weekly": "cards/weekly/801161.png",
@@ -504,6 +673,7 @@
       "code": "801017",
       "name": "养殖业",
       "upper": "农林牧渔",
+      "components": null,
       "images": {
         "daily": "cards/daily/801017.png",
         "weekly": "cards/weekly/801017.png",
@@ -543,6 +713,11 @@
       "code": "801012",
       "name": "农产品加工",
       "upper": "农林牧渔",
+      "components": {
+        "path": "data/components/801012.json",
+        "count": 22,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801012.png",
         "weekly": "cards/weekly/801012.png",
@@ -582,6 +757,7 @@
       "code": "801018",
       "name": "动物保健Ⅱ",
       "upper": "农林牧渔",
+      "components": null,
       "images": {
         "daily": "cards/daily/801018.png",
         "weekly": "cards/weekly/801018.png",
@@ -621,6 +797,7 @@
       "code": "801015",
       "name": "渔业",
       "upper": "农林牧渔",
+      "components": null,
       "images": {
         "daily": "cards/daily/801015.png",
         "weekly": "cards/weekly/801015.png",
@@ -660,6 +837,7 @@
       "code": "801016",
       "name": "种植业",
       "upper": "农林牧渔",
+      "components": null,
       "images": {
         "daily": "cards/daily/801016.png",
         "weekly": "cards/weekly/801016.png",
@@ -699,6 +877,7 @@
       "code": "801014",
       "name": "饲料",
       "upper": "农林牧渔",
+      "components": null,
       "images": {
         "daily": "cards/daily/801014.png",
         "weekly": "cards/weekly/801014.png",
@@ -738,6 +917,7 @@
       "code": "801155",
       "name": "中药Ⅱ",
       "upper": "医药生物",
+      "components": null,
       "images": {
         "daily": "cards/daily/801155.png",
         "weekly": "cards/weekly/801155.png",
@@ -777,6 +957,7 @@
       "code": "801151",
       "name": "化学制药",
       "upper": "医药生物",
+      "components": null,
       "images": {
         "daily": "cards/daily/801151.png",
         "weekly": "cards/weekly/801151.png",
@@ -816,6 +997,11 @@
       "code": "801153",
       "name": "医疗器械",
       "upper": "医药生物",
+      "components": {
+        "path": "data/components/801153.json",
+        "count": 129,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801153.png",
         "weekly": "cards/weekly/801153.png",
@@ -855,6 +1041,11 @@
       "code": "801154",
       "name": "医药商业",
       "upper": "医药生物",
+      "components": {
+        "path": "data/components/801154.json",
+        "count": 32,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801154.png",
         "weekly": "cards/weekly/801154.png",
@@ -894,6 +1085,11 @@
       "code": "801152",
       "name": "生物制品",
       "upper": "医药生物",
+      "components": {
+        "path": "data/components/801152.json",
+        "count": 51,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801152.png",
         "weekly": "cards/weekly/801152.png",
@@ -933,6 +1129,11 @@
       "code": "801203",
       "name": "一般零售",
       "upper": "商贸零售",
+      "components": {
+        "path": "data/components/801203.json",
+        "count": 59,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801203.png",
         "weekly": "cards/weekly/801203.png",
@@ -972,6 +1173,7 @@
       "code": "801204",
       "name": "专业连锁Ⅱ",
       "upper": "商贸零售",
+      "components": null,
       "images": {
         "daily": "cards/daily/801204.png",
         "weekly": "cards/weekly/801204.png",
@@ -1011,6 +1213,11 @@
       "code": "801206",
       "name": "互联网电商",
       "upper": "商贸零售",
+      "components": {
+        "path": "data/components/801206.json",
+        "count": 18,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801206.png",
         "weekly": "cards/weekly/801206.png",
@@ -1050,6 +1257,7 @@
       "code": "801202",
       "name": "贸易Ⅱ",
       "upper": "商贸零售",
+      "components": null,
       "images": {
         "daily": "cards/daily/801202.png",
         "weekly": "cards/weekly/801202.png",
@@ -1089,6 +1297,11 @@
       "code": "801745",
       "name": "军工电子Ⅱ",
       "upper": "国防军工",
+      "components": {
+        "path": "data/components/801745.json",
+        "count": 62,
+        "error_count": 1
+      },
       "images": {
         "daily": "cards/daily/801745.png",
         "weekly": "cards/weekly/801745.png",
@@ -1128,6 +1341,11 @@
       "code": "801743",
       "name": "地面兵装Ⅱ",
       "upper": "国防军工",
+      "components": {
+        "path": "data/components/801743.json",
+        "count": 12,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801743.png",
         "weekly": "cards/weekly/801743.png",
@@ -1167,6 +1385,7 @@
       "code": "801741",
       "name": "航天装备Ⅱ",
       "upper": "国防军工",
+      "components": null,
       "images": {
         "daily": "cards/daily/801741.png",
         "weekly": "cards/weekly/801741.png",
@@ -1206,6 +1425,7 @@
       "code": "801744",
       "name": "航海装备Ⅱ",
       "upper": "国防军工",
+      "components": null,
       "images": {
         "daily": "cards/daily/801744.png",
         "weekly": "cards/weekly/801744.png",
@@ -1245,6 +1465,11 @@
       "code": "801742",
       "name": "航空装备Ⅱ",
       "upper": "国防军工",
+      "components": {
+        "path": "data/components/801742.json",
+        "count": 45,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801742.png",
         "weekly": "cards/weekly/801742.png",
@@ -1284,6 +1509,7 @@
       "code": "801038",
       "name": "农化制品",
       "upper": "基础化工",
+      "components": null,
       "images": {
         "daily": "cards/daily/801038.png",
         "weekly": "cards/weekly/801038.png",
@@ -1323,6 +1549,7 @@
       "code": "801034",
       "name": "化学制品",
       "upper": "基础化工",
+      "components": null,
       "images": {
         "daily": "cards/daily/801034.png",
         "weekly": "cards/weekly/801034.png",
@@ -1362,6 +1589,11 @@
       "code": "801033",
       "name": "化学原料",
       "upper": "基础化工",
+      "components": {
+        "path": "data/components/801033.json",
+        "count": 57,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801033.png",
         "weekly": "cards/weekly/801033.png",
@@ -1401,6 +1633,7 @@
       "code": "801032",
       "name": "化学纤维",
       "upper": "基础化工",
+      "components": null,
       "images": {
         "daily": "cards/daily/801032.png",
         "weekly": "cards/weekly/801032.png",
@@ -1440,6 +1673,7 @@
       "code": "801036",
       "name": "塑料",
       "upper": "基础化工",
+      "components": null,
       "images": {
         "daily": "cards/daily/801036.png",
         "weekly": "cards/weekly/801036.png",
@@ -1479,6 +1713,7 @@
       "code": "801037",
       "name": "橡胶",
       "upper": "基础化工",
+      "components": null,
       "images": {
         "daily": "cards/daily/801037.png",
         "weekly": "cards/weekly/801037.png",
@@ -1518,6 +1753,7 @@
       "code": "801039",
       "name": "非金属材料Ⅱ",
       "upper": "基础化工",
+      "components": null,
       "images": {
         "daily": "cards/daily/801039.png",
         "weekly": "cards/weekly/801039.png",
@@ -1557,6 +1793,7 @@
       "code": "801114",
       "name": "厨卫电器",
       "upper": "家用电器",
+      "components": null,
       "images": {
         "daily": "cards/daily/801114.png",
         "weekly": "cards/weekly/801114.png",
@@ -1596,6 +1833,7 @@
       "code": "801116",
       "name": "家电零部件Ⅱ",
       "upper": "家用电器",
+      "components": null,
       "images": {
         "daily": "cards/daily/801116.png",
         "weekly": "cards/weekly/801116.png",
@@ -1635,6 +1873,7 @@
       "code": "801113",
       "name": "小家电",
       "upper": "家用电器",
+      "components": null,
       "images": {
         "daily": "cards/daily/801113.png",
         "weekly": "cards/weekly/801113.png",
@@ -1674,6 +1913,7 @@
       "code": "801115",
       "name": "照明设备Ⅱ",
       "upper": "家用电器",
+      "components": null,
       "images": {
         "daily": "cards/daily/801115.png",
         "weekly": "cards/weekly/801115.png",
@@ -1713,6 +1953,7 @@
       "code": "801111",
       "name": "白色家电",
       "upper": "家用电器",
+      "components": null,
       "images": {
         "daily": "cards/daily/801111.png",
         "weekly": "cards/weekly/801111.png",
@@ -1752,6 +1993,7 @@
       "code": "801112",
       "name": "黑色家电",
       "upper": "家用电器",
+      "components": null,
       "images": {
         "daily": "cards/daily/801112.png",
         "weekly": "cards/weekly/801112.png",
@@ -1791,6 +2033,7 @@
       "code": "801711",
       "name": "水泥",
       "upper": "建筑材料",
+      "components": null,
       "images": {
         "daily": "cards/daily/801711.png",
         "weekly": "cards/weekly/801711.png",
@@ -1830,6 +2073,7 @@
       "code": "801712",
       "name": "玻璃玻纤",
       "upper": "建筑材料",
+      "components": null,
       "images": {
         "daily": "cards/daily/801712.png",
         "weekly": "cards/weekly/801712.png",
@@ -1869,6 +2113,11 @@
       "code": "801713",
       "name": "装修建材",
       "upper": "建筑材料",
+      "components": {
+        "path": "data/components/801713.json",
+        "count": 35,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801713.png",
         "weekly": "cards/weekly/801713.png",
@@ -1908,6 +2157,11 @@
       "code": "801724",
       "name": "专业工程",
       "upper": "建筑装饰",
+      "components": {
+        "path": "data/components/801724.json",
+        "count": 39,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801724.png",
         "weekly": "cards/weekly/801724.png",
@@ -1947,6 +2201,11 @@
       "code": "801723",
       "name": "基础建设",
       "upper": "建筑装饰",
+      "components": {
+        "path": "data/components/801723.json",
+        "count": 45,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801723.png",
         "weekly": "cards/weekly/801723.png",
@@ -1986,6 +2245,7 @@
       "code": "801726",
       "name": "工程咨询服务Ⅱ",
       "upper": "建筑装饰",
+      "components": null,
       "images": {
         "daily": "cards/daily/801726.png",
         "weekly": "cards/weekly/801726.png",
@@ -2025,6 +2285,7 @@
       "code": "801721",
       "name": "房屋建设Ⅱ",
       "upper": "建筑装饰",
+      "components": null,
       "images": {
         "daily": "cards/daily/801721.png",
         "weekly": "cards/weekly/801721.png",
@@ -2064,6 +2325,7 @@
       "code": "801722",
       "name": "装修装饰Ⅱ",
       "upper": "建筑装饰",
+      "components": null,
       "images": {
         "daily": "cards/daily/801722.png",
         "weekly": "cards/weekly/801722.png",
@@ -2103,6 +2365,7 @@
       "code": "801181",
       "name": "房地产开发",
       "upper": "房地产",
+      "components": null,
       "images": {
         "daily": "cards/daily/801181.png",
         "weekly": "cards/weekly/801181.png",
@@ -2142,6 +2405,7 @@
       "code": "801183",
       "name": "房地产服务",
       "upper": "房地产",
+      "components": null,
       "images": {
         "daily": "cards/daily/801183.png",
         "weekly": "cards/weekly/801183.png",
@@ -2181,6 +2445,7 @@
       "code": "801054",
       "name": "小金属",
       "upper": "有色金属",
+      "components": null,
       "images": {
         "daily": "cards/daily/801054.png",
         "weekly": "cards/weekly/801054.png",
@@ -2220,6 +2485,7 @@
       "code": "801055",
       "name": "工业金属",
       "upper": "有色金属",
+      "components": null,
       "images": {
         "daily": "cards/daily/801055.png",
         "weekly": "cards/weekly/801055.png",
@@ -2259,6 +2525,7 @@
       "code": "801056",
       "name": "能源金属",
       "upper": "有色金属",
+      "components": null,
       "images": {
         "daily": "cards/daily/801056.png",
         "weekly": "cards/weekly/801056.png",
@@ -2298,6 +2565,7 @@
       "code": "801053",
       "name": "贵金属",
       "upper": "有色金属",
+      "components": null,
       "images": {
         "daily": "cards/daily/801053.png",
         "weekly": "cards/weekly/801053.png",
@@ -2337,6 +2605,7 @@
       "code": "801051",
       "name": "金属新材料",
       "upper": "有色金属",
+      "components": null,
       "images": {
         "daily": "cards/daily/801051.png",
         "weekly": "cards/weekly/801051.png",
@@ -2376,6 +2645,7 @@
       "code": "801074",
       "name": "专用设备",
       "upper": "机械设备",
+      "components": null,
       "images": {
         "daily": "cards/daily/801074.png",
         "weekly": "cards/weekly/801074.png",
@@ -2415,6 +2685,11 @@
       "code": "801077",
       "name": "工程机械",
       "upper": "机械设备",
+      "components": {
+        "path": "data/components/801077.json",
+        "count": 28,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801077.png",
         "weekly": "cards/weekly/801077.png",
@@ -2454,6 +2729,7 @@
       "code": "801078",
       "name": "自动化设备",
       "upper": "机械设备",
+      "components": null,
       "images": {
         "daily": "cards/daily/801078.png",
         "weekly": "cards/weekly/801078.png",
@@ -2493,6 +2769,11 @@
       "code": "801076",
       "name": "轨交设备Ⅱ",
       "upper": "机械设备",
+      "components": {
+        "path": "data/components/801076.json",
+        "count": 31,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801076.png",
         "weekly": "cards/weekly/801076.png",
@@ -2532,6 +2813,7 @@
       "code": "801072",
       "name": "通用设备",
       "upper": "机械设备",
+      "components": null,
       "images": {
         "daily": "cards/daily/801072.png",
         "weekly": "cards/weekly/801072.png",
@@ -2571,6 +2853,7 @@
       "code": "801095",
       "name": "乘用车",
       "upper": "汽车",
+      "components": null,
       "images": {
         "daily": "cards/daily/801095.png",
         "weekly": "cards/weekly/801095.png",
@@ -2610,6 +2893,7 @@
       "code": "801096",
       "name": "商用车",
       "upper": "汽车",
+      "components": null,
       "images": {
         "daily": "cards/daily/801096.png",
         "weekly": "cards/weekly/801096.png",
@@ -2649,6 +2933,7 @@
       "code": "801881",
       "name": "摩托车及其他",
       "upper": "汽车",
+      "components": null,
       "images": {
         "daily": "cards/daily/801881.png",
         "weekly": "cards/weekly/801881.png",
@@ -2688,6 +2973,7 @@
       "code": "801092",
       "name": "汽车服务",
       "upper": "汽车",
+      "components": null,
       "images": {
         "daily": "cards/daily/801092.png",
         "weekly": "cards/weekly/801092.png",
@@ -2727,6 +3013,7 @@
       "code": "801093",
       "name": "汽车零部件",
       "upper": "汽车",
+      "components": null,
       "images": {
         "daily": "cards/daily/801093.png",
         "weekly": "cards/weekly/801093.png",
@@ -2766,6 +3053,7 @@
       "code": "801952",
       "name": "焦炭Ⅱ",
       "upper": "煤炭",
+      "components": null,
       "images": {
         "daily": "cards/daily/801952.png",
         "weekly": "cards/weekly/801952.png",
@@ -2805,6 +3093,7 @@
       "code": "801951",
       "name": "煤炭开采",
       "upper": "煤炭",
+      "components": null,
       "images": {
         "daily": "cards/daily/801951.png",
         "weekly": "cards/weekly/801951.png",
@@ -2844,6 +3133,7 @@
       "code": "801972",
       "name": "环保设备Ⅱ",
       "upper": "环保",
+      "components": null,
       "images": {
         "daily": "cards/daily/801972.png",
         "weekly": "cards/weekly/801972.png",
@@ -2883,6 +3173,11 @@
       "code": "801971",
       "name": "环境治理",
       "upper": "环保",
+      "components": {
+        "path": "data/components/801971.json",
+        "count": 106,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801971.png",
         "weekly": "cards/weekly/801971.png",
@@ -2922,6 +3217,7 @@
       "code": "801735",
       "name": "光伏设备",
       "upper": "电力设备",
+      "components": null,
       "images": {
         "daily": "cards/daily/801735.png",
         "weekly": "cards/weekly/801735.png",
@@ -2961,6 +3257,7 @@
       "code": "801733",
       "name": "其他电源设备Ⅱ",
       "upper": "电力设备",
+      "components": null,
       "images": {
         "daily": "cards/daily/801733.png",
         "weekly": "cards/weekly/801733.png",
@@ -3000,6 +3297,7 @@
       "code": "801731",
       "name": "电机Ⅱ",
       "upper": "电力设备",
+      "components": null,
       "images": {
         "daily": "cards/daily/801731.png",
         "weekly": "cards/weekly/801731.png",
@@ -3039,6 +3337,7 @@
       "code": "801737",
       "name": "电池",
       "upper": "电力设备",
+      "components": null,
       "images": {
         "daily": "cards/daily/801737.png",
         "weekly": "cards/weekly/801737.png",
@@ -3078,6 +3377,7 @@
       "code": "801738",
       "name": "电网设备",
       "upper": "电力设备",
+      "components": null,
       "images": {
         "daily": "cards/daily/801738.png",
         "weekly": "cards/weekly/801738.png",
@@ -3117,6 +3417,7 @@
       "code": "801736",
       "name": "风电设备",
       "upper": "电力设备",
+      "components": null,
       "images": {
         "daily": "cards/daily/801736.png",
         "weekly": "cards/weekly/801736.png",
@@ -3156,6 +3457,7 @@
       "code": "801083",
       "name": "元件",
       "upper": "电子",
+      "components": null,
       "images": {
         "daily": "cards/daily/801083.png",
         "weekly": "cards/weekly/801083.png",
@@ -3195,6 +3497,7 @@
       "code": "801084",
       "name": "光学光电子",
       "upper": "电子",
+      "components": null,
       "images": {
         "daily": "cards/daily/801084.png",
         "weekly": "cards/weekly/801084.png",
@@ -3234,6 +3537,7 @@
       "code": "801082",
       "name": "其他电子Ⅱ",
       "upper": "电子",
+      "components": null,
       "images": {
         "daily": "cards/daily/801082.png",
         "weekly": "cards/weekly/801082.png",
@@ -3273,6 +3577,7 @@
       "code": "801081",
       "name": "半导体",
       "upper": "电子",
+      "components": null,
       "images": {
         "daily": "cards/daily/801081.png",
         "weekly": "cards/weekly/801081.png",
@@ -3312,6 +3617,7 @@
       "code": "801085",
       "name": "消费电子",
       "upper": "电子",
+      "components": null,
       "images": {
         "daily": "cards/daily/801085.png",
         "weekly": "cards/weekly/801085.png",
@@ -3351,6 +3657,7 @@
       "code": "801086",
       "name": "电子化学品Ⅱ",
       "upper": "电子",
+      "components": null,
       "images": {
         "daily": "cards/daily/801086.png",
         "weekly": "cards/weekly/801086.png",
@@ -3390,6 +3697,7 @@
       "code": "801962",
       "name": "油服工程",
       "upper": "石油石化",
+      "components": null,
       "images": {
         "daily": "cards/daily/801962.png",
         "weekly": "cards/weekly/801962.png",
@@ -3429,6 +3737,11 @@
       "code": "801963",
       "name": "炼化及贸易",
       "upper": "石油石化",
+      "components": {
+        "path": "data/components/801963.json",
+        "count": 30,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801963.png",
         "weekly": "cards/weekly/801963.png",
@@ -3468,6 +3781,7 @@
       "code": "801218",
       "name": "专业服务",
       "upper": "社会服务",
+      "components": null,
       "images": {
         "daily": "cards/daily/801218.png",
         "weekly": "cards/weekly/801218.png",
@@ -3507,6 +3821,7 @@
       "code": "801994",
       "name": "教育",
       "upper": "社会服务",
+      "components": null,
       "images": {
         "daily": "cards/daily/801994.png",
         "weekly": "cards/weekly/801994.png",
@@ -3546,6 +3861,7 @@
       "code": "801993",
       "name": "旅游及景区",
       "upper": "社会服务",
+      "components": null,
       "images": {
         "daily": "cards/daily/801993.png",
         "weekly": "cards/weekly/801993.png",
@@ -3585,6 +3901,7 @@
       "code": "801219",
       "name": "酒店餐饮",
       "upper": "社会服务",
+      "components": null,
       "images": {
         "daily": "cards/daily/801219.png",
         "weekly": "cards/weekly/801219.png",
@@ -3624,6 +3941,7 @@
       "code": "801132",
       "name": "服装家纺",
       "upper": "纺织服饰",
+      "components": null,
       "images": {
         "daily": "cards/daily/801132.png",
         "weekly": "cards/weekly/801132.png",
@@ -3663,6 +3981,7 @@
       "code": "801131",
       "name": "纺织制造",
       "upper": "纺织服饰",
+      "components": null,
       "images": {
         "daily": "cards/daily/801131.png",
         "weekly": "cards/weekly/801131.png",
@@ -3702,6 +4021,7 @@
       "code": "801133",
       "name": "饰品",
       "upper": "纺织服饰",
+      "components": null,
       "images": {
         "daily": "cards/daily/801133.png",
         "weekly": "cards/weekly/801133.png",
@@ -3741,6 +4061,7 @@
       "code": "801231",
       "name": "综合Ⅱ",
       "upper": "综合",
+      "components": null,
       "images": {
         "daily": "cards/daily/801231.png",
         "weekly": "cards/weekly/801231.png",
@@ -3780,6 +4101,7 @@
       "code": "801981",
       "name": "个护用品",
       "upper": "美容护理",
+      "components": null,
       "images": {
         "daily": "cards/daily/801981.png",
         "weekly": "cards/weekly/801981.png",
@@ -3819,6 +4141,11 @@
       "code": "801982",
       "name": "化妆品",
       "upper": "美容护理",
+      "components": {
+        "path": "data/components/801982.json",
+        "count": 14,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801982.png",
         "weekly": "cards/weekly/801982.png",
@@ -3858,6 +4185,7 @@
       "code": "801103",
       "name": "IT服务Ⅱ",
       "upper": "计算机",
+      "components": null,
       "images": {
         "daily": "cards/daily/801103.png",
         "weekly": "cards/weekly/801103.png",
@@ -3897,6 +4225,7 @@
       "code": "801101",
       "name": "计算机设备",
       "upper": "计算机",
+      "components": null,
       "images": {
         "daily": "cards/daily/801101.png",
         "weekly": "cards/weekly/801101.png",
@@ -3936,6 +4265,11 @@
       "code": "801104",
       "name": "软件开发",
       "upper": "计算机",
+      "components": {
+        "path": "data/components/801104.json",
+        "count": 130,
+        "error_count": 1
+      },
       "images": {
         "daily": "cards/daily/801104.png",
         "weekly": "cards/weekly/801104.png",
@@ -3975,6 +4309,7 @@
       "code": "801141",
       "name": "包装印刷",
       "upper": "轻工制造",
+      "components": null,
       "images": {
         "daily": "cards/daily/801141.png",
         "weekly": "cards/weekly/801141.png",
@@ -4014,6 +4349,7 @@
       "code": "801142",
       "name": "家居用品",
       "upper": "轻工制造",
+      "components": null,
       "images": {
         "daily": "cards/daily/801142.png",
         "weekly": "cards/weekly/801142.png",
@@ -4053,6 +4389,7 @@
       "code": "801145",
       "name": "文娱用品",
       "upper": "轻工制造",
+      "components": null,
       "images": {
         "daily": "cards/daily/801145.png",
         "weekly": "cards/weekly/801145.png",
@@ -4092,6 +4429,11 @@
       "code": "801143",
       "name": "造纸",
       "upper": "轻工制造",
+      "components": {
+        "path": "data/components/801143.json",
+        "count": 23,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801143.png",
         "weekly": "cards/weekly/801143.png",
@@ -4131,6 +4473,7 @@
       "code": "801223",
       "name": "通信服务",
       "upper": "通信",
+      "components": null,
       "images": {
         "daily": "cards/daily/801223.png",
         "weekly": "cards/weekly/801223.png",
@@ -4170,6 +4513,7 @@
       "code": "801102",
       "name": "通信设备",
       "upper": "通信",
+      "components": null,
       "images": {
         "daily": "cards/daily/801102.png",
         "weekly": "cards/weekly/801102.png",
@@ -4209,6 +4553,11 @@
       "code": "801043",
       "name": "冶钢原料",
       "upper": "钢铁",
+      "components": {
+        "path": "data/components/801043.json",
+        "count": 9,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801043.png",
         "weekly": "cards/weekly/801043.png",
@@ -4248,6 +4597,7 @@
       "code": "801044",
       "name": "普钢",
       "upper": "钢铁",
+      "components": null,
       "images": {
         "daily": "cards/daily/801044.png",
         "weekly": "cards/weekly/801044.png",
@@ -4287,6 +4637,7 @@
       "code": "801045",
       "name": "特钢Ⅱ",
       "upper": "钢铁",
+      "components": null,
       "images": {
         "daily": "cards/daily/801045.png",
         "weekly": "cards/weekly/801045.png",
@@ -4326,6 +4677,7 @@
       "code": "801785",
       "name": "农商行Ⅱ",
       "upper": "银行",
+      "components": null,
       "images": {
         "daily": "cards/daily/801785.png",
         "weekly": "cards/weekly/801785.png",
@@ -4365,6 +4717,7 @@
       "code": "801782",
       "name": "国有大型银行Ⅱ",
       "upper": "银行",
+      "components": null,
       "images": {
         "daily": "cards/daily/801782.png",
         "weekly": "cards/weekly/801782.png",
@@ -4404,6 +4757,7 @@
       "code": "801784",
       "name": "城商行Ⅱ",
       "upper": "银行",
+      "components": null,
       "images": {
         "daily": "cards/daily/801784.png",
         "weekly": "cards/weekly/801784.png",
@@ -4443,6 +4797,7 @@
       "code": "801783",
       "name": "股份制银行Ⅱ",
       "upper": "银行",
+      "components": null,
       "images": {
         "daily": "cards/daily/801783.png",
         "weekly": "cards/weekly/801783.png",
@@ -4482,6 +4837,7 @@
       "code": "801194",
       "name": "保险Ⅱ",
       "upper": "非银金融",
+      "components": null,
       "images": {
         "daily": "cards/daily/801194.png",
         "weekly": "cards/weekly/801194.png",
@@ -4521,6 +4877,7 @@
       "code": "801191",
       "name": "多元金融",
       "upper": "非银金融",
+      "components": null,
       "images": {
         "daily": "cards/daily/801191.png",
         "weekly": "cards/weekly/801191.png",
@@ -4560,6 +4917,7 @@
       "code": "801193",
       "name": "证券Ⅱ",
       "upper": "非银金融",
+      "components": null,
       "images": {
         "daily": "cards/daily/801193.png",
         "weekly": "cards/weekly/801193.png",
@@ -4599,6 +4957,11 @@
       "code": "801128",
       "name": "休闲食品",
       "upper": "食品饮料",
+      "components": {
+        "path": "data/components/801128.json",
+        "count": 22,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801128.png",
         "weekly": "cards/weekly/801128.png",
@@ -4638,6 +5001,7 @@
       "code": "801125",
       "name": "白酒Ⅱ",
       "upper": "食品饮料",
+      "components": null,
       "images": {
         "daily": "cards/daily/801125.png",
         "weekly": "cards/weekly/801125.png",
@@ -4677,6 +5041,7 @@
       "code": "801129",
       "name": "调味发酵品Ⅱ",
       "upper": "食品饮料",
+      "components": null,
       "images": {
         "daily": "cards/daily/801129.png",
         "weekly": "cards/weekly/801129.png",
@@ -4716,6 +5081,7 @@
       "code": "801126",
       "name": "非白酒",
       "upper": "食品饮料",
+      "components": null,
       "images": {
         "daily": "cards/daily/801126.png",
         "weekly": "cards/weekly/801126.png",
@@ -4755,6 +5121,7 @@
       "code": "801124",
       "name": "食品加工",
       "upper": "食品饮料",
+      "components": null,
       "images": {
         "daily": "cards/daily/801124.png",
         "weekly": "cards/weekly/801124.png",
@@ -4794,6 +5161,7 @@
       "code": "801127",
       "name": "饮料乳品",
       "upper": "食品饮料",
+      "components": null,
       "images": {
         "daily": "cards/daily/801127.png",
         "weekly": "cards/weekly/801127.png",
@@ -4835,6 +5203,26 @@
       "code": "801156",
       "name": "医疗服务",
       "error": "Expecting value: line 1 column 207 (char 206)"
+    },
+    {
+      "code": "300435",
+      "name": "燃气Ⅱ/中泰股份",
+      "error": "<urlopen error [Errno 54] Connection reset by peer>"
+    },
+    {
+      "code": "000593",
+      "name": "燃气Ⅱ/德龙汇能",
+      "error": "<urlopen error [Errno 54] Connection reset by peer>"
+    },
+    {
+      "code": "301682",
+      "name": "军工电子Ⅱ/宏明电子",
+      "error": "empty stock history"
+    },
+    {
+      "code": "688083",
+      "name": "软件开发/中望软件",
+      "error": "The read operation timed out"
     }
   ]
 }

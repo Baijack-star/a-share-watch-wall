@@ -1,8 +1,12 @@
 const WATCHLIST_KEY = "a_share_sector_watchlist_codes_v1";
+const STOCK_SELECTION_PREFIX = "a_share_component_selected_codes_v1:";
 
 let data = null;
 let watchlist = [];
 let currentView = "watchlist";
+let activeSector = null;
+let componentData = null;
+const componentCache = {};
 
 const grid = document.querySelector("#grid");
 const emptyState = document.querySelector("#emptyState");
@@ -33,6 +37,21 @@ function saveWatchlist() {
   localStorage.setItem(WATCHLIST_KEY, JSON.stringify(watchlist));
 }
 
+function selectedStockCodes(sectorCode) {
+  const raw = localStorage.getItem(`${STOCK_SELECTION_PREFIX}${sectorCode}`);
+  if (!raw) return [];
+  try {
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed.map(String) : [];
+  } catch (_) {
+    return [];
+  }
+}
+
+function saveSelectedStockCodes(sectorCode, codes) {
+  localStorage.setItem(`${STOCK_SELECTION_PREFIX}${sectorCode}`, JSON.stringify([...new Set(codes)]));
+}
+
 function formatPct(value) {
   if (value === null || value === undefined || Number.isNaN(Number(value))) return "--";
   const number = Number(value);
@@ -56,6 +75,19 @@ function filteredSectors() {
 }
 
 function renderSummary(items) {
+  if (currentView === "components" && componentData && activeSector) {
+    const selected = selectedStockCodes(activeSector.code);
+    summary.innerHTML = [
+      `${activeSector.name} 成分股 ${componentData.stocks.length} 只`,
+      `已复选 ${selected.length} 只`,
+      `数据日期 ${componentData.generated_at}`,
+      `错误 ${componentData.errors.length} 个`,
+    ]
+      .map((text) => `<span>${text}</span>`)
+      .join("");
+    return;
+  }
+
   const tracked = watchlist.filter((code) => data.sectors.some((sector) => sector.code === code));
   const danger = tracked.filter((code) => {
     const sector = data.sectors.find((item) => item.code === code);
@@ -78,13 +110,16 @@ function renderSummary(items) {
 
 function cardButton(sector) {
   const inWatchlist = watchlist.includes(sector.code);
+  const componentButton = sector.components
+    ? `<button data-action="components" data-code="${sector.code}" type="button">成分股</button>`
+    : "";
   if (currentView === "watchlist") {
-    return `<button class="danger" data-action="remove" data-code="${sector.code}" type="button">移除</button>`;
+    return `<div class="card-actions">${componentButton}<button class="danger" data-action="remove" data-code="${sector.code}" type="button">移除</button></div>`;
   }
   if (inWatchlist) {
-    return `<button data-action="remove" data-code="${sector.code}" type="button">已跟踪</button>`;
+    return `<div class="card-actions">${componentButton}<button data-action="remove" data-code="${sector.code}" type="button">已跟踪</button></div>`;
   }
-  return `<button class="primary" data-action="add" data-code="${sector.code}" type="button">加入</button>`;
+  return `<div class="card-actions">${componentButton}<button class="primary" data-action="add" data-code="${sector.code}" type="button">加入</button></div>`;
 }
 
 function renderCard(sector) {
@@ -128,10 +163,161 @@ function renderCard(sector) {
 }
 
 function render() {
+  if (currentView === "components") {
+    renderComponents();
+    return;
+  }
+
   const items = filteredSectors();
   renderSummary(items);
   grid.innerHTML = items.map(renderCard).join("");
   emptyState.hidden = items.length !== 0;
+}
+
+function movingAverage(rows, index, windowSize) {
+  if (index + 1 < windowSize) return null;
+  let sum = 0;
+  for (let i = index - windowSize + 1; i <= index; i += 1) {
+    sum += rows[i][2];
+  }
+  return sum / windowSize;
+}
+
+function drawKline(canvas, rows) {
+  const ratio = window.devicePixelRatio || 1;
+  const width = canvas.clientWidth || 340;
+  const height = 210;
+  canvas.width = Math.floor(width * ratio);
+  canvas.height = Math.floor(height * ratio);
+  const ctx = canvas.getContext("2d");
+  ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+  ctx.clearRect(0, 0, width, height);
+
+  const pad = { top: 12, right: 10, bottom: 18, left: 10 };
+  const plotW = width - pad.left - pad.right;
+  const plotH = height - pad.top - pad.bottom;
+  const highs = rows.map((row) => row[3]);
+  const lows = rows.map((row) => row[4]);
+  const max = Math.max(...highs);
+  const min = Math.min(...lows);
+  const span = max - min || 1;
+  const y = (price) => pad.top + (max - price) / span * plotH;
+  const step = plotW / rows.length;
+  const candleW = Math.max(2, Math.min(7, step * 0.58));
+
+  ctx.strokeStyle = "#e6e9ed";
+  ctx.lineWidth = 1;
+  for (let i = 0; i <= 3; i += 1) {
+    const gy = pad.top + (plotH / 3) * i;
+    ctx.beginPath();
+    ctx.moveTo(pad.left, gy);
+    ctx.lineTo(width - pad.right, gy);
+    ctx.stroke();
+  }
+
+  rows.forEach((row, index) => {
+    const [, open, close, high, low] = row;
+    const x = pad.left + step * index + step / 2;
+    const color = close >= open ? "#d93938" : "#21a957";
+    ctx.strokeStyle = color;
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.moveTo(x, y(high));
+    ctx.lineTo(x, y(low));
+    ctx.stroke();
+    const top = y(Math.max(open, close));
+    const bottom = y(Math.min(open, close));
+    const bodyH = Math.max(1, bottom - top);
+    ctx.fillRect(x - candleW / 2, top, candleW, bodyH);
+  });
+
+  [
+    [5, "#d04bd4"],
+    [20, "#1f9cf0"],
+    [60, "#f0a000"],
+  ].forEach(([windowSize, color]) => {
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 1.2;
+    ctx.beginPath();
+    rows.forEach((_, index) => {
+      const ma = movingAverage(rows, index, windowSize);
+      if (ma === null) return;
+      const x = pad.left + step * index + step / 2;
+      const py = y(ma);
+      if (index === windowSize - 1) ctx.moveTo(x, py);
+      else ctx.lineTo(x, py);
+    });
+    ctx.stroke();
+  });
+
+  ctx.fillStyle = "#667085";
+  ctx.font = "11px -apple-system, BlinkMacSystemFont, sans-serif";
+  ctx.fillText(String(rows[0][0]).slice(5), pad.left, height - 5);
+  ctx.fillText(String(rows[rows.length - 1][0]).slice(5), width - 46, height - 5);
+}
+
+async function openComponents(code) {
+  const sector = data.sectors.find((item) => item.code === code);
+  if (!sector || !sector.components) {
+    showToast("这个板块暂未生成成分股数据");
+    return;
+  }
+  activeSector = sector;
+  currentView = "components";
+  document.querySelectorAll(".tab").forEach((tab) => tab.classList.remove("active"));
+  if (!componentCache[code]) {
+    const response = await fetch(`${sector.components.path}?v=${Date.now()}`);
+    componentCache[code] = await response.json();
+  }
+  componentData = componentCache[code];
+  render();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function renderComponents() {
+  const selected = selectedStockCodes(activeSector.code);
+  const keyword = searchInput.value.trim().toLowerCase();
+  const stocks = componentData.stocks.filter((stock) => {
+    if (!keyword) return true;
+    return [stock.code, stock.name].join(" ").toLowerCase().includes(keyword);
+  });
+
+  renderSummary(stocks);
+  grid.innerHTML = `
+    <article class="component-toolbar">
+      <button data-action="back" type="button">返回板块墙</button>
+      <strong>${activeSector.name} ${activeSector.code}</strong>
+    </article>
+    ${stocks
+      .map((stock) => {
+        const rows = componentData.histories[stock.code] || [];
+        const checked = selected.includes(stock.code) ? "checked" : "";
+        return `
+          <article class="stock-card">
+            <div class="stock-head">
+              <label class="stock-check">
+                <input type="checkbox" data-stock-code="${stock.code}" ${checked}>
+                <span>${stock.name} ${stock.code}</span>
+              </label>
+              <small>权重 ${stock.weight ?? "--"}%</small>
+            </div>
+            <canvas class="stock-chart" data-rows='${JSON.stringify(rows)}'></canvas>
+            <div class="metrics">
+              <span>收盘<b>${stock.close}</b></span>
+              <span>5日<b>${formatPct(stock.ret5_pct)}</b></span>
+              <span>距60低<b>${formatPct(stock.dist_low60_pct)}</b></span>
+              <span>形态<b>${stock.setup}</b></span>
+            </div>
+          </article>
+        `;
+      })
+      .join("")}
+  `;
+  grid.querySelectorAll("canvas.stock-chart").forEach((canvas) => {
+    const rows = JSON.parse(canvas.dataset.rows || "[]");
+    if (rows.length) drawKline(canvas, rows);
+  });
+  emptyState.hidden = stocks.length !== 0;
 }
 
 function addSector(code) {
@@ -176,8 +362,30 @@ grid.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-action]");
   if (!button) return;
   const code = button.dataset.code;
+  if (button.dataset.action === "back") {
+    currentView = "watchlist";
+    activeSector = null;
+    componentData = null;
+    document.querySelector('.tab[data-view="watchlist"]').classList.add("active");
+    render();
+    return;
+  }
+  if (button.dataset.action === "components") {
+    openComponents(code);
+    return;
+  }
   if (button.dataset.action === "add") addSector(code);
   if (button.dataset.action === "remove") removeSector(code);
+});
+
+grid.addEventListener("change", (event) => {
+  const checkbox = event.target.closest("input[data-stock-code]");
+  if (!checkbox || !activeSector) return;
+  const code = checkbox.dataset.stockCode;
+  const selected = selectedStockCodes(activeSector.code);
+  const next = checkbox.checked ? [...selected, code] : selected.filter((item) => item !== code);
+  saveSelectedStockCodes(activeSector.code, next);
+  renderSummary(componentData.stocks);
 });
 
 [searchInput, setupFilter, stateFilter].forEach((control) => {

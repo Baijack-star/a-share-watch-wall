@@ -7,6 +7,7 @@ import importlib.util
 import json
 import math
 import os
+import requests
 import sys
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -21,6 +22,7 @@ WEEKLY_BARS = 120
 MONTHLY_BARS = 72
 WORKERS = 8
 COMPONENT_DAYS = 100
+COMPONENT_LIST_WORKERS = 12
 
 DEFAULT_WATCHLIST = [
     "801077",
@@ -109,22 +111,28 @@ def draw_card(skill: Any, item: Any, path: Path) -> None:
 
 
 def build_components(skill: Any, index_code: str, board_name: str, components_dir: Path) -> Dict[str, Any]:
-    comp = skill.ak.index_component_sw(symbol=index_code)
-    comp = comp.copy()
-    comp["证券代码"] = comp["证券代码"].astype(str).str.zfill(6)
-    comp["最新权重"] = skill.pd.to_numeric(comp.get("最新权重", skill.np.nan), errors="coerce")
-    comp = comp.sort_values("最新权重", ascending=False, na_position="last")
-
+    url = "https://www.swsresearch.com/institute-sw/api/index_publish/details/component_stocks/"
+    response = requests.get(
+        url,
+        params={"swindexcode": index_code, "page": "1", "page_size": "10000"},
+        headers={"User-Agent": "Mozilla/5.0"},
+        verify=False,
+        timeout=8,
+    )
+    response.raise_for_status()
+    results = response.json().get("data", {}).get("results", [])
     stocks: List[Dict[str, Any]] = []
-    for _, row in comp.iterrows():
-        weight = row.get("最新权重")
+    for row in results:
+        weight = row.get("newweight")
         stocks.append(
             {
-                "code": str(row["证券代码"]).zfill(6),
-                "name": str(row["证券名称"]),
-                "weight": round(float(weight), 4) if weight == weight else None,
+                "code": str(row.get("stockcode", "")).zfill(6),
+                "name": str(row.get("stockname", "")),
+                "weight": round(float(weight), 4) if weight not in (None, "") else None,
             }
         )
+    stocks = [stock for stock in stocks if stock["code"].isdigit() and stock["name"]]
+    stocks.sort(key=lambda stock: stock["weight"] if stock["weight"] is not None else -1, reverse=True)
 
     payload = {
         "sector_code": index_code,
@@ -232,6 +240,24 @@ def main() -> None:
         if stale.stem not in current_codes:
             stale.unlink(missing_ok=True)
 
+    component_results: Dict[str, Dict[str, Any]] = {}
+    with ThreadPoolExecutor(max_workers=COMPONENT_LIST_WORKERS) as executor:
+        futures = {
+            executor.submit(build_components, skill, item.code, item.name, components_dir): item
+            for item in items
+        }
+        for future in as_completed(futures):
+            item = futures[future]
+            try:
+                result = future.result()
+                component_results[item.code] = {
+                    "path": f"data/components/{item.code}.json",
+                    "count": result["count"],
+                    "error_count": len(result["errors"]),
+                }
+            except Exception as exc:
+                errors.append({"code": item.code, "name": f"{item.name}成分股", "error": str(exc)[:160]})
+
     sectors = []
     for item in items:
         daily = chart_item(skill, item, item.df.tail(DAYS), "日线")
@@ -244,17 +270,9 @@ def main() -> None:
         draw_card(skill, weekly, cards_dir / "weekly" / f"{item.code}.png")
         draw_card(skill, monthly, cards_dir / "monthly" / f"{item.code}.png")
         state = support_state(item)
-        component_info = None
-        try:
-            result = build_components(skill, item.code, item.name, components_dir)
-            component_info = {
-                "path": f"data/components/{item.code}.json",
-                "count": result["count"],
-                "error_count": len(result["errors"]),
-            }
+        component_info = component_results.get(item.code)
+        if component_info:
             components_meta[item.code] = component_info
-        except Exception as exc:
-            errors.append({"code": item.code, "name": f"{item.name}成分股", "error": str(exc)[:160]})
         sectors.append(
             {
                 "code": item.code,

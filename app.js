@@ -141,6 +141,14 @@ function resampleRows(rows, period) {
   ]);
 }
 
+function displayRowsForPeriod(rows, period) {
+  const periodRows = resampleRows(rows, period);
+  if (period === "daily") return periodRows.slice(-100);
+  if (period === "weekly") return periodRows.slice(-120);
+  if (period === "monthly") return periodRows.slice(-72);
+  return periodRows;
+}
+
 function periodLabel(period) {
   if (period === "weekly") return "周";
   if (period === "monthly") return "月";
@@ -431,12 +439,12 @@ async function loadComponentCharts(stocks, renderToken) {
         componentData.histories[stock.code] = rows;
         canvas.dataset.rows = JSON.stringify(rows);
         canvas.dataset.period = "daily";
-        drawKline(canvas, rows);
+        drawKline(canvas, displayRowsForPeriod(rows, "daily"));
         const metrics = computeStockMetrics(rows);
         card.querySelector('[data-metric="close"]').textContent = metrics.close;
         card.querySelector('[data-metric="ret5"]').textContent = formatPct(metrics.ret5_pct);
         card.querySelector('[data-metric="dist"]').textContent = formatPct(metrics.dist_low60_pct);
-        status.textContent = "已更新";
+        status.textContent = "日K";
       } catch (_) {
         status.textContent = "拉取失败";
       }
@@ -479,7 +487,7 @@ grid.addEventListener("click", (event) => {
     const rows = JSON.parse(canvas.dataset.rows || "[]");
     const period = stockChartTab.dataset.stockChart;
     if (!rows.length) return;
-    const periodRows = resampleRows(rows, period);
+    const periodRows = displayRowsForPeriod(rows, period);
     drawKline(canvas, periodRows);
     canvas.dataset.period = period;
     card.querySelectorAll(".chart-tab").forEach((tab) => tab.classList.toggle("active", tab === stockChartTab));

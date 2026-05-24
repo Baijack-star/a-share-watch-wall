@@ -81,7 +81,7 @@ function computeStockMetrics(rows) {
 
 async function fetchStockRows(code) {
   const symbol = stockSymbol(code);
-  const url = `https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=${symbol},day,,,100,qfq`;
+  const url = `https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=${symbol},day,,,520,qfq`;
   const response = await fetch(url);
   const payload = await response.json();
   const stock = payload.data && payload.data[symbol];
@@ -97,6 +97,54 @@ async function fetchStockRows(code) {
       Number(row[5]),
     ])
     .filter((row) => row.slice(1).every((value) => Number.isFinite(value)));
+}
+
+function resampleRows(rows, period) {
+  if (period === "daily") return rows;
+  const groups = new Map();
+  rows.forEach((row) => {
+    const date = new Date(`${row[0]}T00:00:00`);
+    let key;
+    if (period === "monthly") {
+      key = row[0].slice(0, 7);
+    } else {
+      const monday = new Date(date);
+      const day = monday.getDay() || 7;
+      monday.setDate(monday.getDate() - day + 1);
+      key = monday.toISOString().slice(0, 10);
+    }
+    if (!groups.has(key)) {
+      groups.set(key, {
+        date: row[0],
+        open: row[1],
+        close: row[2],
+        high: row[3],
+        low: row[4],
+        volume: row[5],
+      });
+    } else {
+      const group = groups.get(key);
+      group.date = row[0];
+      group.close = row[2];
+      group.high = Math.max(group.high, row[3]);
+      group.low = Math.min(group.low, row[4]);
+      group.volume += row[5];
+    }
+  });
+  return Array.from(groups.values()).map((group) => [
+    group.date,
+    group.open,
+    group.close,
+    group.high,
+    group.low,
+    group.volume,
+  ]);
+}
+
+function periodLabel(period) {
+  if (period === "weekly") return "周";
+  if (period === "monthly") return "月";
+  return "日";
 }
 
 function filteredSectors() {
@@ -344,6 +392,11 @@ function renderComponents() {
               </label>
               <small>权重 ${stock.weight ?? "--"}%</small>
             </div>
+            <div class="chart-tabs stock-period-tabs" aria-label="${stock.name}周期切换">
+              <button class="chart-tab active" data-stock-chart="daily" type="button">日</button>
+              <button class="chart-tab" data-stock-chart="weekly" type="button">周</button>
+              <button class="chart-tab" data-stock-chart="monthly" type="button">月</button>
+            </div>
             <canvas class="stock-chart" data-rows='${JSON.stringify(rows)}'></canvas>
             <div class="metrics">
               <span>收盘<b data-metric="close">加载中</b></span>
@@ -376,6 +429,8 @@ async function loadComponentCharts(stocks, renderToken) {
         if (renderToken !== componentRenderToken) return;
         if (!rows.length) throw new Error("empty rows");
         componentData.histories[stock.code] = rows;
+        canvas.dataset.rows = JSON.stringify(rows);
+        canvas.dataset.period = "daily";
         drawKline(canvas, rows);
         const metrics = computeStockMetrics(rows);
         card.querySelector('[data-metric="close"]').textContent = metrics.close;
@@ -417,6 +472,21 @@ document.querySelectorAll(".tab").forEach((button) => {
 });
 
 grid.addEventListener("click", (event) => {
+  const stockChartTab = event.target.closest("button[data-stock-chart]");
+  if (stockChartTab) {
+    const card = stockChartTab.closest(".stock-card");
+    const canvas = card.querySelector("canvas");
+    const rows = JSON.parse(canvas.dataset.rows || "[]");
+    const period = stockChartTab.dataset.stockChart;
+    if (!rows.length) return;
+    const periodRows = resampleRows(rows, period);
+    drawKline(canvas, periodRows);
+    canvas.dataset.period = period;
+    card.querySelectorAll(".chart-tab").forEach((tab) => tab.classList.toggle("active", tab === stockChartTab));
+    card.querySelector('[data-metric="status"]').textContent = `${periodLabel(period)}K`;
+    return;
+  }
+
   const chartTab = event.target.closest("button[data-chart]");
   if (chartTab) {
     const card = chartTab.closest(".card");

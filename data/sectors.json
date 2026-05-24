@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-24 22:01:51",
+  "generated_at": "2026-05-24 22:32:59",
   "days": 100,
   "source": "申万二级行业日线；当日申万日线延迟时，用腾讯板块行情补当天K线。",
   "default_watchlist": [
@@ -34,16 +34,6 @@
   "components_meta": {
     "801178": {
       "path": "data/components/801178.json",
-      "count": 47,
-      "error_count": 0
-    },
-    "801991": {
-      "path": "data/components/801991.json",
-      "count": 12,
-      "error_count": 0
-    },
-    "801992": {
-      "path": "data/components/801992.json",
       "count": 34,
       "error_count": 0
     },
@@ -54,12 +44,52 @@
     },
     "801163": {
       "path": "data/components/801163.json",
-      "count": 27,
-      "error_count": 2
+      "count": 29,
+      "error_count": 0
+    },
+    "801161": {
+      "path": "data/components/801161.json",
+      "count": 102,
+      "error_count": 0
+    },
+    "801017": {
+      "path": "data/components/801017.json",
+      "count": 23,
+      "error_count": 0
     },
     "801012": {
       "path": "data/components/801012.json",
       "count": 22,
+      "error_count": 0
+    },
+    "801018": {
+      "path": "data/components/801018.json",
+      "count": 10,
+      "error_count": 0
+    },
+    "801015": {
+      "path": "data/components/801015.json",
+      "count": 6,
+      "error_count": 0
+    },
+    "801016": {
+      "path": "data/components/801016.json",
+      "count": 20,
+      "error_count": 0
+    },
+    "801014": {
+      "path": "data/components/801014.json",
+      "count": 17,
+      "error_count": 0
+    },
+    "801155": {
+      "path": "data/components/801155.json",
+      "count": 66,
+      "error_count": 0
+    },
+    "801151": {
+      "path": "data/components/801151.json",
+      "count": 150,
       "error_count": 0
     },
     "801153": {
@@ -82,19 +112,39 @@
       "count": 59,
       "error_count": 0
     },
+    "801204": {
+      "path": "data/components/801204.json",
+      "count": 7,
+      "error_count": 0
+    },
     "801206": {
       "path": "data/components/801206.json",
       "count": 18,
       "error_count": 0
     },
+    "801202": {
+      "path": "data/components/801202.json",
+      "count": 13,
+      "error_count": 0
+    },
     "801745": {
       "path": "data/components/801745.json",
-      "count": 62,
-      "error_count": 1
+      "count": 63,
+      "error_count": 0
     },
     "801743": {
       "path": "data/components/801743.json",
       "count": 12,
+      "error_count": 0
+    },
+    "801741": {
+      "path": "data/components/801741.json",
+      "count": 9,
+      "error_count": 0
+    },
+    "801744": {
+      "path": "data/components/801744.json",
+      "count": 10,
       "error_count": 0
     },
     "801742": {
@@ -102,9 +152,79 @@
       "count": 45,
       "error_count": 0
     },
+    "801038": {
+      "path": "data/components/801038.json",
+      "count": 58,
+      "error_count": 0
+    },
+    "801034": {
+      "path": "data/components/801034.json",
+      "count": 171,
+      "error_count": 0
+    },
     "801033": {
       "path": "data/components/801033.json",
       "count": 57,
+      "error_count": 0
+    },
+    "801032": {
+      "path": "data/components/801032.json",
+      "count": 27,
+      "error_count": 0
+    },
+    "801036": {
+      "path": "data/components/801036.json",
+      "count": 72,
+      "error_count": 0
+    },
+    "801037": {
+      "path": "data/components/801037.json",
+      "count": 17,
+      "error_count": 0
+    },
+    "801039": {
+      "path": "data/components/801039.json",
+      "count": 7,
+      "error_count": 0
+    },
+    "801114": {
+      "path": "data/components/801114.json",
+      "count": 9,
+      "error_count": 0
+    },
+    "801116": {
+      "path": "data/components/801116.json",
+      "count": 30,
+      "error_count": 0
+    },
+    "801113": {
+      "path": "data/components/801113.json",
+      "count": 20,
+      "error_count": 0
+    },
+    "801115": {
+      "path": "data/components/801115.json",
+      "count": 12,
+      "error_count": 0
+    },
+    "801111": {
+      "path": "data/components/801111.json",
+      "count": 10,
+      "error_count": 0
+    },
+    "801112": {
+      "path": "data/components/801112.json",
+      "count": 10,
+      "error_count": 0
+    },
+    "801711": {
+      "path": "data/components/801711.json",
+      "count": 21,
+      "error_count": 0
+    },
+    "801712": {
+      "path": "data/components/801712.json",
+      "count": 16,
       "error_count": 0
     },
     "801713": {
@@ -122,9 +242,69 @@
       "count": 45,
       "error_count": 0
     },
+    "801726": {
+      "path": "data/components/801726.json",
+      "count": 41,
+      "error_count": 0
+    },
+    "801721": {
+      "path": "data/components/801721.json",
+      "count": 8,
+      "error_count": 0
+    },
+    "801722": {
+      "path": "data/components/801722.json",
+      "count": 23,
+      "error_count": 0
+    },
+    "801181": {
+      "path": "data/components/801181.json",
+      "count": 88,
+      "error_count": 0
+    },
+    "801183": {
+      "path": "data/components/801183.json",
+      "count": 11,
+      "error_count": 0
+    },
+    "801054": {
+      "path": "data/components/801054.json",
+      "count": 26,
+      "error_count": 0
+    },
+    "801055": {
+      "path": "data/components/801055.json",
+      "count": 60,
+      "error_count": 0
+    },
+    "801056": {
+      "path": "data/components/801056.json",
+      "count": 13,
+      "error_count": 0
+    },
+    "801053": {
+      "path": "data/components/801053.json",
+      "count": 11,
+      "error_count": 0
+    },
+    "801051": {
+      "path": "data/components/801051.json",
+      "count": 32,
+      "error_count": 0
+    },
+    "801074": {
+      "path": "data/components/801074.json",
+      "count": 178,
+      "error_count": 0
+    },
     "801077": {
       "path": "data/components/801077.json",
       "count": 28,
+      "error_count": 0
+    },
+    "801078": {
+      "path": "data/components/801078.json",
+      "count": 79,
       "error_count": 0
     },
     "801076": {
@@ -132,29 +312,164 @@
       "count": 31,
       "error_count": 0
     },
-    "801971": {
-      "path": "data/components/801971.json",
-      "count": 106,
+    "801072": {
+      "path": "data/components/801072.json",
+      "count": 218,
       "error_count": 0
     },
-    "801963": {
-      "path": "data/components/801963.json",
+    "801095": {
+      "path": "data/components/801095.json",
+      "count": 8,
+      "error_count": 0
+    },
+    "801096": {
+      "path": "data/components/801096.json",
+      "count": 13,
+      "error_count": 0
+    },
+    "801092": {
+      "path": "data/components/801092.json",
+      "count": 10,
+      "error_count": 0
+    },
+    "801093": {
+      "path": "data/components/801093.json",
+      "count": 239,
+      "error_count": 0
+    },
+    "801735": {
+      "path": "data/components/801735.json",
+      "count": 64,
+      "error_count": 0
+    },
+    "801733": {
+      "path": "data/components/801733.json",
+      "count": 29,
+      "error_count": 0
+    },
+    "801731": {
+      "path": "data/components/801731.json",
+      "count": 26,
+      "error_count": 0
+    },
+    "801737": {
+      "path": "data/components/801737.json",
+      "count": 97,
+      "error_count": 0
+    },
+    "801738": {
+      "path": "data/components/801738.json",
+      "count": 124,
+      "error_count": 0
+    },
+    "801736": {
+      "path": "data/components/801736.json",
+      "count": 29,
+      "error_count": 0
+    },
+    "801083": {
+      "path": "data/components/801083.json",
+      "count": 58,
+      "error_count": 0
+    },
+    "801084": {
+      "path": "data/components/801084.json",
+      "count": 93,
+      "error_count": 0
+    },
+    "801082": {
+      "path": "data/components/801082.json",
+      "count": 33,
+      "error_count": 0
+    },
+    "801081": {
+      "path": "data/components/801081.json",
+      "count": 173,
+      "error_count": 0
+    },
+    "801085": {
+      "path": "data/components/801085.json",
+      "count": 90,
+      "error_count": 0
+    },
+    "801086": {
+      "path": "data/components/801086.json",
+      "count": 34,
+      "error_count": 0
+    },
+    "801218": {
+      "path": "data/components/801218.json",
       "count": 30,
       "error_count": 0
     },
-    "801982": {
-      "path": "data/components/801982.json",
-      "count": 14,
+    "801219": {
+      "path": "data/components/801219.json",
+      "count": 9,
+      "error_count": 0
+    },
+    "801132": {
+      "path": "data/components/801132.json",
+      "count": 59,
+      "error_count": 0
+    },
+    "801131": {
+      "path": "data/components/801131.json",
+      "count": 32,
+      "error_count": 0
+    },
+    "801133": {
+      "path": "data/components/801133.json",
+      "count": 15,
+      "error_count": 0
+    },
+    "801231": {
+      "path": "data/components/801231.json",
+      "count": 15,
+      "error_count": 0
+    },
+    "801103": {
+      "path": "data/components/801103.json",
+      "count": 119,
+      "error_count": 0
+    },
+    "801101": {
+      "path": "data/components/801101.json",
+      "count": 84,
       "error_count": 0
     },
     "801104": {
       "path": "data/components/801104.json",
-      "count": 130,
-      "error_count": 1
+      "count": 131,
+      "error_count": 0
+    },
+    "801141": {
+      "path": "data/components/801141.json",
+      "count": 41,
+      "error_count": 0
+    },
+    "801142": {
+      "path": "data/components/801142.json",
+      "count": 72,
+      "error_count": 0
+    },
+    "801145": {
+      "path": "data/components/801145.json",
+      "count": 22,
+      "error_count": 0
     },
     "801143": {
       "path": "data/components/801143.json",
       "count": 23,
+      "error_count": 0
+    },
+    "801223": {
+      "path": "data/components/801223.json",
+      "count": 38,
+      "error_count": 0
+    },
+    "801102": {
+      "path": "data/components/801102.json",
+      "count": 84,
       "error_count": 0
     },
     "801043": {
@@ -162,9 +477,49 @@
       "count": 9,
       "error_count": 0
     },
-    "801128": {
-      "path": "data/components/801128.json",
-      "count": 22,
+    "801044": {
+      "path": "data/components/801044.json",
+      "count": 23,
+      "error_count": 0
+    },
+    "801045": {
+      "path": "data/components/801045.json",
+      "count": 12,
+      "error_count": 0
+    },
+    "801785": {
+      "path": "data/components/801785.json",
+      "count": 10,
+      "error_count": 0
+    },
+    "801782": {
+      "path": "data/components/801782.json",
+      "count": 6,
+      "error_count": 0
+    },
+    "801784": {
+      "path": "data/components/801784.json",
+      "count": 17,
+      "error_count": 0
+    },
+    "801783": {
+      "path": "data/components/801783.json",
+      "count": 9,
+      "error_count": 0
+    },
+    "801194": {
+      "path": "data/components/801194.json",
+      "count": 5,
+      "error_count": 0
+    },
+    "801191": {
+      "path": "data/components/801191.json",
+      "count": 27,
+      "error_count": 0
+    },
+    "801193": {
+      "path": "data/components/801193.json",
+      "count": 50,
       "error_count": 0
     }
   },
@@ -175,7 +530,7 @@
       "upper": "交通运输",
       "components": {
         "path": "data/components/801178.json",
-        "count": 47,
+        "count": 34,
         "error_count": 0
       },
       "images": {
@@ -217,11 +572,7 @@
       "code": "801991",
       "name": "航空机场",
       "upper": "交通运输",
-      "components": {
-        "path": "data/components/801991.json",
-        "count": 12,
-        "error_count": 0
-      },
+      "components": null,
       "images": {
         "daily": "cards/daily/801991.png",
         "weekly": "cards/weekly/801991.png",
@@ -261,11 +612,7 @@
       "code": "801992",
       "name": "航运港口",
       "upper": "交通运输",
-      "components": {
-        "path": "data/components/801992.json",
-        "count": 34,
-        "error_count": 0
-      },
+      "components": null,
       "images": {
         "daily": "cards/daily/801992.png",
         "weekly": "cards/weekly/801992.png",
@@ -591,8 +938,8 @@
       "upper": "公用事业",
       "components": {
         "path": "data/components/801163.json",
-        "count": 27,
-        "error_count": 2
+        "count": 29,
+        "error_count": 0
       },
       "images": {
         "daily": "cards/daily/801163.png",
@@ -633,7 +980,11 @@
       "code": "801161",
       "name": "电力",
       "upper": "公用事业",
-      "components": null,
+      "components": {
+        "path": "data/components/801161.json",
+        "count": 102,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801161.png",
         "weekly": "cards/weekly/801161.png",
@@ -673,7 +1024,11 @@
       "code": "801017",
       "name": "养殖业",
       "upper": "农林牧渔",
-      "components": null,
+      "components": {
+        "path": "data/components/801017.json",
+        "count": 23,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801017.png",
         "weekly": "cards/weekly/801017.png",
@@ -757,7 +1112,11 @@
       "code": "801018",
       "name": "动物保健Ⅱ",
       "upper": "农林牧渔",
-      "components": null,
+      "components": {
+        "path": "data/components/801018.json",
+        "count": 10,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801018.png",
         "weekly": "cards/weekly/801018.png",
@@ -797,7 +1156,11 @@
       "code": "801015",
       "name": "渔业",
       "upper": "农林牧渔",
-      "components": null,
+      "components": {
+        "path": "data/components/801015.json",
+        "count": 6,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801015.png",
         "weekly": "cards/weekly/801015.png",
@@ -837,7 +1200,11 @@
       "code": "801016",
       "name": "种植业",
       "upper": "农林牧渔",
-      "components": null,
+      "components": {
+        "path": "data/components/801016.json",
+        "count": 20,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801016.png",
         "weekly": "cards/weekly/801016.png",
@@ -877,7 +1244,11 @@
       "code": "801014",
       "name": "饲料",
       "upper": "农林牧渔",
-      "components": null,
+      "components": {
+        "path": "data/components/801014.json",
+        "count": 17,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801014.png",
         "weekly": "cards/weekly/801014.png",
@@ -917,7 +1288,11 @@
       "code": "801155",
       "name": "中药Ⅱ",
       "upper": "医药生物",
-      "components": null,
+      "components": {
+        "path": "data/components/801155.json",
+        "count": 66,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801155.png",
         "weekly": "cards/weekly/801155.png",
@@ -957,7 +1332,11 @@
       "code": "801151",
       "name": "化学制药",
       "upper": "医药生物",
-      "components": null,
+      "components": {
+        "path": "data/components/801151.json",
+        "count": 150,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801151.png",
         "weekly": "cards/weekly/801151.png",
@@ -1173,7 +1552,11 @@
       "code": "801204",
       "name": "专业连锁Ⅱ",
       "upper": "商贸零售",
-      "components": null,
+      "components": {
+        "path": "data/components/801204.json",
+        "count": 7,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801204.png",
         "weekly": "cards/weekly/801204.png",
@@ -1257,7 +1640,11 @@
       "code": "801202",
       "name": "贸易Ⅱ",
       "upper": "商贸零售",
-      "components": null,
+      "components": {
+        "path": "data/components/801202.json",
+        "count": 13,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801202.png",
         "weekly": "cards/weekly/801202.png",
@@ -1299,8 +1686,8 @@
       "upper": "国防军工",
       "components": {
         "path": "data/components/801745.json",
-        "count": 62,
-        "error_count": 1
+        "count": 63,
+        "error_count": 0
       },
       "images": {
         "daily": "cards/daily/801745.png",
@@ -1385,7 +1772,11 @@
       "code": "801741",
       "name": "航天装备Ⅱ",
       "upper": "国防军工",
-      "components": null,
+      "components": {
+        "path": "data/components/801741.json",
+        "count": 9,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801741.png",
         "weekly": "cards/weekly/801741.png",
@@ -1425,7 +1816,11 @@
       "code": "801744",
       "name": "航海装备Ⅱ",
       "upper": "国防军工",
-      "components": null,
+      "components": {
+        "path": "data/components/801744.json",
+        "count": 10,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801744.png",
         "weekly": "cards/weekly/801744.png",
@@ -1509,7 +1904,11 @@
       "code": "801038",
       "name": "农化制品",
       "upper": "基础化工",
-      "components": null,
+      "components": {
+        "path": "data/components/801038.json",
+        "count": 58,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801038.png",
         "weekly": "cards/weekly/801038.png",
@@ -1549,7 +1948,11 @@
       "code": "801034",
       "name": "化学制品",
       "upper": "基础化工",
-      "components": null,
+      "components": {
+        "path": "data/components/801034.json",
+        "count": 171,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801034.png",
         "weekly": "cards/weekly/801034.png",
@@ -1633,7 +2036,11 @@
       "code": "801032",
       "name": "化学纤维",
       "upper": "基础化工",
-      "components": null,
+      "components": {
+        "path": "data/components/801032.json",
+        "count": 27,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801032.png",
         "weekly": "cards/weekly/801032.png",
@@ -1673,7 +2080,11 @@
       "code": "801036",
       "name": "塑料",
       "upper": "基础化工",
-      "components": null,
+      "components": {
+        "path": "data/components/801036.json",
+        "count": 72,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801036.png",
         "weekly": "cards/weekly/801036.png",
@@ -1713,7 +2124,11 @@
       "code": "801037",
       "name": "橡胶",
       "upper": "基础化工",
-      "components": null,
+      "components": {
+        "path": "data/components/801037.json",
+        "count": 17,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801037.png",
         "weekly": "cards/weekly/801037.png",
@@ -1753,7 +2168,11 @@
       "code": "801039",
       "name": "非金属材料Ⅱ",
       "upper": "基础化工",
-      "components": null,
+      "components": {
+        "path": "data/components/801039.json",
+        "count": 7,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801039.png",
         "weekly": "cards/weekly/801039.png",
@@ -1793,7 +2212,11 @@
       "code": "801114",
       "name": "厨卫电器",
       "upper": "家用电器",
-      "components": null,
+      "components": {
+        "path": "data/components/801114.json",
+        "count": 9,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801114.png",
         "weekly": "cards/weekly/801114.png",
@@ -1833,7 +2256,11 @@
       "code": "801116",
       "name": "家电零部件Ⅱ",
       "upper": "家用电器",
-      "components": null,
+      "components": {
+        "path": "data/components/801116.json",
+        "count": 30,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801116.png",
         "weekly": "cards/weekly/801116.png",
@@ -1873,7 +2300,11 @@
       "code": "801113",
       "name": "小家电",
       "upper": "家用电器",
-      "components": null,
+      "components": {
+        "path": "data/components/801113.json",
+        "count": 20,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801113.png",
         "weekly": "cards/weekly/801113.png",
@@ -1913,7 +2344,11 @@
       "code": "801115",
       "name": "照明设备Ⅱ",
       "upper": "家用电器",
-      "components": null,
+      "components": {
+        "path": "data/components/801115.json",
+        "count": 12,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801115.png",
         "weekly": "cards/weekly/801115.png",
@@ -1953,7 +2388,11 @@
       "code": "801111",
       "name": "白色家电",
       "upper": "家用电器",
-      "components": null,
+      "components": {
+        "path": "data/components/801111.json",
+        "count": 10,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801111.png",
         "weekly": "cards/weekly/801111.png",
@@ -1993,7 +2432,11 @@
       "code": "801112",
       "name": "黑色家电",
       "upper": "家用电器",
-      "components": null,
+      "components": {
+        "path": "data/components/801112.json",
+        "count": 10,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801112.png",
         "weekly": "cards/weekly/801112.png",
@@ -2033,7 +2476,11 @@
       "code": "801711",
       "name": "水泥",
       "upper": "建筑材料",
-      "components": null,
+      "components": {
+        "path": "data/components/801711.json",
+        "count": 21,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801711.png",
         "weekly": "cards/weekly/801711.png",
@@ -2073,7 +2520,11 @@
       "code": "801712",
       "name": "玻璃玻纤",
       "upper": "建筑材料",
-      "components": null,
+      "components": {
+        "path": "data/components/801712.json",
+        "count": 16,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801712.png",
         "weekly": "cards/weekly/801712.png",
@@ -2245,7 +2696,11 @@
       "code": "801726",
       "name": "工程咨询服务Ⅱ",
       "upper": "建筑装饰",
-      "components": null,
+      "components": {
+        "path": "data/components/801726.json",
+        "count": 41,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801726.png",
         "weekly": "cards/weekly/801726.png",
@@ -2285,7 +2740,11 @@
       "code": "801721",
       "name": "房屋建设Ⅱ",
       "upper": "建筑装饰",
-      "components": null,
+      "components": {
+        "path": "data/components/801721.json",
+        "count": 8,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801721.png",
         "weekly": "cards/weekly/801721.png",
@@ -2325,7 +2784,11 @@
       "code": "801722",
       "name": "装修装饰Ⅱ",
       "upper": "建筑装饰",
-      "components": null,
+      "components": {
+        "path": "data/components/801722.json",
+        "count": 23,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801722.png",
         "weekly": "cards/weekly/801722.png",
@@ -2365,7 +2828,11 @@
       "code": "801181",
       "name": "房地产开发",
       "upper": "房地产",
-      "components": null,
+      "components": {
+        "path": "data/components/801181.json",
+        "count": 88,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801181.png",
         "weekly": "cards/weekly/801181.png",
@@ -2405,7 +2872,11 @@
       "code": "801183",
       "name": "房地产服务",
       "upper": "房地产",
-      "components": null,
+      "components": {
+        "path": "data/components/801183.json",
+        "count": 11,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801183.png",
         "weekly": "cards/weekly/801183.png",
@@ -2445,7 +2916,11 @@
       "code": "801054",
       "name": "小金属",
       "upper": "有色金属",
-      "components": null,
+      "components": {
+        "path": "data/components/801054.json",
+        "count": 26,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801054.png",
         "weekly": "cards/weekly/801054.png",
@@ -2485,7 +2960,11 @@
       "code": "801055",
       "name": "工业金属",
       "upper": "有色金属",
-      "components": null,
+      "components": {
+        "path": "data/components/801055.json",
+        "count": 60,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801055.png",
         "weekly": "cards/weekly/801055.png",
@@ -2525,7 +3004,11 @@
       "code": "801056",
       "name": "能源金属",
       "upper": "有色金属",
-      "components": null,
+      "components": {
+        "path": "data/components/801056.json",
+        "count": 13,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801056.png",
         "weekly": "cards/weekly/801056.png",
@@ -2565,7 +3048,11 @@
       "code": "801053",
       "name": "贵金属",
       "upper": "有色金属",
-      "components": null,
+      "components": {
+        "path": "data/components/801053.json",
+        "count": 11,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801053.png",
         "weekly": "cards/weekly/801053.png",
@@ -2605,7 +3092,11 @@
       "code": "801051",
       "name": "金属新材料",
       "upper": "有色金属",
-      "components": null,
+      "components": {
+        "path": "data/components/801051.json",
+        "count": 32,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801051.png",
         "weekly": "cards/weekly/801051.png",
@@ -2645,7 +3136,11 @@
       "code": "801074",
       "name": "专用设备",
       "upper": "机械设备",
-      "components": null,
+      "components": {
+        "path": "data/components/801074.json",
+        "count": 178,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801074.png",
         "weekly": "cards/weekly/801074.png",
@@ -2729,7 +3224,11 @@
       "code": "801078",
       "name": "自动化设备",
       "upper": "机械设备",
-      "components": null,
+      "components": {
+        "path": "data/components/801078.json",
+        "count": 79,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801078.png",
         "weekly": "cards/weekly/801078.png",
@@ -2813,7 +3312,11 @@
       "code": "801072",
       "name": "通用设备",
       "upper": "机械设备",
-      "components": null,
+      "components": {
+        "path": "data/components/801072.json",
+        "count": 218,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801072.png",
         "weekly": "cards/weekly/801072.png",
@@ -2853,7 +3356,11 @@
       "code": "801095",
       "name": "乘用车",
       "upper": "汽车",
-      "components": null,
+      "components": {
+        "path": "data/components/801095.json",
+        "count": 8,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801095.png",
         "weekly": "cards/weekly/801095.png",
@@ -2893,7 +3400,11 @@
       "code": "801096",
       "name": "商用车",
       "upper": "汽车",
-      "components": null,
+      "components": {
+        "path": "data/components/801096.json",
+        "count": 13,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801096.png",
         "weekly": "cards/weekly/801096.png",
@@ -2973,7 +3484,11 @@
       "code": "801092",
       "name": "汽车服务",
       "upper": "汽车",
-      "components": null,
+      "components": {
+        "path": "data/components/801092.json",
+        "count": 10,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801092.png",
         "weekly": "cards/weekly/801092.png",
@@ -3013,7 +3528,11 @@
       "code": "801093",
       "name": "汽车零部件",
       "upper": "汽车",
-      "components": null,
+      "components": {
+        "path": "data/components/801093.json",
+        "count": 239,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801093.png",
         "weekly": "cards/weekly/801093.png",
@@ -3173,11 +3692,7 @@
       "code": "801971",
       "name": "环境治理",
       "upper": "环保",
-      "components": {
-        "path": "data/components/801971.json",
-        "count": 106,
-        "error_count": 0
-      },
+      "components": null,
       "images": {
         "daily": "cards/daily/801971.png",
         "weekly": "cards/weekly/801971.png",
@@ -3217,7 +3732,11 @@
       "code": "801735",
       "name": "光伏设备",
       "upper": "电力设备",
-      "components": null,
+      "components": {
+        "path": "data/components/801735.json",
+        "count": 64,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801735.png",
         "weekly": "cards/weekly/801735.png",
@@ -3257,7 +3776,11 @@
       "code": "801733",
       "name": "其他电源设备Ⅱ",
       "upper": "电力设备",
-      "components": null,
+      "components": {
+        "path": "data/components/801733.json",
+        "count": 29,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801733.png",
         "weekly": "cards/weekly/801733.png",
@@ -3297,7 +3820,11 @@
       "code": "801731",
       "name": "电机Ⅱ",
       "upper": "电力设备",
-      "components": null,
+      "components": {
+        "path": "data/components/801731.json",
+        "count": 26,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801731.png",
         "weekly": "cards/weekly/801731.png",
@@ -3337,7 +3864,11 @@
       "code": "801737",
       "name": "电池",
       "upper": "电力设备",
-      "components": null,
+      "components": {
+        "path": "data/components/801737.json",
+        "count": 97,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801737.png",
         "weekly": "cards/weekly/801737.png",
@@ -3377,7 +3908,11 @@
       "code": "801738",
       "name": "电网设备",
       "upper": "电力设备",
-      "components": null,
+      "components": {
+        "path": "data/components/801738.json",
+        "count": 124,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801738.png",
         "weekly": "cards/weekly/801738.png",
@@ -3417,7 +3952,11 @@
       "code": "801736",
       "name": "风电设备",
       "upper": "电力设备",
-      "components": null,
+      "components": {
+        "path": "data/components/801736.json",
+        "count": 29,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801736.png",
         "weekly": "cards/weekly/801736.png",
@@ -3457,7 +3996,11 @@
       "code": "801083",
       "name": "元件",
       "upper": "电子",
-      "components": null,
+      "components": {
+        "path": "data/components/801083.json",
+        "count": 58,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801083.png",
         "weekly": "cards/weekly/801083.png",
@@ -3497,7 +4040,11 @@
       "code": "801084",
       "name": "光学光电子",
       "upper": "电子",
-      "components": null,
+      "components": {
+        "path": "data/components/801084.json",
+        "count": 93,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801084.png",
         "weekly": "cards/weekly/801084.png",
@@ -3537,7 +4084,11 @@
       "code": "801082",
       "name": "其他电子Ⅱ",
       "upper": "电子",
-      "components": null,
+      "components": {
+        "path": "data/components/801082.json",
+        "count": 33,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801082.png",
         "weekly": "cards/weekly/801082.png",
@@ -3577,7 +4128,11 @@
       "code": "801081",
       "name": "半导体",
       "upper": "电子",
-      "components": null,
+      "components": {
+        "path": "data/components/801081.json",
+        "count": 173,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801081.png",
         "weekly": "cards/weekly/801081.png",
@@ -3617,7 +4172,11 @@
       "code": "801085",
       "name": "消费电子",
       "upper": "电子",
-      "components": null,
+      "components": {
+        "path": "data/components/801085.json",
+        "count": 90,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801085.png",
         "weekly": "cards/weekly/801085.png",
@@ -3657,7 +4216,11 @@
       "code": "801086",
       "name": "电子化学品Ⅱ",
       "upper": "电子",
-      "components": null,
+      "components": {
+        "path": "data/components/801086.json",
+        "count": 34,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801086.png",
         "weekly": "cards/weekly/801086.png",
@@ -3737,11 +4300,7 @@
       "code": "801963",
       "name": "炼化及贸易",
       "upper": "石油石化",
-      "components": {
-        "path": "data/components/801963.json",
-        "count": 30,
-        "error_count": 0
-      },
+      "components": null,
       "images": {
         "daily": "cards/daily/801963.png",
         "weekly": "cards/weekly/801963.png",
@@ -3781,7 +4340,11 @@
       "code": "801218",
       "name": "专业服务",
       "upper": "社会服务",
-      "components": null,
+      "components": {
+        "path": "data/components/801218.json",
+        "count": 30,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801218.png",
         "weekly": "cards/weekly/801218.png",
@@ -3901,7 +4464,11 @@
       "code": "801219",
       "name": "酒店餐饮",
       "upper": "社会服务",
-      "components": null,
+      "components": {
+        "path": "data/components/801219.json",
+        "count": 9,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801219.png",
         "weekly": "cards/weekly/801219.png",
@@ -3941,7 +4508,11 @@
       "code": "801132",
       "name": "服装家纺",
       "upper": "纺织服饰",
-      "components": null,
+      "components": {
+        "path": "data/components/801132.json",
+        "count": 59,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801132.png",
         "weekly": "cards/weekly/801132.png",
@@ -3981,7 +4552,11 @@
       "code": "801131",
       "name": "纺织制造",
       "upper": "纺织服饰",
-      "components": null,
+      "components": {
+        "path": "data/components/801131.json",
+        "count": 32,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801131.png",
         "weekly": "cards/weekly/801131.png",
@@ -4021,7 +4596,11 @@
       "code": "801133",
       "name": "饰品",
       "upper": "纺织服饰",
-      "components": null,
+      "components": {
+        "path": "data/components/801133.json",
+        "count": 15,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801133.png",
         "weekly": "cards/weekly/801133.png",
@@ -4061,7 +4640,11 @@
       "code": "801231",
       "name": "综合Ⅱ",
       "upper": "综合",
-      "components": null,
+      "components": {
+        "path": "data/components/801231.json",
+        "count": 15,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801231.png",
         "weekly": "cards/weekly/801231.png",
@@ -4141,11 +4724,7 @@
       "code": "801982",
       "name": "化妆品",
       "upper": "美容护理",
-      "components": {
-        "path": "data/components/801982.json",
-        "count": 14,
-        "error_count": 0
-      },
+      "components": null,
       "images": {
         "daily": "cards/daily/801982.png",
         "weekly": "cards/weekly/801982.png",
@@ -4185,7 +4764,11 @@
       "code": "801103",
       "name": "IT服务Ⅱ",
       "upper": "计算机",
-      "components": null,
+      "components": {
+        "path": "data/components/801103.json",
+        "count": 119,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801103.png",
         "weekly": "cards/weekly/801103.png",
@@ -4225,7 +4808,11 @@
       "code": "801101",
       "name": "计算机设备",
       "upper": "计算机",
-      "components": null,
+      "components": {
+        "path": "data/components/801101.json",
+        "count": 84,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801101.png",
         "weekly": "cards/weekly/801101.png",
@@ -4267,8 +4854,8 @@
       "upper": "计算机",
       "components": {
         "path": "data/components/801104.json",
-        "count": 130,
-        "error_count": 1
+        "count": 131,
+        "error_count": 0
       },
       "images": {
         "daily": "cards/daily/801104.png",
@@ -4309,7 +4896,11 @@
       "code": "801141",
       "name": "包装印刷",
       "upper": "轻工制造",
-      "components": null,
+      "components": {
+        "path": "data/components/801141.json",
+        "count": 41,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801141.png",
         "weekly": "cards/weekly/801141.png",
@@ -4349,7 +4940,11 @@
       "code": "801142",
       "name": "家居用品",
       "upper": "轻工制造",
-      "components": null,
+      "components": {
+        "path": "data/components/801142.json",
+        "count": 72,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801142.png",
         "weekly": "cards/weekly/801142.png",
@@ -4389,7 +4984,11 @@
       "code": "801145",
       "name": "文娱用品",
       "upper": "轻工制造",
-      "components": null,
+      "components": {
+        "path": "data/components/801145.json",
+        "count": 22,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801145.png",
         "weekly": "cards/weekly/801145.png",
@@ -4473,7 +5072,11 @@
       "code": "801223",
       "name": "通信服务",
       "upper": "通信",
-      "components": null,
+      "components": {
+        "path": "data/components/801223.json",
+        "count": 38,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801223.png",
         "weekly": "cards/weekly/801223.png",
@@ -4513,7 +5116,11 @@
       "code": "801102",
       "name": "通信设备",
       "upper": "通信",
-      "components": null,
+      "components": {
+        "path": "data/components/801102.json",
+        "count": 84,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801102.png",
         "weekly": "cards/weekly/801102.png",
@@ -4597,7 +5204,11 @@
       "code": "801044",
       "name": "普钢",
       "upper": "钢铁",
-      "components": null,
+      "components": {
+        "path": "data/components/801044.json",
+        "count": 23,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801044.png",
         "weekly": "cards/weekly/801044.png",
@@ -4637,7 +5248,11 @@
       "code": "801045",
       "name": "特钢Ⅱ",
       "upper": "钢铁",
-      "components": null,
+      "components": {
+        "path": "data/components/801045.json",
+        "count": 12,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801045.png",
         "weekly": "cards/weekly/801045.png",
@@ -4677,7 +5292,11 @@
       "code": "801785",
       "name": "农商行Ⅱ",
       "upper": "银行",
-      "components": null,
+      "components": {
+        "path": "data/components/801785.json",
+        "count": 10,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801785.png",
         "weekly": "cards/weekly/801785.png",
@@ -4717,7 +5336,11 @@
       "code": "801782",
       "name": "国有大型银行Ⅱ",
       "upper": "银行",
-      "components": null,
+      "components": {
+        "path": "data/components/801782.json",
+        "count": 6,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801782.png",
         "weekly": "cards/weekly/801782.png",
@@ -4757,7 +5380,11 @@
       "code": "801784",
       "name": "城商行Ⅱ",
       "upper": "银行",
-      "components": null,
+      "components": {
+        "path": "data/components/801784.json",
+        "count": 17,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801784.png",
         "weekly": "cards/weekly/801784.png",
@@ -4797,7 +5424,11 @@
       "code": "801783",
       "name": "股份制银行Ⅱ",
       "upper": "银行",
-      "components": null,
+      "components": {
+        "path": "data/components/801783.json",
+        "count": 9,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801783.png",
         "weekly": "cards/weekly/801783.png",
@@ -4837,7 +5468,11 @@
       "code": "801194",
       "name": "保险Ⅱ",
       "upper": "非银金融",
-      "components": null,
+      "components": {
+        "path": "data/components/801194.json",
+        "count": 5,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801194.png",
         "weekly": "cards/weekly/801194.png",
@@ -4877,7 +5512,11 @@
       "code": "801191",
       "name": "多元金融",
       "upper": "非银金融",
-      "components": null,
+      "components": {
+        "path": "data/components/801191.json",
+        "count": 27,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801191.png",
         "weekly": "cards/weekly/801191.png",
@@ -4917,7 +5556,11 @@
       "code": "801193",
       "name": "证券Ⅱ",
       "upper": "非银金融",
-      "components": null,
+      "components": {
+        "path": "data/components/801193.json",
+        "count": 50,
+        "error_count": 0
+      },
       "images": {
         "daily": "cards/daily/801193.png",
         "weekly": "cards/weekly/801193.png",
@@ -4957,11 +5600,7 @@
       "code": "801128",
       "name": "休闲食品",
       "upper": "食品饮料",
-      "components": {
-        "path": "data/components/801128.json",
-        "count": 22,
-        "error_count": 0
-      },
+      "components": null,
       "images": {
         "daily": "cards/daily/801128.png",
         "weekly": "cards/weekly/801128.png",
@@ -5156,73 +5795,138 @@
       "state": "趋势线失守",
       "level": "danger",
       "reason": "收盘明显低于估算趋势支撑 14812.45"
-    },
-    {
-      "code": "801127",
-      "name": "饮料乳品",
-      "upper": "食品饮料",
-      "components": null,
-      "images": {
-        "daily": "cards/daily/801127.png",
-        "weekly": "cards/weekly/801127.png",
-        "monthly": "cards/monthly/801127.png"
-      },
-      "image": "cards/daily/801127.png",
-      "date": "2026-05-22",
-      "close": 7211.65,
-      "ret5_pct": -3.93,
-      "ret20_pct": 1.95,
-      "ret60_pct": -5.39,
-      "low60": 6933.62,
-      "high60": 7719.66,
-      "dist_low60_pct": 4.01,
-      "range5_pct": 3.17,
-      "range_ratio": 1.16,
-      "amount_ratio": 0.96,
-      "trend_support": 6888.07,
-      "trend_dist_pct": 4.7,
-      "trend_pair": [
-        "2026-03-23",
-        6970.89,
-        "2026-04-17",
-        6933.62
-      ],
-      "setup": "B前低急刹",
-      "ma5": 7405.25,
-      "ma10": 7495.98,
-      "ma20": 7375.45,
-      "ma30": 7272.01,
-      "ma60": 7295.63,
-      "state": "仍在观察",
-      "level": "watch",
-      "reason": "仍处于支撑/前低/趋势线观察区"
     }
   ],
   "errors": [
+    {
+      "code": "801127",
+      "name": "饮料乳品",
+      "error": "<urlopen error _ssl.c:1112: The handshake operation timed out>"
+    },
     {
       "code": "801156",
       "name": "医疗服务",
       "error": "Expecting value: line 1 column 207 (char 206)"
     },
     {
-      "code": "300435",
-      "name": "燃气Ⅱ/中泰股份",
-      "error": "<urlopen error [Errno 54] Connection reset by peer>"
+      "code": "801991",
+      "name": "航空机场成分股",
+      "error": "\"['证券代码', '证券名称', '最新权重', '计入日期'] not in index\""
     },
     {
-      "code": "000593",
-      "name": "燃气Ⅱ/德龙汇能",
-      "error": "<urlopen error [Errno 54] Connection reset by peer>"
+      "code": "801992",
+      "name": "航运港口成分股",
+      "error": "\"['证券代码', '证券名称', '最新权重', '计入日期'] not in index\""
     },
     {
-      "code": "301682",
-      "name": "军工电子Ⅱ/宏明电子",
-      "error": "empty stock history"
+      "code": "801769",
+      "name": "出版成分股",
+      "error": "\"['证券代码', '证券名称', '最新权重', '计入日期'] not in index\""
     },
     {
-      "code": "688083",
-      "name": "软件开发/中望软件",
-      "error": "The read operation timed out"
+      "code": "801765",
+      "name": "广告营销成分股",
+      "error": "\"['证券代码', '证券名称', '最新权重', '计入日期'] not in index\""
+    },
+    {
+      "code": "801766",
+      "name": "影视院线成分股",
+      "error": "\"['证券代码', '证券名称', '最新权重', '计入日期'] not in index\""
+    },
+    {
+      "code": "801767",
+      "name": "数字媒体成分股",
+      "error": "\"['证券代码', '证券名称', '最新权重', '计入日期'] not in index\""
+    },
+    {
+      "code": "801764",
+      "name": "游戏Ⅱ成分股",
+      "error": "\"['证券代码', '证券名称', '最新权重', '计入日期'] not in index\""
+    },
+    {
+      "code": "801995",
+      "name": "电视广播Ⅱ成分股",
+      "error": "\"['证券代码', '证券名称', '最新权重', '计入日期'] not in index\""
+    },
+    {
+      "code": "801881",
+      "name": "摩托车及其他成分股",
+      "error": "\"['证券代码', '证券名称', '最新权重', '计入日期'] not in index\""
+    },
+    {
+      "code": "801952",
+      "name": "焦炭Ⅱ成分股",
+      "error": "\"['证券代码', '证券名称', '最新权重', '计入日期'] not in index\""
+    },
+    {
+      "code": "801951",
+      "name": "煤炭开采成分股",
+      "error": "\"['证券代码', '证券名称', '最新权重', '计入日期'] not in index\""
+    },
+    {
+      "code": "801972",
+      "name": "环保设备Ⅱ成分股",
+      "error": "\"['证券代码', '证券名称', '最新权重', '计入日期'] not in index\""
+    },
+    {
+      "code": "801971",
+      "name": "环境治理成分股",
+      "error": "\"['证券代码', '证券名称', '最新权重', '计入日期'] not in index\""
+    },
+    {
+      "code": "801962",
+      "name": "油服工程成分股",
+      "error": "\"['证券代码', '证券名称', '最新权重', '计入日期'] not in index\""
+    },
+    {
+      "code": "801963",
+      "name": "炼化及贸易成分股",
+      "error": "\"['证券代码', '证券名称', '最新权重', '计入日期'] not in index\""
+    },
+    {
+      "code": "801994",
+      "name": "教育成分股",
+      "error": "\"['证券代码', '证券名称', '最新权重', '计入日期'] not in index\""
+    },
+    {
+      "code": "801993",
+      "name": "旅游及景区成分股",
+      "error": "\"['证券代码', '证券名称', '最新权重', '计入日期'] not in index\""
+    },
+    {
+      "code": "801981",
+      "name": "个护用品成分股",
+      "error": "\"['证券代码', '证券名称', '最新权重', '计入日期'] not in index\""
+    },
+    {
+      "code": "801982",
+      "name": "化妆品成分股",
+      "error": "\"['证券代码', '证券名称', '最新权重', '计入日期'] not in index\""
+    },
+    {
+      "code": "801128",
+      "name": "休闲食品成分股",
+      "error": "\"['证券代码', '证券名称', '最新权重', '计入日期'] not in index\""
+    },
+    {
+      "code": "801125",
+      "name": "白酒Ⅱ成分股",
+      "error": "\"['证券代码', '证券名称', '最新权重', '计入日期'] not in index\""
+    },
+    {
+      "code": "801129",
+      "name": "调味发酵品Ⅱ成分股",
+      "error": "\"['证券代码', '证券名称', '最新权重', '计入日期'] not in index\""
+    },
+    {
+      "code": "801126",
+      "name": "非白酒成分股",
+      "error": "\"['证券代码', '证券名称', '最新权重', '计入日期'] not in index\""
+    },
+    {
+      "code": "801124",
+      "name": "食品加工成分股",
+      "error": "\"['证券代码', '证券名称', '最新权重', '计入日期'] not in index\""
     }
   ]
 }

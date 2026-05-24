@@ -7,6 +7,7 @@ let currentView = "watchlist";
 let activeSector = null;
 let componentData = null;
 const componentCache = {};
+let componentRenderToken = 0;
 
 const grid = document.querySelector("#grid");
 const emptyState = document.querySelector("#emptyState");
@@ -56,6 +57,46 @@ function formatPct(value) {
   if (value === null || value === undefined || Number.isNaN(Number(value))) return "--";
   const number = Number(value);
   return `${number > 0 ? "+" : ""}${number.toFixed(2)}%`;
+}
+
+function stockSymbol(code) {
+  const text = String(code).padStart(6, "0");
+  if (/^[569]/.test(text)) return `sh${text}`;
+  if (/^[48]/.test(text)) return `bj${text}`;
+  return `sz${text}`;
+}
+
+function computeStockMetrics(rows) {
+  if (!rows.length) return null;
+  const close = rows[rows.length - 1][2];
+  const low60 = Math.min(...rows.slice(-60).map((row) => row[4]));
+  const ret5 = rows.length > 5 ? (close / rows[rows.length - 6][2] - 1) * 100 : null;
+  const distLow60 = low60 ? (close / low60 - 1) * 100 : null;
+  return {
+    close: Number(close.toFixed(2)),
+    ret5_pct: ret5 === null ? null : Number(ret5.toFixed(2)),
+    dist_low60_pct: distLow60 === null ? null : Number(distLow60.toFixed(2)),
+  };
+}
+
+async function fetchStockRows(code) {
+  const symbol = stockSymbol(code);
+  const url = `https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=${symbol},day,,,100,qfq`;
+  const response = await fetch(url);
+  const payload = await response.json();
+  const stock = payload.data && payload.data[symbol];
+  const sourceRows = (stock && (stock.qfqday || stock.day)) || [];
+  return sourceRows
+    .filter((row) => row.length >= 6)
+    .map((row) => [
+      row[0],
+      Number(row[1]),
+      Number(row[2]),
+      Number(row[3]),
+      Number(row[4]),
+      Number(row[5]),
+    ])
+    .filter((row) => row.slice(1).every((value) => Number.isFinite(value)));
 }
 
 function filteredSectors() {
@@ -275,6 +316,8 @@ async function openComponents(code) {
 }
 
 function renderComponents() {
+  componentRenderToken += 1;
+  const renderToken = componentRenderToken;
   const selected = selectedStockCodes(activeSector.code);
   const keyword = searchInput.value.trim().toLowerCase();
   const stocks = componentData.stocks.filter((stock) => {
@@ -293,7 +336,7 @@ function renderComponents() {
         const rows = componentData.histories[stock.code] || [];
         const checked = selected.includes(stock.code) ? "checked" : "";
         return `
-          <article class="stock-card">
+          <article class="stock-card" data-code="${stock.code}">
             <div class="stock-head">
               <label class="stock-check">
                 <input type="checkbox" data-stock-code="${stock.code}" ${checked}>
@@ -303,21 +346,48 @@ function renderComponents() {
             </div>
             <canvas class="stock-chart" data-rows='${JSON.stringify(rows)}'></canvas>
             <div class="metrics">
-              <span>收盘<b>${stock.close}</b></span>
-              <span>5日<b>${formatPct(stock.ret5_pct)}</b></span>
-              <span>距60低<b>${formatPct(stock.dist_low60_pct)}</b></span>
-              <span>形态<b>${stock.setup}</b></span>
+              <span>收盘<b data-metric="close">加载中</b></span>
+              <span>5日<b data-metric="ret5">--</b></span>
+              <span>距60低<b data-metric="dist">--</b></span>
+              <span>状态<b data-metric="status">拉取K线</b></span>
             </div>
           </article>
         `;
       })
       .join("")}
   `;
-  grid.querySelectorAll("canvas.stock-chart").forEach((canvas) => {
-    const rows = JSON.parse(canvas.dataset.rows || "[]");
-    if (rows.length) drawKline(canvas, rows);
-  });
+  loadComponentCharts(stocks, renderToken);
   emptyState.hidden = stocks.length !== 0;
+}
+
+async function loadComponentCharts(stocks, renderToken) {
+  let cursor = 0;
+  async function worker() {
+    while (cursor < stocks.length && renderToken === componentRenderToken) {
+      const stock = stocks[cursor];
+      cursor += 1;
+      const card = grid.querySelector(`.stock-card[data-code="${stock.code}"]`);
+      if (!card) continue;
+      const canvas = card.querySelector("canvas");
+      const status = card.querySelector('[data-metric="status"]');
+      try {
+        let rows = componentData.histories[stock.code] || [];
+        if (!rows.length) rows = await fetchStockRows(stock.code);
+        if (renderToken !== componentRenderToken) return;
+        if (!rows.length) throw new Error("empty rows");
+        componentData.histories[stock.code] = rows;
+        drawKline(canvas, rows);
+        const metrics = computeStockMetrics(rows);
+        card.querySelector('[data-metric="close"]').textContent = metrics.close;
+        card.querySelector('[data-metric="ret5"]').textContent = formatPct(metrics.ret5_pct);
+        card.querySelector('[data-metric="dist"]').textContent = formatPct(metrics.dist_low60_pct);
+        status.textContent = "已更新";
+      } catch (_) {
+        status.textContent = "拉取失败";
+      }
+    }
+  }
+  await Promise.all(Array.from({ length: Math.min(8, stocks.length) }, worker));
 }
 
 function addSector(code) {

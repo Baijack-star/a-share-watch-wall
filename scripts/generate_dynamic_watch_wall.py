@@ -11,7 +11,7 @@ import sys
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, List
 
 SKILL_SCRIPT = Path.home() / ".codex/skills/a-share-support-scan/scripts/scan_support_charts.py"
 SITE_DIR = Path(__file__).resolve().parents[1]
@@ -21,7 +21,6 @@ WEEKLY_BARS = 120
 MONTHLY_BARS = 72
 WORKERS = 8
 COMPONENT_DAYS = 100
-COMPONENT_WORKERS = 10
 
 DEFAULT_WATCHLIST = [
     "801077",
@@ -109,39 +108,6 @@ def draw_card(skill: Any, item: Any, path: Path) -> None:
     plt.close(fig)
 
 
-def compact_rows(df: Any) -> List[List[Any]]:
-    rows = []
-    for _, row in df.tail(COMPONENT_DAYS).iterrows():
-        rows.append(
-            [
-                str(row["date"]),
-                round(float(row["open"]), 3),
-                round(float(row["close"]), 3),
-                round(float(row["high"]), 3),
-                round(float(row["low"]), 3),
-                round(float(row.get("volume", 0.0)), 2),
-            ]
-        )
-    return rows
-
-
-def fetch_component_stock(skill: Any, row: Any, board_name: str) -> Tuple[Dict[str, Any], List[List[Any]]]:
-    code = str(row["证券代码"]).zfill(6)
-    name = str(row["证券名称"])
-    weight = row.get("最新权重")
-    upper = board_name
-    item = skill.fetch_stock_hist_tencent(code, name, upper, COMPONENT_DAYS)
-    if item is None:
-        raise RuntimeError("empty stock history")
-    stock = {
-        "code": code,
-        "name": name,
-        "weight": round(float(weight), 4) if weight == weight else None,
-        **item.metrics,
-    }
-    return stock, compact_rows(item.df)
-
-
 def build_components(skill: Any, index_code: str, board_name: str, components_dir: Path) -> Dict[str, Any]:
     comp = skill.ak.index_component_sw(symbol=index_code)
     comp = comp.copy()
@@ -150,44 +116,28 @@ def build_components(skill: Any, index_code: str, board_name: str, components_di
     comp = comp.sort_values("最新权重", ascending=False, na_position="last")
 
     stocks: List[Dict[str, Any]] = []
-    histories: Dict[str, List[List[Any]]] = {}
-    errors: List[Dict[str, str]] = []
+    for _, row in comp.iterrows():
+        weight = row.get("最新权重")
+        stocks.append(
+            {
+                "code": str(row["证券代码"]).zfill(6),
+                "name": str(row["证券名称"]),
+                "weight": round(float(weight), 4) if weight == weight else None,
+            }
+        )
 
-    with ThreadPoolExecutor(max_workers=COMPONENT_WORKERS) as executor:
-        futures = {
-            executor.submit(fetch_component_stock, skill, row, board_name): str(row["证券代码"])
-            for _, row in comp.iterrows()
-        }
-        for future in as_completed(futures):
-            code = futures[future]
-            try:
-                stock, history = future.result()
-                stocks.append(stock)
-                histories[code] = history
-            except Exception as exc:
-                name = ""
-                match = comp.loc[comp["证券代码"] == code]
-                if not match.empty:
-                    name = str(match.iloc[0]["证券名称"])
-                errors.append({"code": code, "name": name, "error": str(exc)[:160]})
-
-    weight_map = {
-        str(row["证券代码"]): float(row["最新权重"]) if row["最新权重"] == row["最新权重"] else -1.0
-        for _, row in comp.iterrows()
-    }
-    stocks.sort(key=lambda stock: weight_map.get(stock["code"], -1.0), reverse=True)
     payload = {
         "sector_code": index_code,
         "sector_name": board_name,
         "generated_at": time.strftime("%Y-%m-%d %H:%M:%S"),
         "days": COMPONENT_DAYS,
         "stocks": stocks,
-        "histories": histories,
-        "errors": errors,
+        "histories": {},
+        "errors": [],
     }
     with open(components_dir / f"{index_code}.json", "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, separators=(",", ":"))
-    return {"count": len(stocks), "errors": errors}
+    return {"count": len(stocks), "errors": []}
 
 
 def chart_item(skill: Any, item: Any, df: Any, suffix: str) -> Any:
@@ -277,8 +227,9 @@ def main() -> None:
         (cards_dir / stale).unlink(missing_ok=True)
 
     components_meta: Dict[str, Dict[str, Any]] = {}
+    current_codes = {item.code for item in items}
     for stale in components_dir.glob("*.json"):
-        if stale.stem not in DEFAULT_WATCHLIST:
+        if stale.stem not in current_codes:
             stale.unlink(missing_ok=True)
 
     sectors = []
@@ -294,25 +245,16 @@ def main() -> None:
         draw_card(skill, monthly, cards_dir / "monthly" / f"{item.code}.png")
         state = support_state(item)
         component_info = None
-        if item.code in DEFAULT_WATCHLIST:
-            try:
-                result = build_components(skill, item.code, item.name, components_dir)
-                component_info = {
-                    "path": f"data/components/{item.code}.json",
-                    "count": result["count"],
-                    "error_count": len(result["errors"]),
-                }
-                components_meta[item.code] = component_info
-                errors.extend(
-                    {
-                        "code": err["code"],
-                        "name": f"{item.name}/{err.get('name', '')}",
-                        "error": err["error"],
-                    }
-                    for err in result["errors"]
-                )
-            except Exception as exc:
-                errors.append({"code": item.code, "name": f"{item.name}成分股", "error": str(exc)[:160]})
+        try:
+            result = build_components(skill, item.code, item.name, components_dir)
+            component_info = {
+                "path": f"data/components/{item.code}.json",
+                "count": result["count"],
+                "error_count": len(result["errors"]),
+            }
+            components_meta[item.code] = component_info
+        except Exception as exc:
+            errors.append({"code": item.code, "name": f"{item.name}成分股", "error": str(exc)[:160]})
         sectors.append(
             {
                 "code": item.code,

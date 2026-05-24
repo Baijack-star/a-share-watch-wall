@@ -1,6 +1,9 @@
-# A-Share Sector Watch Wall
+# A-Share Dynamic Sector Watch Wall
 
-This repository hosts a static K-line wall for the user's A-share sector watchlist.
+This repository hosts a GitHub Pages watch wall for Shenwan second-level A-share
+sector charts.
 
-Data view: Shenwan second-level industry daily charts, generated locally from the
-`a-share-support-scan` workflow.
+The page is static, but the user's watchlist is editable in the browser:
+tracked sectors can be removed from the watchlist view, and sectors from the
+full market view can be added with one click. The selected watchlist is stored
+in browser localStorage.

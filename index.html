@@ -1,1 +1,63 @@
-<!doctype html><meta charset="utf-8"><title>核心观察池27板块K线墙</title><style>body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans GB",sans-serif;background:#f6f7f9;margin:24px;color:#111827}img{width:100%;max-width:1800px;display:block;margin:18px 0;border:1px solid #d8dee4;background:white}.note{color:#4b5563}</style><h1>核心观察池27板块K线墙</h1><p class='note'>申万二级行业，近日日K；灰虚线为近60日低点，绿色虚线为估算趋势支撑。生成时间：2026-05-22 15:48:15。若申万日线延迟，当日K线用腾讯板块收盘行情补齐。</p><h2>sector_kline_page_01.png</h2><img src='sector_kline_page_01.png?v=20260522154815'><h2>sector_kline_page_02.png</h2><img src='sector_kline_page_02.png?v=20260522154815'><h2>sector_kline_page_03.png</h2><img src='sector_kline_page_03.png?v=20260522154815'>
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>A股板块动态观察池</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>A股板块动态观察池</h1>
+        <p id="metaText">正在加载数据...</p>
+      </div>
+      <div class="actions">
+        <button id="exportBtn" type="button">导出观察池</button>
+        <button id="importBtn" type="button">导入</button>
+        <button id="resetBtn" type="button">恢复默认</button>
+      </div>
+    </header>
+
+    <nav class="tabs" aria-label="视图切换">
+      <button class="tab active" type="button" data-view="watchlist">跟踪池</button>
+      <button class="tab" type="button" data-view="all">全部板块</button>
+    </nav>
+
+    <section class="toolbar">
+      <label>
+        <span>搜索</span>
+        <input id="searchInput" type="search" placeholder="板块名称 / 代码 / 上级行业">
+      </label>
+      <label>
+        <span>形态</span>
+        <select id="setupFilter">
+          <option value="">全部形态</option>
+          <option value="A支撑横盘">A 支撑横盘</option>
+          <option value="B前低急刹">B 前低急刹</option>
+          <option value="C趋势回踩">C 趋势回踩</option>
+          <option value="观察">观察</option>
+        </select>
+      </label>
+      <label>
+        <span>状态</span>
+        <select id="stateFilter">
+          <option value="">全部状态</option>
+          <option value="仍在观察">仍在观察</option>
+          <option value="支撑失败">支撑失败</option>
+          <option value="趋势线失守">趋势线失守</option>
+          <option value="普通观察">普通观察</option>
+        </select>
+      </label>
+    </section>
+
+    <main>
+      <div id="summary" class="summary"></div>
+      <section id="grid" class="grid" aria-live="polite"></section>
+      <p id="emptyState" class="empty" hidden>没有符合当前条件的板块。</p>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>

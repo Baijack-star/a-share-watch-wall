@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-25 16:07:01",
+  "generated_at": "2026-05-25 16:13:32",
   "days": 100,
   "source": "申万二级行业日线；当日申万日线延迟时，用腾讯板块行情补当天K线。",
   "default_watchlist": [
@@ -55,6 +55,11 @@
     "801769": {
       "path": "data/components/801769.json",
       "count": 29,
+      "error_count": 1
+    },
+    "801765": {
+      "path": "data/components/801765.json",
+      "count": 0,
       "error_count": 1
     },
     "801766": {
@@ -152,6 +157,11 @@
       "count": 7,
       "error_count": 1
     },
+    "801206": {
+      "path": "data/components/801206.json",
+      "count": 0,
+      "error_count": 1
+    },
     "801202": {
       "path": "data/components/801202.json",
       "count": 13,
@@ -207,9 +217,19 @@
       "count": 72,
       "error_count": 1
     },
+    "801037": {
+      "path": "data/components/801037.json",
+      "count": 0,
+      "error_count": 1
+    },
     "801039": {
       "path": "data/components/801039.json",
       "count": 7,
+      "error_count": 1
+    },
+    "801114": {
+      "path": "data/components/801114.json",
+      "count": 0,
       "error_count": 1
     },
     "801116": {
@@ -287,6 +307,11 @@
       "count": 11,
       "error_count": 1
     },
+    "801054": {
+      "path": "data/components/801054.json",
+      "count": 0,
+      "error_count": 1
+    },
     "801055": {
       "path": "data/components/801055.json",
       "count": 60,
@@ -295,6 +320,11 @@
     "801056": {
       "path": "data/components/801056.json",
       "count": 13,
+      "error_count": 1
+    },
+    "801053": {
+      "path": "data/components/801053.json",
+      "count": 0,
       "error_count": 1
     },
     "801051": {
@@ -315,6 +345,11 @@
     "801078": {
       "path": "data/components/801078.json",
       "count": 79,
+      "error_count": 1
+    },
+    "801076": {
+      "path": "data/components/801076.json",
+      "count": 0,
       "error_count": 1
     },
     "801072": {
@@ -347,6 +382,16 @@
       "count": 239,
       "error_count": 1
     },
+    "801952": {
+      "path": "data/components/801952.json",
+      "count": 0,
+      "error_count": 1
+    },
+    "801951": {
+      "path": "data/components/801951.json",
+      "count": 0,
+      "error_count": 1
+    },
     "801972": {
       "path": "data/components/801972.json",
       "count": 27,
@@ -365,6 +410,11 @@
     "801733": {
       "path": "data/components/801733.json",
       "count": 29,
+      "error_count": 1
+    },
+    "801731": {
+      "path": "data/components/801731.json",
+      "count": 0,
       "error_count": 1
     },
     "801737": {
@@ -480,6 +530,11 @@
     "801101": {
       "path": "data/components/801101.json",
       "count": 84,
+      "error_count": 1
+    },
+    "801104": {
+      "path": "data/components/801104.json",
+      "count": 0,
       "error_count": 1
     },
     "801141": {
@@ -818,6 +873,51 @@
       "state": "趋势线失守",
       "level": "danger",
       "reason": "收盘明显低于估算趋势支撑 1670.85"
+    },
+    {
+      "code": "801765",
+      "name": "广告营销",
+      "upper": "传媒",
+      "components": {
+        "path": "data/components/801765.json",
+        "count": 0,
+        "error_count": 1
+      },
+      "images": {
+        "daily": "cards/daily/801765.png",
+        "weekly": "cards/weekly/801765.png",
+        "monthly": "cards/monthly/801765.png"
+      },
+      "history": "data/sector_histories/801765.json",
+      "image": "cards/daily/801765.png",
+      "date": "2026-05-25",
+      "close": 2911.86,
+      "ret5_pct": -6.55,
+      "ret20_pct": -7.3,
+      "ret60_pct": -16.86,
+      "low60": 2730.82,
+      "high60": 3506.92,
+      "dist_low60_pct": 6.63,
+      "range5_pct": 5.01,
+      "range_ratio": 1.07,
+      "amount_ratio": 0.81,
+      "trend_support": 3091.27,
+      "trend_dist_pct": -5.8,
+      "trend_pair": [
+        "2026-04-07",
+        2730.82,
+        "2026-04-28",
+        2905.23
+      ],
+      "setup": "观察",
+      "ma5": 3012.83,
+      "ma10": 3069.85,
+      "ma20": 3086.54,
+      "ma30": 3077.59,
+      "ma60": 3062.41,
+      "state": "趋势线失守",
+      "level": "danger",
+      "reason": "收盘明显低于估算趋势支撑 3091.27"
     },
     {
       "code": "801766",
@@ -1675,6 +1775,51 @@
       "reason": "收盘明显低于估算趋势支撑 4655.51"
     },
     {
+      "code": "801206",
+      "name": "互联网电商",
+      "upper": "商贸零售",
+      "components": {
+        "path": "data/components/801206.json",
+        "count": 0,
+        "error_count": 1
+      },
+      "images": {
+        "daily": "cards/daily/801206.png",
+        "weekly": "cards/weekly/801206.png",
+        "monthly": "cards/monthly/801206.png"
+      },
+      "history": "data/sector_histories/801206.json",
+      "image": "cards/daily/801206.png",
+      "date": "2026-05-25",
+      "close": 11143.44,
+      "ret5_pct": -5.02,
+      "ret20_pct": -3.55,
+      "ret60_pct": -5.33,
+      "low60": 10023.77,
+      "high60": 12485.83,
+      "dist_low60_pct": 11.17,
+      "range5_pct": 4.73,
+      "range_ratio": 1.08,
+      "amount_ratio": 0.76,
+      "trend_support": 12021.55,
+      "trend_dist_pct": -7.3,
+      "trend_pair": [
+        "2026-04-03",
+        10331.75,
+        "2026-04-28",
+        11176.65
+      ],
+      "setup": "观察",
+      "ma5": 11469.72,
+      "ma10": 11693.89,
+      "ma20": 11692.77,
+      "ma30": 11511.87,
+      "ma60": 11279.25,
+      "state": "趋势线失守",
+      "level": "danger",
+      "reason": "收盘明显低于估算趋势支撑 12021.55"
+    },
+    {
       "code": "801202",
       "name": "贸易Ⅱ",
       "upper": "商贸零售",
@@ -2170,6 +2315,51 @@
       "reason": "仍处于支撑/前低/趋势线观察区"
     },
     {
+      "code": "801037",
+      "name": "橡胶",
+      "upper": "基础化工",
+      "components": {
+        "path": "data/components/801037.json",
+        "count": 0,
+        "error_count": 1
+      },
+      "images": {
+        "daily": "cards/daily/801037.png",
+        "weekly": "cards/weekly/801037.png",
+        "monthly": "cards/monthly/801037.png"
+      },
+      "history": "data/sector_histories/801037.json",
+      "image": "cards/daily/801037.png",
+      "date": "2026-05-25",
+      "close": 5594.84,
+      "ret5_pct": 1.45,
+      "ret20_pct": 4.84,
+      "ret60_pct": -0.19,
+      "low60": 4791.9,
+      "high60": 5796.85,
+      "dist_low60_pct": 16.76,
+      "range5_pct": 5.34,
+      "range_ratio": 1.19,
+      "amount_ratio": 1.04,
+      "trend_support": 5411.51,
+      "trend_dist_pct": 3.39,
+      "trend_pair": [
+        "2026-04-03",
+        4791.9,
+        "2026-04-29",
+        5121.07
+      ],
+      "setup": "C趋势回踩",
+      "ma5": 5529.69,
+      "ma10": 5509.08,
+      "ma20": 5427.66,
+      "ma30": 5373.71,
+      "ma60": 5348.66,
+      "state": "仍在观察",
+      "level": "watch",
+      "reason": "仍处于支撑/前低/趋势线观察区"
+    },
+    {
       "code": "801039",
       "name": "非金属材料Ⅱ",
       "upper": "基础化工",
@@ -2213,6 +2403,51 @@
       "state": "普通观察",
       "level": "neutral",
       "reason": "暂未触发明确支撑型形态"
+    },
+    {
+      "code": "801114",
+      "name": "厨卫电器",
+      "upper": "家用电器",
+      "components": {
+        "path": "data/components/801114.json",
+        "count": 0,
+        "error_count": 1
+      },
+      "images": {
+        "daily": "cards/daily/801114.png",
+        "weekly": "cards/weekly/801114.png",
+        "monthly": "cards/monthly/801114.png"
+      },
+      "history": "data/sector_histories/801114.json",
+      "image": "cards/daily/801114.png",
+      "date": "2026-05-25",
+      "close": 8795.25,
+      "ret5_pct": -4.24,
+      "ret20_pct": -8.23,
+      "ret60_pct": -16.03,
+      "low60": 8756.98,
+      "high60": 10842.38,
+      "dist_low60_pct": 0.44,
+      "range5_pct": 2.98,
+      "range_ratio": 0.9,
+      "amount_ratio": 0.63,
+      "trend_support": 9296.74,
+      "trend_dist_pct": -5.39,
+      "trend_pair": [
+        "2026-03-23",
+        9586.83,
+        "2026-04-14",
+        9480.7
+      ],
+      "setup": "B前低急刹",
+      "ma5": 8995.94,
+      "ma10": 9221.05,
+      "ma20": 9344.1,
+      "ma30": 9462.06,
+      "ma60": 9839.32,
+      "state": "趋势线失守",
+      "level": "danger",
+      "reason": "收盘明显低于估算趋势支撑 9296.74"
     },
     {
       "code": "801116",
@@ -2890,6 +3125,51 @@
       "reason": "收盘明显低于估算趋势支撑 927.47"
     },
     {
+      "code": "801054",
+      "name": "小金属",
+      "upper": "有色金属",
+      "components": {
+        "path": "data/components/801054.json",
+        "count": 0,
+        "error_count": 1
+      },
+      "images": {
+        "daily": "cards/daily/801054.png",
+        "weekly": "cards/weekly/801054.png",
+        "monthly": "cards/monthly/801054.png"
+      },
+      "history": "data/sector_histories/801054.json",
+      "image": "cards/daily/801054.png",
+      "date": "2026-05-25",
+      "close": 40035.78,
+      "ret5_pct": -0.72,
+      "ret20_pct": -4.2,
+      "ret60_pct": 0.37,
+      "low60": 32775.15,
+      "high60": 48521.27,
+      "dist_low60_pct": 22.15,
+      "range5_pct": 5.26,
+      "range_ratio": 0.98,
+      "amount_ratio": 0.72,
+      "trend_support": 39793.65,
+      "trend_dist_pct": 0.61,
+      "trend_pair": [
+        "2026-04-03",
+        34657.21,
+        "2026-04-28",
+        37225.43
+      ],
+      "setup": "C趋势回踩",
+      "ma5": 39316.58,
+      "ma10": 40552.23,
+      "ma20": 40680.7,
+      "ma30": 40164.01,
+      "ma60": 39625.8,
+      "state": "仍在观察",
+      "level": "watch",
+      "reason": "仍处于支撑/前低/趋势线观察区"
+    },
+    {
       "code": "801055",
       "name": "工业金属",
       "upper": "有色金属",
@@ -2978,6 +3258,51 @@
       "state": "趋势线失守",
       "level": "danger",
       "reason": "收盘明显低于估算趋势支撑 27834.68"
+    },
+    {
+      "code": "801053",
+      "name": "贵金属",
+      "upper": "有色金属",
+      "components": {
+        "path": "data/components/801053.json",
+        "count": 0,
+        "error_count": 1
+      },
+      "images": {
+        "daily": "cards/daily/801053.png",
+        "weekly": "cards/weekly/801053.png",
+        "monthly": "cards/monthly/801053.png"
+      },
+      "history": "data/sector_histories/801053.json",
+      "image": "cards/daily/801053.png",
+      "date": "2026-05-25",
+      "close": 25390.16,
+      "ret5_pct": -1.8,
+      "ret20_pct": -16.41,
+      "ret60_pct": -23.47,
+      "low60": 24302.33,
+      "high60": 38596.89,
+      "dist_low60_pct": 4.48,
+      "range5_pct": 3.87,
+      "range_ratio": 0.95,
+      "amount_ratio": 0.59,
+      "trend_support": 27599.2,
+      "trend_dist_pct": -8.0,
+      "trend_pair": [
+        "2026-03-24",
+        26349.18,
+        "2026-04-29",
+        27130.44
+      ],
+      "setup": "B前低急刹",
+      "ma5": 25150.94,
+      "ma10": 26409.18,
+      "ma20": 27636.71,
+      "ma30": 28566.45,
+      "ma60": 30174.58,
+      "state": "趋势线失守",
+      "level": "danger",
+      "reason": "收盘明显低于估算趋势支撑 27599.20"
     },
     {
       "code": "801051",
@@ -3158,6 +3483,51 @@
       "state": "普通观察",
       "level": "neutral",
       "reason": "暂未触发明确支撑型形态"
+    },
+    {
+      "code": "801076",
+      "name": "轨交设备Ⅱ",
+      "upper": "机械设备",
+      "components": {
+        "path": "data/components/801076.json",
+        "count": 0,
+        "error_count": 1
+      },
+      "images": {
+        "daily": "cards/daily/801076.png",
+        "weekly": "cards/weekly/801076.png",
+        "monthly": "cards/monthly/801076.png"
+      },
+      "history": "data/sector_histories/801076.json",
+      "image": "cards/daily/801076.png",
+      "date": "2026-05-25",
+      "close": 5876.68,
+      "ret5_pct": -1.06,
+      "ret20_pct": -1.77,
+      "ret60_pct": -8.09,
+      "low60": 5661.47,
+      "high60": 6487.4,
+      "dist_low60_pct": 3.8,
+      "range5_pct": 3.27,
+      "range_ratio": 1.04,
+      "amount_ratio": 0.71,
+      "trend_support": 5916.75,
+      "trend_dist_pct": -0.68,
+      "trend_pair": [
+        "2026-04-07",
+        5772.5,
+        "2026-04-28",
+        5842.3
+      ],
+      "setup": "A支撑横盘",
+      "ma5": 5898.74,
+      "ma10": 5993.99,
+      "ma20": 5988.35,
+      "ma30": 5986.9,
+      "ma60": 6056.07,
+      "state": "仍在观察",
+      "level": "watch",
+      "reason": "仍处于支撑/前低/趋势线观察区"
     },
     {
       "code": "801072",
@@ -3430,6 +3800,96 @@
       "reason": "仍处于支撑/前低/趋势线观察区"
     },
     {
+      "code": "801952",
+      "name": "焦炭Ⅱ",
+      "upper": "煤炭",
+      "components": {
+        "path": "data/components/801952.json",
+        "count": 0,
+        "error_count": 1
+      },
+      "images": {
+        "daily": "cards/daily/801952.png",
+        "weekly": "cards/weekly/801952.png",
+        "monthly": "cards/monthly/801952.png"
+      },
+      "history": "data/sector_histories/801952.json",
+      "image": "cards/daily/801952.png",
+      "date": "2026-05-25",
+      "close": 1275.11,
+      "ret5_pct": -1.21,
+      "ret20_pct": -6.58,
+      "ret60_pct": -19.12,
+      "low60": 1217.02,
+      "high60": 1787.96,
+      "dist_low60_pct": 4.77,
+      "range5_pct": 3.45,
+      "range_ratio": 1.09,
+      "amount_ratio": 0.62,
+      "trend_support": 1598.7,
+      "trend_dist_pct": -20.24,
+      "trend_pair": [
+        "2026-02-13",
+        1484.17,
+        "2026-03-24",
+        1523.6
+      ],
+      "setup": "B前低急刹",
+      "ma5": 1267.71,
+      "ma10": 1279.13,
+      "ma20": 1323.52,
+      "ma30": 1345.0,
+      "ma60": 1467.82,
+      "state": "趋势线失守",
+      "level": "danger",
+      "reason": "收盘明显低于估算趋势支撑 1598.70"
+    },
+    {
+      "code": "801951",
+      "name": "煤炭开采",
+      "upper": "煤炭",
+      "components": {
+        "path": "data/components/801951.json",
+        "count": 0,
+        "error_count": 1
+      },
+      "images": {
+        "daily": "cards/daily/801951.png",
+        "weekly": "cards/weekly/801951.png",
+        "monthly": "cards/monthly/801951.png"
+      },
+      "history": "data/sector_histories/801951.json",
+      "image": "cards/daily/801951.png",
+      "date": "2026-05-25",
+      "close": 3593.43,
+      "ret5_pct": -2.32,
+      "ret20_pct": -1.24,
+      "ret60_pct": 3.59,
+      "low60": 3430.65,
+      "high60": 4018.33,
+      "dist_low60_pct": 4.74,
+      "range5_pct": 3.11,
+      "range_ratio": 0.91,
+      "amount_ratio": 0.7,
+      "trend_support": 3861.03,
+      "trend_dist_pct": -6.93,
+      "trend_pair": [
+        "2026-02-03",
+        3106.15,
+        "2026-04-08",
+        3532.82
+      ],
+      "setup": "B前低急刹",
+      "ma5": 3593.27,
+      "ma10": 3611.89,
+      "ma20": 3683.02,
+      "ma30": 3653.62,
+      "ma60": 3687.82,
+      "state": "趋势线失守",
+      "level": "danger",
+      "reason": "收盘明显低于估算趋势支撑 3861.03"
+    },
+    {
       "code": "801972",
       "name": "环保设备Ⅱ",
       "upper": "环保",
@@ -3605,6 +4065,51 @@
       "ma20": 47425.61,
       "ma30": 46448.15,
       "ma60": 45051.12,
+      "state": "普通观察",
+      "level": "neutral",
+      "reason": "暂未触发明确支撑型形态"
+    },
+    {
+      "code": "801731",
+      "name": "电机Ⅱ",
+      "upper": "电力设备",
+      "components": {
+        "path": "data/components/801731.json",
+        "count": 0,
+        "error_count": 1
+      },
+      "images": {
+        "daily": "cards/daily/801731.png",
+        "weekly": "cards/weekly/801731.png",
+        "monthly": "cards/monthly/801731.png"
+      },
+      "history": "data/sector_histories/801731.json",
+      "image": "cards/daily/801731.png",
+      "date": "2026-05-25",
+      "close": 16610.13,
+      "ret5_pct": 1.23,
+      "ret20_pct": 9.36,
+      "ret60_pct": -0.1,
+      "low60": 13826.82,
+      "high60": 17019.18,
+      "dist_low60_pct": 20.13,
+      "range5_pct": 4.33,
+      "range_ratio": 1.01,
+      "amount_ratio": 1.03,
+      "trend_support": 15776.81,
+      "trend_dist_pct": 5.28,
+      "trend_pair": [
+        "2026-04-03",
+        13850.61,
+        "2026-05-15",
+        15415.65
+      ],
+      "setup": "观察",
+      "ma5": 16369.08,
+      "ma10": 16219.31,
+      "ma20": 15845.38,
+      "ma30": 15543.62,
+      "ma60": 15356.98,
       "state": "普通观察",
       "level": "neutral",
       "reason": "暂未触发明确支撑型形态"
@@ -4643,6 +5148,51 @@
       "state": "趋势线失守",
       "level": "danger",
       "reason": "收盘明显低于估算趋势支撑 3361.97"
+    },
+    {
+      "code": "801104",
+      "name": "软件开发",
+      "upper": "计算机",
+      "components": {
+        "path": "data/components/801104.json",
+        "count": 0,
+        "error_count": 1
+      },
+      "images": {
+        "daily": "cards/daily/801104.png",
+        "weekly": "cards/weekly/801104.png",
+        "monthly": "cards/monthly/801104.png"
+      },
+      "history": "data/sector_histories/801104.json",
+      "image": "cards/daily/801104.png",
+      "date": "2026-05-25",
+      "close": 6659.69,
+      "ret5_pct": -0.27,
+      "ret20_pct": -1.5,
+      "ret60_pct": -10.62,
+      "low60": 6156.26,
+      "high60": 7665.19,
+      "dist_low60_pct": 8.18,
+      "range5_pct": 4.31,
+      "range_ratio": 1.06,
+      "amount_ratio": 0.88,
+      "trend_support": 6550.39,
+      "trend_dist_pct": 1.67,
+      "trend_pair": [
+        "2026-04-03",
+        6156.26,
+        "2026-04-29",
+        6365.64
+      ],
+      "setup": "C趋势回踩",
+      "ma5": 6645.97,
+      "ma10": 6692.31,
+      "ma20": 6696.3,
+      "ma30": 6684.62,
+      "ma60": 6778.57,
+      "state": "仍在观察",
+      "level": "watch",
+      "reason": "仍处于支撑/前低/趋势线观察区"
     },
     {
       "code": "801141",

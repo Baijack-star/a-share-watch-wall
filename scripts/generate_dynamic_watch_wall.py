@@ -256,7 +256,18 @@ def build_components(skill: Any, index_code: str, board_name: str, components_di
                 existing = json.load(f)
             stocks = existing.get("stocks", [])
             return {"count": len(stocks), "errors": [{"error": str(exc)[:160]}]}
-        raise
+        payload = {
+            "sector_code": index_code,
+            "sector_name": board_name,
+            "generated_at": time.strftime("%Y-%m-%d %H:%M:%S"),
+            "days": COMPONENT_DAYS,
+            "stocks": [],
+            "histories": {},
+            "errors": [{"error": str(exc)[:160]}],
+        }
+        with open(existing_path, "w", encoding="utf-8") as f:
+            json.dump(payload, f, ensure_ascii=False, separators=(",", ":"))
+        return {"count": 0, "errors": [{"error": str(exc)[:160]}]}
     stocks: List[Dict[str, Any]] = []
     for row in results:
         weight = row.get("newweight")
@@ -351,17 +362,21 @@ def load_sector_universe(skill: Any) -> tuple[Dict[str, Any], List[str], List[Di
         codes = skill.realtime_codes(info)
         return info, codes, errors
     except Exception as exc:
+        fallback_universe = SITE_DIR / "data" / "sw_second_universe.json"
         existing_path = SITE_DIR / "data" / "sectors.json"
-        if not existing_path.exists():
+        if not fallback_universe.exists() and not existing_path.exists():
             raise
         import pandas as pd
 
-        with open(existing_path, encoding="utf-8") as f:
-            existing = json.load(f)
-        info = {
-            sector["code"]: pd.Series({"行业名称": sector["name"], "上级行业": sector["upper"]})
-            for sector in existing.get("sectors", [])
-        }
+        if fallback_universe.exists():
+            with open(fallback_universe, encoding="utf-8") as f:
+                existing = json.load(f)
+            sectors = existing.get("sectors", [])
+        else:
+            with open(existing_path, encoding="utf-8") as f:
+                existing = json.load(f)
+            sectors = existing.get("sectors", [])
+        info = {sector["code"]: pd.Series({"行业名称": sector["name"], "上级行业": sector["upper"]}) for sector in sectors}
         codes = list(info.keys())
         errors.append(
             {

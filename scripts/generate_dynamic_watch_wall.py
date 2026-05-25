@@ -8,6 +8,7 @@ import json
 import math
 import os
 import requests
+import urllib.request
 import sys
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -75,6 +76,114 @@ def install_request_timeout(seconds: int = 12) -> None:
     requests.sessions.Session.request = request_with_timeout
 
 
+def fetch_text(url: str, timeout: int = 12) -> str:
+    req = urllib.request.Request(
+        url,
+        headers={
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/124 Safari/537.36",
+            "Referer": "https://gu.qq.com/",
+        },
+    )
+    with urllib.request.urlopen(req, timeout=timeout) as response:
+        data = response.read()
+    for encoding in ("utf-8", "gb18030", "gbk"):
+        try:
+            return data.decode(encoding)
+        except UnicodeDecodeError:
+            continue
+    return data.decode("utf-8", errors="ignore")
+
+
+def tencent_sector_symbol(sw_code: str) -> str:
+    code = "".join(ch for ch in str(sw_code) if ch.isdigit())[:6]
+    if len(code) != 6:
+        raise ValueError(f"Invalid sector code: {sw_code}")
+    return "pt018" + code[1:]
+
+
+def append_tencent_sector_quote(df: Any, sw_code: str) -> Any:
+    """Append/replace the current-day Tencent sector bar when history lags."""
+    import pandas as pd
+    import numpy as np
+
+    symbol = tencent_sector_symbol(sw_code)
+    text = fetch_text(f"https://qt.gtimg.cn/q={symbol}", timeout=10)
+    if '="' not in text:
+        return df
+    fields = text.split('"')[1].split("~")
+    if len(fields) < 38 or not fields[30]:
+        return df
+    stamp = fields[30]
+    date = f"{stamp[:4]}-{stamp[4:6]}-{stamp[6:8]}"
+    try:
+        amount = float(fields[37]) / 10000.0 if fields[37] else np.nan
+        row = {
+            "date": pd.to_datetime(date).date(),
+            "open": float(fields[5]),
+            "close": float(fields[3]),
+            "high": float(fields[33]),
+            "low": float(fields[34]),
+            "volume": float(fields[36]) if fields[36] else np.nan,
+            "amount": amount,
+        }
+    except (TypeError, ValueError):
+        return df
+
+    out = df.copy()
+    out["date"] = pd.to_datetime(out["date"]).dt.date
+    if not out.empty and str(out["date"].iloc[-1]) == str(row["date"]):
+        out.loc[out.index[-1], list(row.keys())] = list(row.values())
+    elif out.empty or row["date"] > out["date"].iloc[-1]:
+        out = pd.concat([out, pd.DataFrame([row])], ignore_index=True)
+    return out.reset_index(drop=True)
+
+
+def fetch_sector_hist_tencent(skill: Any, code: str, info: Dict[str, Any], days: int) -> Any:
+    """Fetch Shenwan sector history via Tencent (fallback when SW endpoints are blocked)."""
+    import pandas as pd
+    import numpy as np
+
+    row = info[code]
+    name = str(row.get("行业名称", ""))
+    upper = str(row.get("上级行业", ""))
+    symbol = tencent_sector_symbol(code)
+    url = f"https://proxy.finance.qq.com/ifzqgtimg/appstock/app/newfqkline/get?param={symbol},day,,,{max(days + 90, 240)},qfq"
+    obj = json.loads(fetch_text(url, timeout=12))
+    block = obj.get("data", {}).get(symbol, {})
+    rows = block.get("day") or block.get("qfqday") or []
+    parsed = []
+    for r in rows:
+        if not r or len(r) < 6:
+            continue
+        try:
+            parsed.append(
+                {
+                    "date": r[0],
+                    "open": float(r[1]),
+                    "close": float(r[2]),
+                    "high": float(r[3]),
+                    "low": float(r[4]),
+                    "volume": float(r[5]),
+                    "amount": float(r[8]) if len(r) > 8 and isinstance(r[8], (str, int, float)) else np.nan,
+                }
+            )
+        except (TypeError, ValueError):
+            continue
+    df = pd.DataFrame(parsed)
+    if df is None or df.empty:
+        return None
+    df["date"] = pd.to_datetime(df["date"], errors="coerce").dt.date
+    for col in ["open", "close", "high", "low", "volume", "amount"]:
+        if col in df:
+            df[col] = pd.to_numeric(df[col], errors="coerce")
+    df = df.dropna(subset=["date", "open", "close", "high", "low"]).reset_index(drop=True)
+    if len(df) < max(45, min(days, 60)):
+        return None
+    df = append_tencent_sector_quote(df, code)
+    metrics = skill.compute_metrics(df)
+    return skill.ChartItem(code=code, name=name, upper=upper, df=df.tail(days).reset_index(drop=True), metrics=metrics)
+
+
 def support_state(item: Any) -> Dict[str, str]:
     metrics = item.metrics
     close = float(metrics["close"])
@@ -122,15 +231,24 @@ def draw_card(skill: Any, item: Any, path: Path) -> None:
 
 def build_components(skill: Any, index_code: str, board_name: str, components_dir: Path) -> Dict[str, Any]:
     url = "https://www.swsresearch.com/institute-sw/api/index_publish/details/component_stocks/"
-    response = requests.get(
-        url,
-        params={"swindexcode": index_code, "page": "1", "page_size": "10000"},
-        headers={"User-Agent": "Mozilla/5.0"},
-        verify=False,
-        timeout=8,
-    )
-    response.raise_for_status()
-    results = response.json().get("data", {}).get("results", [])
+    try:
+        response = requests.get(
+            url,
+            params={"swindexcode": index_code, "page": "1", "page_size": "10000"},
+            headers={"User-Agent": "Mozilla/5.0"},
+            verify=False,
+            timeout=8,
+        )
+        response.raise_for_status()
+        results = response.json().get("data", {}).get("results", [])
+    except Exception as exc:
+        existing_path = components_dir / f"{index_code}.json"
+        if existing_path.exists():
+            with open(existing_path, encoding="utf-8") as f:
+                existing = json.load(f)
+            stocks = existing.get("stocks", [])
+            return {"count": len(stocks), "errors": [{"error": str(exc)[:160]}]}
+        raise
     stocks: List[Dict[str, Any]] = []
     for row in results:
         weight = row.get("newweight")
@@ -266,7 +384,7 @@ def main() -> None:
     items: List[Any] = []
     with ThreadPoolExecutor(max_workers=WORKERS) as executor:
         futures = {
-            executor.submit(skill.fetch_hist_with_tencent_quote, code, info, LONG_DAYS): code
+            executor.submit(fetch_sector_hist_tencent, skill, code, info, LONG_DAYS): code
             for code in codes
         }
         for future in as_completed(futures):

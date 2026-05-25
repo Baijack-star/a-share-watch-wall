@@ -17,6 +17,10 @@
   box-sizing: border-box;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 body {
   margin: 0;
   background: var(--bg);
@@ -227,10 +231,15 @@ main {
   color: #475467;
 }
 
-.card img {
+.card img,
+.sector-chart {
   display: block;
   width: 100%;
   background: #f8fafc;
+}
+
+.sector-chart {
+  height: 230px;
 }
 
 .chart-tabs {

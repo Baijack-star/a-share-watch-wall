@@ -7,7 +7,10 @@ let currentView = "watchlist";
 let activeSector = null;
 let componentData = null;
 const componentCache = {};
+const sectorHistoryCache = {};
 let componentRenderToken = 0;
+let sectorRenderToken = 0;
+let sectorRefreshTimer = null;
 
 const grid = document.querySelector("#grid");
 const emptyState = document.querySelector("#emptyState");
@@ -66,6 +69,11 @@ function stockSymbol(code) {
   return `sz${text}`;
 }
 
+function sectorSymbol(code) {
+  const text = String(code).padStart(6, "0");
+  return `pt018${text.slice(1)}`;
+}
+
 function computeStockMetrics(rows) {
   if (!rows.length) return null;
   const close = rows[rows.length - 1][2];
@@ -77,6 +85,68 @@ function computeStockMetrics(rows) {
     ret5_pct: ret5 === null ? null : Number(ret5.toFixed(2)),
     dist_low60_pct: distLow60 === null ? null : Number(distLow60.toFixed(2)),
   };
+}
+
+function mergeRealtimeRow(rows, row) {
+  if (!row || !rows.length) return rows;
+  const next = rows.slice();
+  const last = next[next.length - 1];
+  if (row[0] === last[0]) {
+    next[next.length - 1] = row;
+  } else if (row[0] > last[0]) {
+    next.push(row);
+  }
+  return next;
+}
+
+function parseTencentSectorQuote(code, text) {
+  if (!text || !text.includes('"')) return null;
+  const fields = text.split('"')[1].split("~");
+  if (fields.length < 38 || !fields[30]) return null;
+  const stamp = fields[30];
+  const date = `${stamp.slice(0, 4)}-${stamp.slice(4, 6)}-${stamp.slice(6, 8)}`;
+  const row = [
+    date,
+    Number(fields[5]),
+    Number(fields[3]),
+    Number(fields[33]),
+    Number(fields[34]),
+    Number(fields[36] || 0),
+  ];
+  return row.slice(1).every((value) => Number.isFinite(value)) ? row : null;
+}
+
+function fetchTencentSectorQuote(code) {
+  const symbol = sectorSymbol(code);
+  const variableName = `v_${symbol}`;
+  return new Promise((resolve) => {
+    const script = document.createElement("script");
+    const cleanup = () => {
+      script.remove();
+      try {
+        delete window[variableName];
+      } catch (_) {
+        window[variableName] = undefined;
+      }
+    };
+    const timer = window.setTimeout(() => {
+      cleanup();
+      resolve(null);
+    }, 5000);
+    script.onload = () => {
+      window.clearTimeout(timer);
+      const row = parseTencentSectorQuote(code, window[variableName]);
+      cleanup();
+      resolve(row);
+    };
+    script.onerror = () => {
+      window.clearTimeout(timer);
+      cleanup();
+      resolve(null);
+    };
+    script.src = `https://qt.gtimg.cn/q=${symbol}&_=${Date.now()}`;
+    document.head.appendChild(script);
+  });
 }
 
 async function fetchStockRows(code) {
@@ -147,6 +217,21 @@ function displayRowsForPeriod(rows, period) {
   if (period === "weekly") return periodRows.slice(-120);
   if (period === "monthly") return periodRows.slice(-72);
   return periodRows;
+}
+
+function isTradingRefreshWindow() {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "Asia/Shanghai",
+    weekday: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  }).formatToParts(new Date());
+  const value = (type) => parts.find((part) => part.type === type)?.value;
+  const weekday = value("weekday");
+  if (weekday === "Sat" || weekday === "Sun") return false;
+  const minutes = Number(value("hour")) * 60 + Number(value("minute"));
+  return (minutes >= 9 * 60 + 25 && minutes <= 11 * 60 + 35) || (minutes >= 12 * 60 + 55 && minutes <= 15 * 60 + 5);
 }
 
 function periodLabel(period) {
@@ -223,7 +308,7 @@ function renderCard(sector) {
   const version = encodeURIComponent(data.generated_at);
   const images = sector.images || { daily: sector.image, weekly: sector.image, monthly: sector.image };
   return `
-    <article class="card">
+    <article class="card" data-code="${sector.code}" data-history="${sector.history || ""}" data-period="daily">
       <div class="card-head">
         <div class="title">
           <strong>${sector.name} ${sector.code}</strong>
@@ -240,19 +325,13 @@ function renderCard(sector) {
         <button class="chart-tab" data-chart="weekly" type="button">周</button>
         <button class="chart-tab" data-chart="monthly" type="button">月</button>
       </div>
-      <img
-        src="${images.daily}?v=${version}"
-        data-daily="${images.daily}?v=${version}"
-        data-weekly="${images.weekly}?v=${version}"
-        data-monthly="${images.monthly}?v=${version}"
-        alt="${sector.name} 日K图"
-        loading="lazy"
-      >
+      <canvas class="sector-chart" data-chart-height="230"></canvas>
+      <img class="sector-fallback" src="${images.daily}?v=${version}" alt="${sector.name} 日K图" loading="lazy" hidden>
       <div class="metrics">
-        <span>收盘<b>${sector.close}</b></span>
-        <span>5日<b>${formatPct(sector.ret5_pct)}</b></span>
-        <span>距60低<b>${formatPct(sector.dist_low60_pct)}</b></span>
-        <span>趋势距<b>${formatPct(sector.trend_dist_pct)}</b></span>
+        <span>收盘<b data-sector-metric="close">${sector.close}</b></span>
+        <span>5日<b data-sector-metric="ret5">${formatPct(sector.ret5_pct)}</b></span>
+        <span>距60低<b data-sector-metric="dist">${formatPct(sector.dist_low60_pct)}</b></span>
+        <span>趋势距<b data-sector-metric="trend">${formatPct(sector.trend_dist_pct)}</b></span>
       </div>
       <p class="reason">${sector.reason}</p>
     </article>
@@ -267,8 +346,11 @@ function render() {
 
   const items = filteredSectors();
   renderSummary(items);
+  sectorRenderToken += 1;
+  const renderToken = sectorRenderToken;
   grid.innerHTML = items.map(renderCard).join("");
   emptyState.hidden = items.length !== 0;
+  loadSectorCharts(renderToken, true);
 }
 
 function movingAverage(rows, index, windowSize) {
@@ -283,12 +365,13 @@ function movingAverage(rows, index, windowSize) {
 function drawKline(canvas, rows) {
   const ratio = window.devicePixelRatio || 1;
   const width = canvas.clientWidth || 340;
-  const height = 210;
+  const height = Number(canvas.dataset.chartHeight || 210);
   canvas.width = Math.floor(width * ratio);
   canvas.height = Math.floor(height * ratio);
   const ctx = canvas.getContext("2d");
   ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
   ctx.clearRect(0, 0, width, height);
+  if (!rows.length) return;
 
   const pad = { top: 12, right: 10, bottom: 18, left: 10 };
   const plotW = width - pad.left - pad.right;
@@ -351,6 +434,78 @@ function drawKline(canvas, rows) {
   ctx.font = "11px -apple-system, BlinkMacSystemFont, sans-serif";
   ctx.fillText(String(rows[0][0]).slice(5), pad.left, height - 5);
   ctx.fillText(String(rows[rows.length - 1][0]).slice(5), width - 46, height - 5);
+}
+
+async function fetchSectorRows(sector) {
+  if (sectorHistoryCache[sector.code]) return sectorHistoryCache[sector.code];
+  if (!sector.history) return [];
+  if (!sectorHistoryCache[sector.code]) {
+    const response = await fetch(`${sector.history}?v=${data.generated_at}`);
+    const payload = await response.json();
+    sectorHistoryCache[sector.code] = payload.rows || [];
+  }
+  return sectorHistoryCache[sector.code];
+}
+
+function updateSectorMetrics(card, sector, rows) {
+  const metrics = computeStockMetrics(rows);
+  if (!metrics) return;
+  const trend = sector.trend_support ? (metrics.close / Number(sector.trend_support) - 1) * 100 : null;
+  card.querySelector('[data-sector-metric="close"]').textContent = metrics.close;
+  card.querySelector('[data-sector-metric="ret5"]').textContent = formatPct(metrics.ret5_pct);
+  card.querySelector('[data-sector-metric="dist"]').textContent = formatPct(metrics.dist_low60_pct);
+  card.querySelector('[data-sector-metric="trend"]').textContent = formatPct(trend);
+}
+
+async function drawSectorCard(card, renderToken, includeRealtime) {
+  const sector = data.sectors.find((item) => item.code === card.dataset.code);
+  if (!sector) return;
+  const canvas = card.querySelector(".sector-chart");
+  const fallback = card.querySelector(".sector-fallback");
+  try {
+    let rows = await fetchSectorRows(sector);
+    if (includeRealtime) {
+      rows = mergeRealtimeRow(rows, await fetchTencentSectorQuote(sector.code));
+    }
+    if (!rows.length) throw new Error("empty sector rows");
+    if (renderToken !== sectorRenderToken) return;
+    const period = card.dataset.period || "daily";
+    canvas.hidden = false;
+    fallback.hidden = true;
+    drawKline(canvas, displayRowsForPeriod(rows, period));
+    updateSectorMetrics(card, sector, rows);
+  } catch (_) {
+    canvas.hidden = true;
+    fallback.hidden = false;
+  }
+}
+
+async function loadSectorCharts(renderToken, includeRealtime) {
+  const cards = [...grid.querySelectorAll(".card[data-code]")];
+  let cursor = 0;
+  async function worker() {
+    while (cursor < cards.length && renderToken === sectorRenderToken) {
+      const card = cards[cursor];
+      cursor += 1;
+      await drawSectorCard(card, renderToken, includeRealtime);
+    }
+  }
+  await Promise.all(Array.from({ length: Math.min(8, cards.length) }, worker));
+}
+
+function refreshVisibleSectorCharts(includeRealtime) {
+  if (currentView === "components") return;
+  sectorRenderToken += 1;
+  const renderToken = sectorRenderToken;
+  loadSectorCharts(renderToken, includeRealtime);
+  const now = new Intl.DateTimeFormat("zh-CN", {
+    timeZone: "Asia/Shanghai",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  }).format(new Date());
+  metaText.textContent = `${data.source} 生成时间：${data.generated_at}；盘中刷新：${now}`;
 }
 
 async function openComponents(code) {
@@ -498,11 +653,9 @@ grid.addEventListener("click", (event) => {
   const chartTab = event.target.closest("button[data-chart]");
   if (chartTab) {
     const card = chartTab.closest(".card");
-    const image = card.querySelector("img");
     const chart = chartTab.dataset.chart;
-    image.src = image.dataset[chart];
-    const label = chart === "daily" ? "日" : chart === "weekly" ? "周" : "月";
-    image.alt = `${card.querySelector(".title strong").textContent} ${label}K图`;
+    card.dataset.period = chart;
+    drawSectorCard(card, sectorRenderToken, true);
     card.querySelectorAll(".chart-tab").forEach((tab) => tab.classList.toggle("active", tab === chartTab));
     return;
   }
@@ -580,6 +733,11 @@ async function init() {
   watchlist = loadWatchlist(data.default_watchlist);
   metaText.textContent = `${data.source} 生成时间：${data.generated_at}`;
   render();
+  sectorRefreshTimer = window.setInterval(() => {
+    if (!document.hidden && isTradingRefreshWindow()) {
+      refreshVisibleSectorCharts(true);
+    }
+  }, 60000);
 }
 
 init().catch((error) => {

@@ -65,6 +65,16 @@ def load_skill_module():
     return module
 
 
+def install_request_timeout(seconds: int = 12) -> None:
+    original = requests.sessions.Session.request
+
+    def request_with_timeout(self: requests.Session, method: str, url: str, **kwargs: Any) -> requests.Response:
+        kwargs.setdefault("timeout", seconds)
+        return original(self, method, url, **kwargs)
+
+    requests.sessions.Session.request = request_with_timeout
+
+
 def support_state(item: Any) -> Dict[str, str]:
     metrics = item.metrics
     close = float(metrics["close"])
@@ -179,28 +189,81 @@ def resample_period(df: Any, rule: str) -> Any:
     return grouped
 
 
+def history_rows(df: Any) -> List[List[Any]]:
+    def clean_number(value: Any) -> float:
+        try:
+            number = float(value)
+        except (TypeError, ValueError):
+            return 0
+        return round(number, 4) if math.isfinite(number) else 0
+
+    rows: List[List[Any]] = []
+    for row in df.itertuples(index=False):
+        rows.append(
+            [
+                str(row.date),
+                clean_number(row.open),
+                clean_number(row.close),
+                clean_number(row.high),
+                clean_number(row.low),
+                clean_number(row.volume),
+            ]
+        )
+    return rows
+
+
 def skill_pd_to_datetime(values: Any) -> Any:
     import pandas as pd
 
     return pd.to_datetime(values)
 
 
+def load_sector_universe(skill: Any) -> tuple[Dict[str, Any], List[str], List[Dict[str, str]]]:
+    errors: List[Dict[str, str]] = []
+    try:
+        _, info = skill.sw_second_info()
+        codes = skill.realtime_codes(info)
+        return info, codes, errors
+    except Exception as exc:
+        existing_path = SITE_DIR / "data" / "sectors.json"
+        if not existing_path.exists():
+            raise
+        import pandas as pd
+
+        with open(existing_path, encoding="utf-8") as f:
+            existing = json.load(f)
+        info = {
+            sector["code"]: pd.Series({"行业名称": sector["name"], "上级行业": sector["upper"]})
+            for sector in existing.get("sectors", [])
+        }
+        codes = list(info.keys())
+        errors.append(
+            {
+                "code": "universe",
+                "name": "申万二级行业清单",
+                "error": f"实时清单拉取失败，沿用上一版板块清单：{str(exc)[:120]}",
+            }
+        )
+        return info, codes, errors
+
+
 def main() -> None:
+    install_request_timeout()
     skill = load_skill_module()
     skill.setup_font()
 
     cards_dir = SITE_DIR / "cards"
     data_dir = SITE_DIR / "data"
     components_dir = data_dir / "components"
+    sector_histories_dir = data_dir / "sector_histories"
     cards_dir.mkdir(parents=True, exist_ok=True)
     data_dir.mkdir(parents=True, exist_ok=True)
     components_dir.mkdir(parents=True, exist_ok=True)
+    sector_histories_dir.mkdir(parents=True, exist_ok=True)
 
-    _, info = skill.sw_second_info()
-    codes = skill.realtime_codes(info)
+    info, codes, errors = load_sector_universe(skill)
 
     items: List[Any] = []
-    errors: List[Dict[str, str]] = []
     with ThreadPoolExecutor(max_workers=WORKERS) as executor:
         futures = {
             executor.submit(skill.fetch_hist_with_tencent_quote, code, info, LONG_DAYS): code
@@ -215,6 +278,10 @@ def main() -> None:
             except Exception as exc:
                 name = str(info.get(code, {}).get("行业名称", ""))
                 errors.append({"code": code, "name": name, "error": str(exc)[:160]})
+
+    minimum_items = max(10, int(len(codes) * 0.6))
+    if len(items) < minimum_items:
+        raise RuntimeError(f"Only fetched {len(items)} of {len(codes)} sectors; keep previous published data.")
 
     items.sort(key=lambda item: (item.upper, item.name))
 
@@ -237,6 +304,9 @@ def main() -> None:
     components_meta: Dict[str, Dict[str, Any]] = {}
     current_codes = {item.code for item in items}
     for stale in components_dir.glob("*.json"):
+        if stale.stem not in current_codes:
+            stale.unlink(missing_ok=True)
+    for stale in sector_histories_dir.glob("*.json"):
         if stale.stem not in current_codes:
             stale.unlink(missing_ok=True)
 
@@ -269,6 +339,18 @@ def main() -> None:
         draw_card(skill, daily, cards_dir / "daily" / f"{item.code}.png")
         draw_card(skill, weekly, cards_dir / "weekly" / f"{item.code}.png")
         draw_card(skill, monthly, cards_dir / "monthly" / f"{item.code}.png")
+        with open(sector_histories_dir / f"{item.code}.json", "w", encoding="utf-8") as f:
+            json.dump(
+                {
+                    "code": item.code,
+                    "name": item.name,
+                    "generated_at": time.strftime("%Y-%m-%d %H:%M:%S"),
+                    "rows": history_rows(item.df),
+                },
+                f,
+                ensure_ascii=False,
+                separators=(",", ":"),
+            )
         state = support_state(item)
         component_info = component_results.get(item.code)
         if component_info:
@@ -284,6 +366,7 @@ def main() -> None:
                     "weekly": f"cards/weekly/{item.code}.png",
                     "monthly": f"cards/monthly/{item.code}.png",
                 },
+                "history": f"data/sector_histories/{item.code}.json",
                 "image": f"cards/daily/{item.code}.png",
                 **item.metrics,
                 **state,

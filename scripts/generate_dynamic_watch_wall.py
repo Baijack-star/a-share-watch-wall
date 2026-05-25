@@ -21,7 +21,7 @@ DAYS = 100
 LONG_DAYS = 760
 WEEKLY_BARS = 120
 MONTHLY_BARS = 72
-WORKERS = 8
+WORKERS = 4
 COMPONENT_DAYS = 100
 COMPONENT_LIST_WORKERS = 12
 
@@ -77,15 +77,23 @@ def install_request_timeout(seconds: int = 12) -> None:
 
 
 def fetch_text(url: str, timeout: int = 12) -> str:
-    req = urllib.request.Request(
-        url,
-        headers={
-            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/124 Safari/537.36",
-            "Referer": "https://gu.qq.com/",
-        },
-    )
-    with urllib.request.urlopen(req, timeout=timeout) as response:
-        data = response.read()
+    for attempt in range(3):
+        req = urllib.request.Request(
+            url,
+            headers={
+                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/124 Safari/537.36",
+                "Referer": "https://gu.qq.com/",
+            },
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as response:
+                data = response.read()
+            break
+        except Exception as exc:
+            if attempt < 2:
+                time.sleep(0.6 * (attempt + 1))
+                continue
+            raise
     for encoding in ("utf-8", "gb18030", "gbk"):
         try:
             return data.decode(encoding)

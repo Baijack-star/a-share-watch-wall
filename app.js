@@ -576,7 +576,7 @@ function renderComponents() {
   emptyState.hidden = stocks.length !== 0;
 }
 
-async function loadComponentCharts(stocks, renderToken) {
+async function loadComponentCharts(stocks, renderToken, forceRefresh = false) {
   let cursor = 0;
   async function worker() {
     while (cursor < stocks.length && renderToken === componentRenderToken) {
@@ -588,24 +588,46 @@ async function loadComponentCharts(stocks, renderToken) {
       const status = card.querySelector('[data-metric="status"]');
       try {
         let rows = componentData.histories[stock.code] || [];
-        if (!rows.length) rows = await fetchStockRows(stock.code);
+        if (forceRefresh) status.textContent = "刷新中";
+        if (forceRefresh || !rows.length) rows = await fetchStockRows(stock.code);
         if (renderToken !== componentRenderToken) return;
         if (!rows.length) throw new Error("empty rows");
         componentData.histories[stock.code] = rows;
         canvas.dataset.rows = JSON.stringify(rows);
-        canvas.dataset.period = "daily";
-        drawKline(canvas, displayRowsForPeriod(rows, "daily"));
+        const period = canvas.dataset.period || "daily";
+        canvas.dataset.period = period;
+        drawKline(canvas, displayRowsForPeriod(rows, period));
         const metrics = computeStockMetrics(rows);
         card.querySelector('[data-metric="close"]').textContent = metrics.close;
         card.querySelector('[data-metric="ret5"]').textContent = formatPct(metrics.ret5_pct);
         card.querySelector('[data-metric="dist"]').textContent = formatPct(metrics.dist_low60_pct);
-        status.textContent = "日K";
+        status.textContent = forceRefresh ? "已刷新" : `${periodLabel(period)}K`;
       } catch (_) {
         status.textContent = "拉取失败";
       }
     }
   }
   await Promise.all(Array.from({ length: Math.min(8, stocks.length) }, worker));
+}
+
+function refreshVisibleComponentCharts() {
+  if (currentView !== "components" || !componentData) return;
+  const visibleCodes = [...grid.querySelectorAll(".stock-card[data-code]")].map((card) => card.dataset.code);
+  const stocks = visibleCodes
+    .map((code) => componentData.stocks.find((stock) => stock.code === code))
+    .filter(Boolean);
+  if (!stocks.length) return;
+  componentRenderToken += 1;
+  const renderToken = componentRenderToken;
+  loadComponentCharts(stocks, renderToken, true);
+  const now = new Intl.DateTimeFormat("zh-CN", {
+    timeZone: "Asia/Shanghai",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  }).format(new Date());
+  metaText.textContent = `${data.source} 生成时间：${data.generated_at}；成份股盘中刷新：${now}`;
 }
 
 function addSector(code) {
@@ -735,7 +757,11 @@ async function init() {
   render();
   sectorRefreshTimer = window.setInterval(() => {
     if (!document.hidden && isTradingRefreshWindow()) {
-      refreshVisibleSectorCharts(true);
+      if (currentView === "components") {
+        refreshVisibleComponentCharts();
+      } else {
+        refreshVisibleSectorCharts(true);
+      }
     }
   }, 60000);
 }

@@ -320,6 +320,9 @@ function renderCard(sector) {
         <span>距60低<b data-sector-metric="dist">${formatPct(sector.dist_low60_pct)}</b></span>
         <span>趋势距<b data-sector-metric="trend">${formatPct(sector.trend_dist_pct)}</b></span>
       </div>
+      <div class="refresh-line">
+        <span data-sector-refresh>等待刷新</span>
+      </div>
       <p class="reason">${sector.reason}</p>
     </article>
   `;
@@ -444,15 +447,39 @@ function updateSectorMetrics(card, sector, rows) {
   card.querySelector('[data-sector-metric="trend"]').textContent = formatPct(trend);
 }
 
+function refreshTimeLabel() {
+  return new Intl.DateTimeFormat("zh-CN", {
+    timeZone: "Asia/Shanghai",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  }).format(new Date());
+}
+
+function setSectorRefreshStatus(card, text, state = "neutral") {
+  const status = card.querySelector("[data-sector-refresh]");
+  if (!status) return;
+  status.textContent = text;
+  status.dataset.state = state;
+}
+
 async function drawSectorCard(card, renderToken, includeRealtime) {
   const sector = data.sectors.find((item) => item.code === card.dataset.code);
   if (!sector) return;
   const canvas = card.querySelector(".sector-chart");
   const fallback = card.querySelector(".sector-fallback");
   try {
-    let rows = await fetchSectorRows(sector);
     if (includeRealtime) {
-      rows = mergeRealtimeRow(rows, await fetchTencentSectorQuote(sector.code));
+      setSectorRefreshStatus(card, `刷新中 ${refreshTimeLabel()}`, "loading");
+    } else {
+      setSectorRefreshStatus(card, "加载历史K线", "neutral");
+    }
+    let rows = await fetchSectorRows(sector);
+    let realtimeRow = null;
+    if (includeRealtime) {
+      realtimeRow = await fetchTencentSectorQuote(sector.code);
+      rows = mergeRealtimeRow(rows, realtimeRow);
     }
     if (!rows.length) throw new Error("empty sector rows");
     if (renderToken !== sectorRenderToken) return;
@@ -461,9 +488,17 @@ async function drawSectorCard(card, renderToken, includeRealtime) {
     fallback.hidden = true;
     drawKline(canvas, displayRowsForPeriod(rows, period));
     updateSectorMetrics(card, sector, rows);
+    if (realtimeRow) {
+      setSectorRefreshStatus(card, `盘中已刷新 ${refreshTimeLabel()} / ${realtimeRow[0]}`, "live");
+    } else if (includeRealtime) {
+      setSectorRefreshStatus(card, `未取到盘中行情 ${refreshTimeLabel()}`, "warn");
+    } else {
+      setSectorRefreshStatus(card, `历史K线 ${rows[rows.length - 1][0]}`, "neutral");
+    }
   } catch (_) {
     canvas.hidden = true;
     fallback.hidden = false;
+    setSectorRefreshStatus(card, "静态图显示", "warn");
   }
 }
 
@@ -485,13 +520,7 @@ function refreshVisibleSectorCharts(includeRealtime) {
   sectorRenderToken += 1;
   const renderToken = sectorRenderToken;
   loadSectorCharts(renderToken, includeRealtime);
-  const now = new Intl.DateTimeFormat("zh-CN", {
-    timeZone: "Asia/Shanghai",
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-    hour12: false,
-  }).format(new Date());
+  const now = refreshTimeLabel();
   metaText.textContent = `${data.source} 生成时间：${data.generated_at}；盘中刷新：${now}`;
 }
 
@@ -607,13 +636,7 @@ function refreshVisibleComponentCharts() {
   componentRenderToken += 1;
   const renderToken = componentRenderToken;
   loadComponentCharts(stocks, renderToken, true);
-  const now = new Intl.DateTimeFormat("zh-CN", {
-    timeZone: "Asia/Shanghai",
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-    hour12: false,
-  }).format(new Date());
+  const now = refreshTimeLabel();
   metaText.textContent = `${data.source} 生成时间：${data.generated_at}；成份股盘中刷新：${now}`;
 }
 

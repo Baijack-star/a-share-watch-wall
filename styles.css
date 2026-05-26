@@ -278,6 +278,39 @@ main {
   margin-top: 2px;
 }
 
+.refresh-line {
+  padding: 0 12px 8px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.refresh-line span {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: #f8fafc;
+  padding: 4px 7px;
+}
+
+.refresh-line span[data-state="live"] {
+  border-color: #99d6cd;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.refresh-line span[data-state="loading"] {
+  border-color: #b8c7dc;
+  background: #eef4ff;
+  color: #175cd3;
+}
+
+.refresh-line span[data-state="warn"] {
+  border-color: #fedf89;
+  background: #fffbeb;
+  color: #9a6700;
+}
+
 .reason {
   padding: 0 12px 12px;
   color: var(--muted);

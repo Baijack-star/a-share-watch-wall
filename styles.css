@@ -199,6 +199,26 @@ main {
   color: var(--muted);
 }
 
+.sector-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.sector-check input {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+}
+
+.sector-check span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
 .badges {
   display: flex;
   flex-wrap: wrap;

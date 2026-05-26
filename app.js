@@ -1,4 +1,5 @@
 const WATCHLIST_KEY = "a_share_sector_watchlist_codes_v1";
+const SECTOR_SELECTION_KEY = "a_share_sector_selected_codes_v1";
 const STOCK_SELECTION_PREFIX = "a_share_component_selected_codes_v1:";
 
 let data = null;
@@ -39,6 +40,21 @@ function loadWatchlist(defaultCodes) {
 
 function saveWatchlist() {
   localStorage.setItem(WATCHLIST_KEY, JSON.stringify(watchlist));
+}
+
+function selectedSectorCodes() {
+  const raw = localStorage.getItem(SECTOR_SELECTION_KEY);
+  if (!raw) return [];
+  try {
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed.map(String) : [];
+  } catch (_) {
+    return [];
+  }
+}
+
+function saveSelectedSectorCodes(codes) {
+  localStorage.setItem(SECTOR_SELECTION_KEY, JSON.stringify([...new Set(codes)]));
 }
 
 function selectedStockCodes(sectorCode) {
@@ -266,9 +282,11 @@ function renderSummary(items) {
     const sector = data.sectors.find((item) => item.code === code);
     return sector && sector.level === "watch";
   }).length;
+  const selected = selectedSectorCodes().filter((code) => tracked.includes(code)).length;
   summary.innerHTML = [
     `当前显示 ${items.length} 个`,
     `跟踪池 ${tracked.length} 个`,
+    `已复选 ${selected} 个`,
     `仍在观察 ${watch} 个`,
     `支撑失败 ${danger} 个`,
     `全市场板块 ${data.sectors.length} 个`,
@@ -294,11 +312,19 @@ function cardButton(sector) {
 function renderCard(sector) {
   const version = encodeURIComponent(data.generated_at);
   const images = sector.images || { daily: sector.image, weekly: sector.image, monthly: sector.image };
+  const inWatchlist = watchlist.includes(sector.code);
+  const checked = selectedSectorCodes().includes(sector.code) ? "checked" : "";
+  const titleContent = inWatchlist
+    ? `<label class="sector-check">
+        <input type="checkbox" data-sector-code="${sector.code}" ${checked}>
+        <span>${sector.name} ${sector.code}</span>
+      </label>`
+    : `<strong>${sector.name} ${sector.code}</strong>`;
   return `
     <article class="card" data-code="${sector.code}" data-history="${sector.history || ""}" data-period="daily">
       <div class="card-head">
         <div class="title">
-          <strong>${sector.name} ${sector.code}</strong>
+          ${titleContent}
           <small>${sector.upper}</small>
           <div class="badges">
             <span class="badge">${sector.setup}</span>
@@ -653,6 +679,7 @@ function addSector(code) {
 function removeSector(code) {
   watchlist = watchlist.filter((item) => item !== code);
   saveWatchlist();
+  saveSelectedSectorCodes(selectedSectorCodes().filter((item) => item !== code));
   const sector = data.sectors.find((item) => item.code === code);
   showToast(`${sector ? sector.name : code} 已移除`);
   render();
@@ -712,6 +739,16 @@ grid.addEventListener("click", (event) => {
 });
 
 grid.addEventListener("change", (event) => {
+  const sectorCheckbox = event.target.closest("input[data-sector-code]");
+  if (sectorCheckbox) {
+    const code = sectorCheckbox.dataset.sectorCode;
+    const selected = selectedSectorCodes();
+    const next = sectorCheckbox.checked ? [...selected, code] : selected.filter((item) => item !== code);
+    saveSelectedSectorCodes(next);
+    renderSummary(filteredSectors());
+    return;
+  }
+
   const checkbox = event.target.closest("input[data-stock-code]");
   if (!checkbox || !activeSector) return;
   const code = checkbox.dataset.stockCode;

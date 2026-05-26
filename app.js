@@ -116,37 +116,24 @@ function parseTencentSectorQuote(code, text) {
   return row.slice(1).every((value) => Number.isFinite(value)) ? row : null;
 }
 
-function fetchTencentSectorQuote(code) {
+async function fetchTencentSectorQuote(code) {
   const symbol = sectorSymbol(code);
-  const variableName = `v_${symbol}`;
-  return new Promise((resolve) => {
-    const script = document.createElement("script");
-    const cleanup = () => {
-      script.remove();
-      try {
-        delete window[variableName];
-      } catch (_) {
-        window[variableName] = undefined;
-      }
-    };
-    const timer = window.setTimeout(() => {
-      cleanup();
-      resolve(null);
-    }, 5000);
-    script.onload = () => {
-      window.clearTimeout(timer);
-      const row = parseTencentSectorQuote(code, window[variableName]);
-      cleanup();
-      resolve(row);
-    };
-    script.onerror = () => {
-      window.clearTimeout(timer);
-      cleanup();
-      resolve(null);
-    };
-    script.src = `https://qt.gtimg.cn/q=${symbol}&_=${Date.now()}`;
-    document.head.appendChild(script);
-  });
+  const url = `https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=${symbol},day,,,10,qfq&_=${Date.now()}`;
+  const response = await fetch(url);
+  const payload = await response.json();
+  const sector = payload.data && payload.data[symbol];
+  const sourceRows = (sector && (sector.qfqday || sector.day)) || [];
+  const row = sourceRows[sourceRows.length - 1];
+  if (!row || row.length < 6) return null;
+  const parsed = [
+    row[0],
+    Number(row[1]),
+    Number(row[2]),
+    Number(row[3]),
+    Number(row[4]),
+    Number(row[5]),
+  ];
+  return parsed.slice(1).every((value) => Number.isFinite(value)) ? parsed : null;
 }
 
 async function fetchStockRows(code) {

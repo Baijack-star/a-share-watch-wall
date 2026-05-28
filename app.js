@@ -1,6 +1,7 @@
 const WATCHLIST_KEY = "a_share_sector_watchlist_codes_v1";
 const SECTOR_SELECTION_KEY = "a_share_sector_selected_codes_v1";
 const STOCK_SELECTION_PREFIX = "a_share_component_selected_codes_v1:";
+const DATA_REFRESH_CHECK_INTERVAL_MS = 5 * 60 * 1000;
 
 let data = null;
 let watchlist = [];
@@ -12,6 +13,7 @@ const sectorHistoryCache = {};
 let componentRenderToken = 0;
 let sectorRenderToken = 0;
 let sectorRefreshTimer = null;
+let dataRefreshTimer = null;
 
 const grid = document.querySelector("#grid");
 const emptyState = document.querySelector("#emptyState");
@@ -26,6 +28,19 @@ function showToast(message) {
   toast.textContent = message;
   toast.classList.add("show");
   setTimeout(() => toast.classList.remove("show"), 1800);
+}
+
+function clearObject(object) {
+  Object.keys(object).forEach((key) => delete object[key]);
+}
+
+async function loadSectorData() {
+  const response = await fetch(`data/sectors.json?v=${Date.now()}`);
+  return response.json();
+}
+
+function updateMetaText() {
+  metaText.textContent = `${data.source} 生成时间：${data.generated_at}`;
 }
 
 function loadWatchlist(defaultCodes) {
@@ -796,11 +811,32 @@ document.querySelector("#importBtn").addEventListener("click", () => {
   }
 });
 
+async function refreshDataIfUpdated() {
+  if (!data) return;
+  try {
+    const latest = await loadSectorData();
+    if (!latest.generated_at || latest.generated_at === data.generated_at) return;
+
+    const activeCode = activeSector?.code;
+    data = latest;
+    watchlist = loadWatchlist(data.default_watchlist);
+    clearObject(sectorHistoryCache);
+    clearObject(componentCache);
+    componentData = null;
+    activeSector = activeCode ? data.sectors.find((sector) => sector.code === activeCode) || null : null;
+    if (currentView === "components" && !activeSector) currentView = "watchlist";
+    updateMetaText();
+    render();
+    showToast(`数据已更新到 ${data.generated_at}`);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 async function init() {
-  const response = await fetch(`data/sectors.json?v=${Date.now()}`);
-  data = await response.json();
+  data = await loadSectorData();
   watchlist = loadWatchlist(data.default_watchlist);
-  metaText.textContent = `${data.source} 生成时间：${data.generated_at}`;
+  updateMetaText();
   render();
   sectorRefreshTimer = window.setInterval(() => {
     if (!document.hidden && isTradingRefreshWindow()) {
@@ -811,6 +847,12 @@ async function init() {
       }
     }
   }, 60000);
+  dataRefreshTimer = window.setInterval(() => {
+    if (!document.hidden) refreshDataIfUpdated();
+  }, DATA_REFRESH_CHECK_INTERVAL_MS);
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) refreshDataIfUpdated();
+  });
 }
 
 init().catch((error) => {

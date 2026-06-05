@@ -8,12 +8,13 @@ import json
 import math
 import os
 import requests
-import urllib.request
+import subprocess
 import sys
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Any, Dict, List
+from requests.adapters import HTTPAdapter
 
 SKILL_SCRIPT = Path.home() / ".codex/skills/a-share-support-scan/scripts/scan_support_charts.py"
 SITE_DIR = Path(__file__).resolve().parents[1]
@@ -24,6 +25,11 @@ MONTHLY_BARS = 72
 WORKERS = 4
 COMPONENT_DAYS = 100
 COMPONENT_LIST_WORKERS = 12
+
+REQUEST_SESSION = requests.Session()
+REQUEST_SESSION.trust_env = False
+REQUEST_SESSION.mount("http://", HTTPAdapter(pool_connections=32, pool_maxsize=32))
+REQUEST_SESSION.mount("https://", HTTPAdapter(pool_connections=32, pool_maxsize=32))
 
 DEFAULT_WATCHLIST = [
     "801077",
@@ -78,16 +84,22 @@ def install_request_timeout(seconds: int = 12) -> None:
 
 def fetch_text(url: str, timeout: int = 12) -> str:
     for attempt in range(3):
-        req = urllib.request.Request(
-            url,
-            headers={
-                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/124 Safari/537.36",
-                "Referer": "https://gu.qq.com/",
-            },
-        )
         try:
-            with urllib.request.urlopen(req, timeout=timeout) as response:
-                data = response.read()
+            data = subprocess.check_output(
+                [
+                    "curl",
+                    "-LsfS",
+                    "--connect-timeout",
+                    str(min(timeout, 6)),
+                    "--max-time",
+                    str(timeout),
+                    "-A",
+                    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/124 Safari/537.36",
+                    "-e",
+                    "https://gu.qq.com/",
+                    url,
+                ]
+            )
             break
         except Exception as exc:
             if attempt < 2:
@@ -240,15 +252,20 @@ def draw_card(skill: Any, item: Any, path: Path) -> None:
 def build_components(skill: Any, index_code: str, board_name: str, components_dir: Path) -> Dict[str, Any]:
     url = "https://www.swsresearch.com/institute-sw/api/index_publish/details/component_stocks/"
     try:
-        response = requests.get(
-            url,
-            params={"swindexcode": index_code, "page": "1", "page_size": "10000"},
-            headers={"User-Agent": "Mozilla/5.0"},
-            verify=False,
-            timeout=8,
+        payload = subprocess.check_output(
+            [
+                "curl",
+                "-LsfS",
+                "--connect-timeout",
+                "6",
+                "--max-time",
+                "10",
+                "-A",
+                "Mozilla/5.0",
+                f"{url}?swindexcode={index_code}&page=1&page_size=10000",
+            ]
         )
-        response.raise_for_status()
-        results = response.json().get("data", {}).get("results", [])
+        results = json.loads(payload.decode("utf-8")).get("data", {}).get("results", [])
     except Exception as exc:
         existing_path = components_dir / f"{index_code}.json"
         if existing_path.exists():
@@ -355,37 +372,31 @@ def skill_pd_to_datetime(values: Any) -> Any:
     return pd.to_datetime(values)
 
 
-def load_sector_universe(skill: Any) -> tuple[Dict[str, Any], List[str], List[Dict[str, str]]]:
-    errors: List[Dict[str, str]] = []
-    try:
-        _, info = skill.sw_second_info()
-        codes = skill.realtime_codes(info)
-        return info, codes, errors
-    except Exception as exc:
-        fallback_universe = SITE_DIR / "data" / "sw_second_universe.json"
-        existing_path = SITE_DIR / "data" / "sectors.json"
-        if not fallback_universe.exists() and not existing_path.exists():
-            raise
-        import pandas as pd
+def load_local_sector_universe() -> tuple[Dict[str, Any], List[str]]:
+    import pandas as pd
 
-        if fallback_universe.exists():
-            with open(fallback_universe, encoding="utf-8") as f:
-                existing = json.load(f)
-            sectors = existing.get("sectors", [])
-        else:
-            with open(existing_path, encoding="utf-8") as f:
-                existing = json.load(f)
-            sectors = existing.get("sectors", [])
-        info = {sector["code"]: pd.Series({"行业名称": sector["name"], "上级行业": sector["upper"]}) for sector in sectors}
-        codes = list(info.keys())
-        errors.append(
-            {
-                "code": "universe",
-                "name": "申万二级行业清单",
-                "error": f"实时清单拉取失败，沿用上一版板块清单：{str(exc)[:120]}",
-            }
-        )
-        return info, codes, errors
+    existing_path = SITE_DIR / "data" / "sectors.json"
+    fallback_universe = SITE_DIR / "data" / "sw_second_universe.json"
+
+    if existing_path.exists():
+        with open(existing_path, encoding="utf-8") as f:
+            existing = json.load(f)
+        sectors = existing.get("sectors", [])
+    elif fallback_universe.exists():
+        with open(fallback_universe, encoding="utf-8") as f:
+            existing = json.load(f)
+        sectors = existing.get("sectors", [])
+    else:
+        raise FileNotFoundError("No local Shenwan sector universe cache found.")
+
+    info = {sector["code"]: pd.Series({"行业名称": sector["name"], "上级行业": sector["upper"]}) for sector in sectors}
+    codes = list(info.keys())
+    return info, codes
+
+
+def load_sector_universe(skill: Any) -> tuple[Dict[str, Any], List[str], List[Dict[str, str]]]:
+    info, codes = load_local_sector_universe()
+    return info, codes, []
 
 
 def main() -> None:

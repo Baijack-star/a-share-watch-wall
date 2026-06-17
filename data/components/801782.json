@@ -1,1 +1,1 @@
-{"sector_code":"801782","sector_name":"国有大型银行Ⅱ","generated_at":"2026-06-16 15:47:21","days":100,"stocks":[],"histories":{},"errors":[]}
+{"sector_code":"801782","sector_name":"国有大型银行Ⅱ","generated_at":"2026-06-17 15:46:02","days":100,"stocks":[{"code":"601288","name":"农业银行","weight":23.7086},{"code":"601398","name":"工商银行","weight":21.7985},{"code":"601328","name":"交通银行","weight":18.4902},{"code":"601988","name":"中国银行","weight":16.5308},{"code":"601939","name":"建设银行","weight":13.3093},{"code":"601658","name":"邮储银行","weight":6.1622}],"histories":{},"errors":[]}

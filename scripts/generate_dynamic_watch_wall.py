@@ -484,7 +484,7 @@ def main() -> None:
     for item in items:
         daily = chart_item(skill, item, item.df.tail(DAYS), "日线")
         weekly_df = resample_period(item.df, "W-FRI").tail(WEEKLY_BARS)
-        monthly_df = resample_period(item.df, "M").tail(MONTHLY_BARS)
+        monthly_df = resample_period(item.df, "ME").tail(MONTHLY_BARS)
         weekly = chart_item(skill, item, weekly_df, "周线")
         monthly = chart_item(skill, item, monthly_df, "月线")
 
